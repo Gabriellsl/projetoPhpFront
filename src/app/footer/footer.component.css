@@ -1,0 +1,15 @@
+.footer_all{
+    width: 100%;
+    color: aliceblue;
+    bottom: 0;
+    text-align: center;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+}
+
+.text_footer{
+    vertical-align: middle;
+    margin-bottom: 0.5%;
+    margin-top: 0.5%; 
+}

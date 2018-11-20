@@ -34,39 +34,25 @@
 */
 .site_name{
     text-align: center;
-    color: blanchedalmond;
-    margin-left: 50%;
-    margin-right: 50%;
     font-size: 150%;
+    width: 100%;
+    color: white;
 }
 
-
-
-
-
-.login-page{
-    font-size: 140px;
-    background-image: url(src\assets\backGround_login.jpg);
-    background-repeat: no-repeat;
-    background-size:100%;
-}
 
 .body_login{
     background-image: url(src\assets\backGround_login.jpg);
-    background-color: rgb(1, 1, 1);
     background-repeat: no-repeat;
-    background-size:100%;
-    left: 0;
-    /* position: absolute; */
     background-size: cover;
-    padding: 3em;
     overflow: auto;
     color: black;
-    display: table;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    /* padding: 100px 0; */
     color: white;
-    background-position: 30% 45%;
-    background-size: cover;
+    /*position: fixed; */
+}
+
+.teste{
+    width: 100vw;
+    height: 100vh;
 }

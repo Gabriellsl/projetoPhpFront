@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'; // PRIME NG
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer.component'; // PRIME NG
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
