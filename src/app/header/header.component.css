@@ -34,26 +34,12 @@
 */
 
 
-.header-bar{
+.header_all{
     background-color: black;
     color: white;
-    position: fixed;
-    width: 100%;
-    padding-top: 0.2%;
-    padding-bottom: 0.2%;
-    height: 60px;
-    vertical-align: middle;
-}
-
-.site_name{
     text-align: center;
-    font-size: 150%;
-    width: 100%;
-    padding-top: 5px;
 }
-
-.header_name{
+.site_name{
+    text-decoration: none;
     color: white;
 }
-
-
