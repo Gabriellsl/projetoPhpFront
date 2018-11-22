@@ -1,8 +1,6 @@
-.footer_all{
-    background-color: black;
-    color:white;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    position: relative;
-    bottom: 0;
+.footer_all {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
