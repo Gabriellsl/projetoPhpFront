@@ -25,14 +25,14 @@
     max-height: 300px;
 }
 
-.header_space{
-    
+.space_body{
+    height: 55px;
+    width: 50%;
 }
-
 .div_login{
     /* position: absolute; */
     width: 100vw;
-    height: 100vh;
+    height: 91.7vh;
     background-color: bisque;
 
     background-image: url(src\assets\backGround_login.jpg);
@@ -42,7 +42,7 @@
 
 .container_login2{
     height: 100%;
-
+    margin-top: 20%;
 }
 
 .row_login{

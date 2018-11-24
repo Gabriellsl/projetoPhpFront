@@ -34,6 +34,8 @@
 */
 
 
+
+
 .header_all{
     background-color: black;
     color: white;
@@ -44,6 +46,9 @@
     color: white;
 }
 
+.site_name a{
+    color: white;
+}
 
 
 
@@ -52,4 +57,9 @@
 
 app-header{
     width: 100%;
+}
+
+.site_name{
+    text-align: center;
+    color: white;
 }
