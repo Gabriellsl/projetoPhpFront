@@ -22,6 +22,6 @@ export class LoginComponent implements OnInit {
   }
 
   logar(): void{
-    alert(this.loginService.autentica()['Login']);
+    const permision = this.loginService.autentica(this.login);
   }
 }

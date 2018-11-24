@@ -10,20 +10,24 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class LoginService {
 
-  private api = '192.168.0.106/Projeto_PHP/index.php/aa';
+  private api = 'http://192.168.0.106/Projeto_PHP/index.php/login';
 
   login: Login = {
     email:"",
     password:""
   };
-  
   constructor(
     private messageService: MessagesService,
     private http: HttpClient ) { }
 
-  autentica(): Observable<Login>{
-          return this.http.get<Login>(this.api).pipe(tap(_ => alert('fetched heroes')));
+  autentica(login: Login):boolean{
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+  
+    this.http.post<any>(this.api, login, httpOptions).subscribe(x=>alert(x));
     
+    return true;
   }
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
