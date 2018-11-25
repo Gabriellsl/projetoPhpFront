@@ -22,7 +22,15 @@ export class LoginComponent implements OnInit {
 
   logar(): void{
     this.loginService.autenticar(this.login).subscribe(x => {
+      
+      // x é o json devolvido do php ao enviarmos um usuario
+      // se x['token']!='' redirecione para /home do usuario x['user']['tipo'] e armazene o token no localStorage
       localStorage.setItem('currentUser', JSON.stringify(x))
+      // senão envie uma mensagem de erro na tela, e permaneça no login
+
+      //redirect to /homeINV
+      //redirect to /homeADM
+      
     });;
   }
 }
