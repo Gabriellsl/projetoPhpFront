@@ -18,10 +18,11 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
-    this.logar();
   }
 
   logar(): void{
-    const permision = this.loginService.autentica(this.login);
+    this.loginService.autenticar(this.login).subscribe(x => {
+      localStorage.setItem('currentUser', JSON.stringify(x))
+    });;
   }
 }

@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projetoPhpFront';
-  userName = 'ALFREDAO'
+  userName = JSON.parse(localStorage.getItem('currentUsera'))['user'];
 }
