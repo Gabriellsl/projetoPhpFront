@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
-  @Input() nome: string;
+  nome = this.getActualUser();
 
 
   constructor() { }
@@ -16,6 +16,16 @@ export class HeaderComponent implements OnInit {
   
   ngOnInit() {
     console.log('Component app-header iniciado..');
+  }
+
+  private getActualUser(){
+    var userName = JSON.parse(localStorage.getItem('currentUser'))['user']['nome'];
+
+    if(userName == null){
+      return "Bem vindo";
+    }else{
+      return userName;
+    }
   }
 
 }
