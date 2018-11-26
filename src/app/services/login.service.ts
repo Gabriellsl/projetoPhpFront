@@ -14,12 +14,6 @@ export class LoginService {
 
   private api = 'http://192.168.0.106/Projeto_PHP/index.php/login';
 
-  log:string;
-
-  public setLog(log:string){
-    this.log=log;
-  }
-
   
   constructor(
     private messageService: MessagesService,
@@ -31,7 +25,7 @@ export class LoginService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
   
-    var jsonLogin = JsonGenerate.getJsonLogin(login.email, login.password);
+    var jsonLogin = JsonGenerate.getJsonLogin(login.login, login.password);
     
     return this.http.post<any>(this.api, jsonLogin, httpOptions);
   }
