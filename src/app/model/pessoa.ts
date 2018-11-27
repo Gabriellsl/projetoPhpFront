@@ -1,12 +1,14 @@
 export class Pessoa{
 
-    id_pessoa: String;
+    idPessoa: Number;
     nome: String;
     email: String;
     cpf: String;
     rg: String;
     login: String;
     senha: String;
-    tipo: String;
+    tipo: Tipo;
     
 }
+
+enum Tipo {"ADM","INV","GES"};
