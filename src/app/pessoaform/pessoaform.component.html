@@ -48,7 +48,7 @@
     <div class="ui-g-12 ui-md-6">
         <div class="ui-inputgroup">
             <label for="inputUsuario" class="sr-only">Usuario</label>
-            <input name="usuario" [(ngModel)]="pessoa.usuario" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Usuario" required autofocus>     
+            <input name="usuario" [(ngModel)]="pessoa.login" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Usuario" required autofocus>     
         </div>
     </div>
 
@@ -62,14 +62,14 @@
     <div class="ui-g-12 ui-md-6">
         <div class="ui-inputgroup">
             <label for="inputSenha" class="sr-only">Senha</label>
-            <input name="senha" [(ngModel)]="pessoa.senha" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Senha" required autofocus>     
+            <input name="senha" [(ngModel)]="senha.senha1" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Senha" required autofocus>     
         </div>
     </div>
 
     <div class="ui-g-12 ui-md-6">
         <div class="ui-inputgroup">
             <label for="inputConfSenha" class="sr-only">Confirmar senha</label>
-            <input name="confSenha" [(ngModel)]="pessoa.confSenha" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Confirmar senha" required autofocus>     
+            <input name="confSenha" [(ngModel)]="senha.senha2" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Confirmar senha" required autofocus>     
         </div>
     </div>
 
