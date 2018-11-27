@@ -1,6 +1,6 @@
 export class Pessoa{
 
-    idPessoa: Number;
+    id_pessoa: Number;
     nome: String;
     email: String;
     cpf: String;

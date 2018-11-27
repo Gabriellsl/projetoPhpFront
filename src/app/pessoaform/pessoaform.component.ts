@@ -11,14 +11,14 @@ import { PessoaFormService } from '../services/pessoa-form.service';
 export class PessoaformComponent implements OnInit {
 
 pessoa: Pessoa = {
-  id_pessoa : '',
+  id_pessoa : 0,
   nome: '',
   email: '',
   cpf: '',
   rg: '',
   login: '',
   senha: '',
-  tipo: '',
+  tipo: 0,
 }
 
 senha: Senha = {

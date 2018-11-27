@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AcaoService } from './transacaodeposito.service';
+import { AcaoService } from './transacao-deposito.service';
 
 describe('AcaoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
