@@ -20,23 +20,28 @@ export class LoginComponent implements OnInit {
   }
 
   logar(): void {
-    this.loginService.autenticar(this.login).subscribe(x => {
-      // x é o json devolvido do php ao enviarmos um usuario
-      // se x['token']!='' redirecione para /home do usuario x['user']['tipo'] e armazene o token no localStorage
+  //   this.loginService.autenticar(this.login).subscribe(x => {
+  //     // x é o json devolvido do php ao enviarmos um usuario
+  //     // se x['token']!='' redirecione para /home do usuario x['user']['tipo'] e armazene o token no localStorage
       
-      localStorage.setItem('currentUser', JSON.stringify({
-                                              "token":x["token"],
-                                              "user":x["user"]
-                                            }));
+  //     localStorage.setItem('currentUser', JSON.stringify({
+  //                                             "token":x["token"],
+  //                                             "user":x["user"]
+  //                                           }));
                                             
 
-      console.log(x);
+  //     console.log(x);
 
 
-      // senão envie uma mensagem de erro na tela, e permaneça no login
+  //     // senão envie uma mensagem de erro na tela, e permaneça no login
 
-      // redirect to /homeINV
-      // redirect to /homeADM
-    });
+  //     // redirect to /homeINV
+  //     // redirect to /homeADM
+  //   });
+    console.log(JSON.stringify(this.login));
+
   }
+
+
+
 }
