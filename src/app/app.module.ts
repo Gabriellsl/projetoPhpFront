@@ -14,6 +14,7 @@ import {CardModule} from 'primeng/card'; // Prime ng
 import {DropdownModule} from 'primeng/dropdown'; // Prime 
 import { MessagesComponent } from './messages/messages.component';
 import { PessoaformComponent } from './pessoaform/pessoaform.component';
+import { InvestimentoComponent } from './investimento/investimento.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { PessoaformComponent } from './pessoaform/pessoaform.component';
     FooterComponent,
     LoginComponent,
     MessagesComponent,
-    PessoaformComponent
+    PessoaformComponent,
+    InvestimentoComponent
   ],
   imports: [
     BrowserModule,
