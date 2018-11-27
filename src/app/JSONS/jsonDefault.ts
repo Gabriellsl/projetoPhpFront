@@ -1,11 +1,11 @@
 export class JsonDefault{
     
     public static config(token:string, classe:string, dados:string){
-        return JSON.stringify(
+        return(
             {
-                "token":token,
-                "class":classe,
-                "dados":dados
+                token:token,
+                class:classe,
+                dados:dados
             }
         );
     }
