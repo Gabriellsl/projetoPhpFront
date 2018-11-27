@@ -1,4 +1,4 @@
 export class Senha{
-    senha1      : Number;
-    senha2      : Number;
+    senha1      : string;
+    senha2      : string;
 }

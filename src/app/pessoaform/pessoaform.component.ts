@@ -21,8 +21,8 @@ pessoa: Pessoa = {
 }
 
 senha: Senha = {
-  senha1 : 0,
-  senha2 : 0,
+  senha1 : '',
+  senha2 : '',
 }
 
   constructor() { }
@@ -33,6 +33,10 @@ senha: Senha = {
 
   logar(): void {
     
+    if(this.senha.senha1 == this.senha.senha2)
+      this.pessoa.senha = this.senha.senha1;
+    else
+      alert("SENHAS DIFERENTES SEU ANIMAL");
                                             
 
       console.log(this.pessoa);
