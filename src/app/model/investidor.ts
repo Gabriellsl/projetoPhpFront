@@ -1,6 +1,6 @@
 export class Investidor{
-    idInvestidor     :Number;
-    idPessoa         :Number;
+    id_investidor     :Number;
+    id_pessoa         :Number;
     meta             :Number;
     saldo            :Number;
 }

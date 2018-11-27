@@ -1,6 +1,6 @@
 export class TransacaoDeposito{
 
-    idAcao: Number;
+    id_transacao: Number;
     nome: String;
     data: String;
     periodo: String;

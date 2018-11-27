@@ -18,7 +18,8 @@ pessoa: Pessoa = {
   rg: '',
   login: '',
   senha: '',
-  tipo: 0
+  tipo: 0,
+
 }
 
 senha: Senha = {

@@ -1,6 +1,6 @@
 export class Gestor{
-    idGestor    :Number;
-    idPessoa    :Number;
+    id_gestor    :Number;
+    id_pessoa    :Number;
     meta        :Number;
     giroMaximo  :Number;
 }
