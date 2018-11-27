@@ -10,7 +10,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component'; // PRIME NG
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {CardModule} from 'primeng/card'; // Prime ng
+import {DropdownModule} from 'primeng/dropdown'; // Prime 
 import { MessagesComponent } from './messages/messages.component';
+import { PessoaformComponent } from './pessoaform/pessoaform.component';
 
 
 @NgModule({
@@ -19,7 +22,8 @@ import { MessagesComponent } from './messages/messages.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    MessagesComponent
+    MessagesComponent,
+    PessoaformComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,8 @@ import { MessagesComponent } from './messages/messages.component';
     BrowserAnimationsModule,
     SplitButtonModule,
     HttpClientModule,
+    CardModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
