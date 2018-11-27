@@ -16,6 +16,9 @@ import { PessoaformComponent } from './pessoaform/pessoaform.component';
 import { InvestimentoComponent } from './investimento/investimento.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
+import {ChartModule} from 'primeng/chart';
+import { GraficoComponent } from './grafico/grafico.component';
+
 // import { MessageService } from 'primeng/api';
 // import { ToastModule } from 'primeng/toast';
 
@@ -28,6 +31,7 @@ import { CommonModule } from '@angular/common';
     LoginComponent,
     PessoaformComponent,
     InvestimentoComponent,
+    GraficoComponent,
  
   ],
   imports: [
@@ -40,6 +44,7 @@ import { CommonModule } from '@angular/common';
     DropdownModule,
     AppRoutingModule,
     CommonModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
