@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   }
 
   private getActualUser(){
-    if(localStorage.getItem('currentUser')==null)
+    if(localStorage.getItem('currentUser') == null)
       return "Bem vindo";
     
       return JSON.parse(localStorage.getItem('currentUser'))['user']['nome'];

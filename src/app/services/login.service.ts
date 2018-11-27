@@ -23,12 +23,11 @@ export class LoginService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
   
-    var jsonLogin = JsonGenerate.getJsonLogin(login.login, login.password);
+    var jsonLogin = JsonGenerate.getJson('','','',login);
     
-    return this.http.post<any>(ConfigUrl.DEFAULT_URL, jsonLogin, httpOptions);
+    console.log(jsonLogin);
+
+    return this.http.post<Login>(ConfigUrl.DEFAULT_URL+"/login", jsonLogin, httpOptions);
   }
 
-  // private log(message: string) {
-  //   this.messageService.add(`HeroService: ${message}`);
-  // }
 }

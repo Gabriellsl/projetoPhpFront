@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pessoa } from '../model/pessoa';
 import { Senha } from '../model/senha';
+import { PessoaFormService } from '../services/pessoa-form.service';
 
 @Component({
   selector: 'app-pessoaform',
@@ -25,24 +26,32 @@ senha: Senha = {
   senha2 : '',
 }
 
-  constructor() { }
+  constructor(
+    private pessoaFormService: PessoaFormService
+  ) { }
 
   ngOnInit() {
     
   }
 
-  logar(): void {
-    
-    if(this.senha.senha1 == this.senha.senha2)
-      this.pessoa.senha = this.senha.senha1;
+  private validarSenhas(senha:Senha):boolean{
+    if(senha.senha1 == senha.senha2){
+      return true;
+    }
     else
-      alert("SENHAS DIFERENTES SEU ANIMAL");
-                                            
+      return false;
+  }
 
-      console.log(this.pessoa);
-      console.log(this.senha);
-
+  salvar(): void {
+    if(this.validarSenhas(this.senha)){
+      
+      this.pessoa.senha = this.senha.senha1;
+      this.pessoaFormService.insertPessoa(this.pessoa).subscribe(x=>console.log(x));
+    }else{
+      alert("Senhas diferentes");
+    }
     
+      
   }
 
 

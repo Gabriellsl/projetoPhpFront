@@ -4,15 +4,12 @@ import { JsonDefault } from "./jsonDefault";
 export class JsonGenerate{
 
     
-    public static getJsonLogin(email:string, password:string):string{
+    public static getJson(token:string, classe:string, dados:string, object:Object){
         return JSON.stringify(
             {
-                "config":JsonDefault.config('','','1'),
-                "dados":{
-                    "1":{
-                        "login":email,
-                         "password":password
-                        }
+                config:JsonDefault.config(token, classe, dados),
+                dados:{
+                    1:object
                     }
             }
         );
