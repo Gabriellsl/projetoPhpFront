@@ -36,7 +36,7 @@ export class PessoaFormService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
     
-    var jsonPessoa = JsonGenerate.getJson('','Pessoa','1',pessoa);
+    var jsonPessoa = JsonGenerate.getJson('',"Peassoa",'1',pessoa);
 
     console.log(jsonPessoa);
 

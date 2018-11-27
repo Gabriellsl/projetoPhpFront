@@ -46,7 +46,14 @@ senha: Senha = {
     if(this.validarSenhas(this.senha)){
       
       this.pessoa.senha = this.senha.senha1;
-      this.pessoaFormService.insertPessoa(this.pessoa).subscribe(x=>console.log(x));
+      this.pessoaFormService.insertPessoa(this.pessoa).subscribe(
+        (x)=>{
+          
+        },
+        err=>{
+          
+        }
+      );
     }else{
       alert("Senhas diferentes");
     }

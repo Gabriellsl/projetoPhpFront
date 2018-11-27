@@ -1,7 +1,7 @@
 export class JsonDefault{
     
     public static config(token:string, classe:string, dados:string){
-        return(
+        return (
             {
                 token:token,
                 class:classe,
