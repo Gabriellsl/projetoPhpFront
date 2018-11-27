@@ -14,6 +14,8 @@ import { CardModule } from 'primeng/card'; // Prime ng
 import { DropdownModule } from 'primeng/dropdown'; // Prime 
 import { PessoaformComponent } from './pessoaform/pessoaform.component';
 import { InvestimentoComponent } from './investimento/investimento.component';
+import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
 // import { MessageService } from 'primeng/api';
 // import { ToastModule } from 'primeng/toast';
 
@@ -36,6 +38,8 @@ import { InvestimentoComponent } from './investimento/investimento.component';
     HttpClientModule,
     CardModule,
     DropdownModule,
+    AppRoutingModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
