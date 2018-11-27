@@ -9,12 +9,13 @@ import { HeaderComponent } from './header/header.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component'; // PRIME NG
-import {SplitButtonModule} from 'primeng/splitbutton';
-import {CardModule} from 'primeng/card'; // Prime ng
-import {DropdownModule} from 'primeng/dropdown'; // Prime 
-import { MessagesComponent } from './messages/messages.component';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { CardModule } from 'primeng/card'; // Prime ng
+import { DropdownModule } from 'primeng/dropdown'; // Prime 
 import { PessoaformComponent } from './pessoaform/pessoaform.component';
 import { InvestimentoComponent } from './investimento/investimento.component';
+// import { MessageService } from 'primeng/api';
+// import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
@@ -23,9 +24,9 @@ import { InvestimentoComponent } from './investimento/investimento.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    MessagesComponent,
     PessoaformComponent,
-    InvestimentoComponent
+    InvestimentoComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,7 @@ import { InvestimentoComponent } from './investimento/investimento.component';
     SplitButtonModule,
     HttpClientModule,
     CardModule,
-    DropdownModule
+    DropdownModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
