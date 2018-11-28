@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
                                               "token":x["token"],
                                               "user":x["user"]
                                             }));
+                                     
 
     });
     

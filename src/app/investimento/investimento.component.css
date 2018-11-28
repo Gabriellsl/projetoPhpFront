@@ -2,11 +2,27 @@
     margin-left: 25px;
 }
 
-
 .investimento_content{
-    margin-top: 40px;
+    margin-top: 15px;
 }
 
 .div_investimento{
-    width: 30vw;
+    width: 40vw;
+}
+
+/* .div_gerencia{
+    width: 100vw;
+} */
+
+
+.investimento_content{
+    widows: 100vw;
+}
+.container_transacao{
+    
+}
+
+.form-control{
+    margin-top: 10px;
+    margin-bottom: 40px;
 }

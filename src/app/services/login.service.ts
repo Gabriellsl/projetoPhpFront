@@ -7,6 +7,7 @@ import { ConfigUrl } from '../configUrl';
 
 import {JsonGenerate} from '../JSONS/jsonGenerate';
 import { JsonDefault } from '../JSONS/jsonDefault';
+import { Pessoa } from '../model/pessoa';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,13 @@ export class LoginService {
     console.log(jsonLogin);
 
     return this.http.post<Login>(ConfigUrl.DEFAULT_URL+"/login", jsonLogin, httpOptions);
+  }
+
+  selectUser(pessoa:Pessoa):Observable<any>{
+
+      var jsonSelectUser = JsonGenerate.getJson('','Pessoa','',pessoa);
+      var httpOptions = JsonDefault.getHeaders();
+      return this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL+"/selectuser", jsonSelectUser, httpOptions);
   }
 
 }
