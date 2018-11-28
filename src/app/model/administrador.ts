@@ -1,4 +1,4 @@
 export class Administrador{
-    id_administrador    :String;
-    id_pessoa    :String;
+    id_administrador    :Number;
+    id_pessoa    :Number;
 }

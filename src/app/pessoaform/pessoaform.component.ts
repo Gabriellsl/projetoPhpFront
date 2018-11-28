@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Pessoa } from '../model/pessoa';
 import { Senha } from '../model/senha';
 import { PessoaFormService } from '../services/pessoa-form.service';
+import { Gestor} from '../model/gestor';
+import { Administrador} from '../model/administrador';
+import {Investidor} from '../model/investidor';
+
 
 @Component({
   selector: 'app-pessoaform',
@@ -20,6 +24,25 @@ pessoa: Pessoa = {
   senha: '',
   tipo: 0,
 
+}
+
+gestor: Gestor = {
+  id_gestor: 0,
+  id_pessoa: 0,
+  meta: 0,
+  giroMaximo: 0,
+}
+
+administrador: Administrador = {
+  id_administrador: 0,
+  id_pessoa: 0,
+}
+
+investidor: Investidor = {
+  id_investidor: 0,
+  id_pessoa : 0,
+  meta : 0,
+  saldo: 0,
 }
 
 senha: Senha = {
