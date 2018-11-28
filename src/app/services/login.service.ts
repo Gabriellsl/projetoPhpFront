@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { ConfigUrl } from '../configUrl'; 
 
 import {JsonGenerate} from '../JSONS/jsonGenerate';
+import { JsonDefault } from '../JSONS/jsonDefault';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,10 @@ export class LoginService {
 
   autenticar(login: Login):Observable<Login>{
     
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
+    
   
     var jsonLogin = JsonGenerate.getJson('','','',login);
+    var httpOptions = JsonDefault.getHeaders();
     
     console.log(jsonLogin);
 

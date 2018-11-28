@@ -6,7 +6,7 @@ import { LoginComponent} from './login/login.component';
 const routes: Routes= [
   { path: 'formulario', component: PessoaformComponent},
   { path: 'login', component: LoginComponent},
-  { path: '', redirectTo: '/formulario', pathMatch:'full'},
+  //{ path: '', redirectTo: '/formulario', pathMatch:'full'},
 ];
 
 @NgModule({

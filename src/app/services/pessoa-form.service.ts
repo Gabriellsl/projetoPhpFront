@@ -6,6 +6,7 @@ import { JsonGenerate } from '../JSONS/jsonGenerate';
 import { Observable } from 'rxjs';
 import { Gestor } from '../model/gestor';
 import { Administrador} from '../model/administrador';
+import { JsonDefault } from '../JSONS/jsonDefault';
 
 @Injectable({
   providedIn: 'root'
@@ -32,10 +33,7 @@ export class PessoaFormService {
 
   public insertPessoa(pessoa:Pessoa): Observable<Pessoa>{
     
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-    
+    var httpOptions = JsonDefault.getHeaders();
     var jsonPessoa = JsonGenerate.getJson('',"Peassoa",'1',pessoa);
 
     console.log(jsonPessoa);
@@ -45,10 +43,7 @@ export class PessoaFormService {
 
   public insertGestor(gestor:Object): Observable<Gestor>{
     
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-    
+    var httpOptions = JsonDefault.getHeaders();
     var jsonGestor = JsonGenerate.getJson('','Gestor','1',gestor);
 
     return this.http.post<Gestor>(ConfigUrl.DEFAULT_URL+'/insert', jsonGestor, httpOptions);
@@ -56,10 +51,7 @@ export class PessoaFormService {
 
   public insertAdministrador(administrador:Object): Observable<Administrador>{
     
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-    
+    var httpOptions = JsonDefault.getHeaders();
     var jsonAdministrador = JsonGenerate.getJson('','Administrador','1',administrador);
 
     return this.http.post<Administrador>(ConfigUrl.DEFAULT_URL+'/insert', jsonAdministrador, httpOptions);
