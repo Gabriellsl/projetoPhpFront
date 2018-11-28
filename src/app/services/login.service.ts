@@ -24,8 +24,6 @@ export class LoginService {
     var jsonLogin = JsonGenerate.getJson('','','',login);
     var httpOptions = JsonDefault.getHeaders();
     
-    console.log(jsonLogin);
-
     return this.http.post<Login>(ConfigUrl.DEFAULT_URL+"/login", jsonLogin, httpOptions);
   }
 

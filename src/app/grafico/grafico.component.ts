@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Chart} from 'chart.js'
 import { GraficoService } from '../services/grafico.service';
 import { DadosAPI1 } from '../model/dadosAPI1';
-import { timeout } from 'q';
 
 @Component({
   selector: 'app-grafico',
@@ -83,12 +82,12 @@ export class GraficoComponent implements OnInit {
    findData(){
      this.graficoService.findData().subscribe(
       (x) => {
-          for(var y in x['Time Series (1min)']){
-            this.data1.push(x['Time Series (1min)'][y]["1. open"]);
-            this.data2.push(x['Time Series (1min)'][y]["2. high"]);
-            this.data3.push(x['Time Series (1min)'][y]["3. low"]);
-            this.data4.push(x['Time Series (1min)'][y]["4. close"]);
-            this.data5.push(x['Time Series (1min)'][y]["5. volume"]);
+          for(var y in x['Time Series (5min)']){
+            this.data1.push(x['Time Series (5min)'][y]["1. open"]);
+            this.data2.push(x['Time Series (5min)'][y]["2. high"]);
+            this.data3.push(x['Time Series (5min)'][y]["3. low"]);
+            this.data4.push(x['Time Series (5min)'][y]["4. close"]);
+            this.data5.push(x['Time Series (5min)'][y]["5. volume"]);
             this.labels.push("");
         }
         
@@ -109,7 +108,7 @@ export class GraficoComponent implements OnInit {
         this.data5 = new Array();
         this.labels = new Array();
 
-         for(var y in x['Time Series (5min)']){
+         for(var y in x['Time Series (1min)']){
            this.data1.push(x['Time Series (5min)'][y]["1. open"]);
            this.data2.push(x['Time Series (5min)'][y]["2. high"]);
            this.data3.push(x['Time Series (5min)'][y]["3. low"]);
