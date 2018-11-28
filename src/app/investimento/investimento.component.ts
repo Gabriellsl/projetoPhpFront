@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TransacaoDeposito } from '../model/transacaodeposito';
+import { JsonGenerate } from '../JSONS/jsonGenerate';
+import { JsonDefault } from '../JSONS/jsonDefault';
+import { ConfigUrl } from '../configUrl';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { TransacaoDepositoService } from '../services/transacao-deposito.service';
 
 
 @Component({
@@ -20,24 +26,35 @@ export class InvestimentoComponent implements OnInit {
   };
 
 
-  constructor() { }
+  constructor(private http: HttpClient,
+              private transacaoDepositoService: TransacaoDepositoService) { }
 
   ngOnInit() {
   }
 
 
-  salvar(): void {
-    localStorage.setItem('tipo', JSON.stringify({
-      "token":"token",
-      "user":{"user":{"tipo":1}}
-      
-    }));
-
+  salvar(): /*Observable<TransacaoDeposito>*/void {
 
       this.transacaoDeposito.status = 'ATIVO';
       this.transacaoDeposito.data = this.dataAtual();
       this.transacaoDeposito.tipo = "+";
-      console.log(this.transacaoDeposito);
+
+
+      this.transacaoDepositoService.insertAcao(this.transacaoDeposito).subscribe(
+        (x)=>{
+          
+        },
+        err=>{
+          
+        }
+      );
+      
+     
+      // var jsonLogin = JsonGenerate.getJson('','Transacao','',this.transacaoDeposito);
+      // console.log("A");
+      // var httpOptions = JsonDefault.getHeaders();
+      
+      // return this.http.post<TransacaoDeposito>(ConfigUrl.DEFAULT_URL+"/investir", jsonLogin, httpOptions);
   }
   
   sacar(): void {

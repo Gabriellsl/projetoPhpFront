@@ -27,6 +27,8 @@ export class LoginService {
     return this.http.post<Login>(ConfigUrl.DEFAULT_URL+"/login", jsonLogin, httpOptions);
   }
 
+
+  // Metodo utilizado para resgatar os dados de tipo e id do tipo de uma pessoa 
   selectUser(pessoa:Pessoa):Observable<any>{
 
       var jsonSelectUser = JsonGenerate.getJson('','Pessoa','',pessoa);
