@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from '../model/login';
 import { LoginService } from '../services/login.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -20,23 +20,24 @@ export class LoginComponent implements OnInit {
   
   constructor(private loginService: LoginService,
               private route: ActivatedRoute,
-              private location: Location) { }
+              private location: Location, 
+              private router: Router) { }
 
   ngOnInit() {
 
   }
 
   logar(): void {
-    this.loginService.autenticar(this.login).subscribe(x => {
-
-    localStorage.setItem('currentUser', JSON.stringify({
-                                              "token":x["token"],
-                                              "user":x["user"]
-                                            }));
+    // this.loginService.autenticar(this.login).subscribe(x => {
+    this.router.navigate(['grafico']);
+    // localStorage.setItem('currentUser', JSON.stringify({
+    //                                           "token":x["token"],
+    //                                           "user":x["user"]
+    //                                         }));
     
 
-    },
-    err=> alert("Erro no login"));
+    // },
+    // err=> alert("Erro no login"));
     
   }
 
