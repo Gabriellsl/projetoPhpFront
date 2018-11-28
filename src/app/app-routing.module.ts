@@ -4,9 +4,10 @@ import { PessoaformComponent } from './pessoaform/pessoaform.component';
 import { LoginComponent} from './login/login.component';
 
 const routes: Routes= [
-  { path: 'formulario', component: PessoaformComponent},
   { path: 'login', component: LoginComponent},
-  //{ path: '', redirectTo: '/formulario', pathMatch:'full'},
+  { path: 'formulario', component: PessoaformComponent},
+  
+  { path: '', redirectTo: '/', pathMatch:'full'},
 ];
 
 @NgModule({

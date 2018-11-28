@@ -21,6 +21,6 @@ export class JsonDefault{
     }
 
     public static getAPI1(){
-        return "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&outputsize=compact&apikey=37XW1AG28U0HVLTX";
+        return "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&outputsize=compact&apikey=37XW1AG28U0HVLTX";
     }
 }

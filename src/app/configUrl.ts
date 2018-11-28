@@ -1,3 +1,3 @@
 export class ConfigUrl{
-    public static DEFAULT_URL = "http://localhost:80/projeto_php/index.php";
+    public static DEFAULT_URL = "http://localhost/projeto_php/index.php";
 }
