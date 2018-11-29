@@ -37,10 +37,10 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['grafico']);
     }
     
-    // localStorage.setItem('currentUser', JSON.stringify({
-    //                                           "token":x["token"],
-    //                                           "user":x["user"]
-    //                                         }));
+    localStorage.setItem('currentUser', JSON.stringify({
+                                              "token":x["token"],
+                                              "user":x["user"]
+                                            }));
     
 
     },
@@ -48,6 +48,9 @@ export class LoginComponent implements OnInit {
     
   }
 
-
+  Sair(): void {
+    this.loginService.Deslogar();
+    localStorage.removeItem('currentUser');
+  }
 
 }

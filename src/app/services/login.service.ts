@@ -36,4 +36,11 @@ export class LoginService {
       return this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL+"/selectuser", jsonSelectUser, httpOptions);
   }
 
+
+  Deslogar(){
+    // var jsonSelectUser = JsonGenerate.getJson('','Pessoa','',pessoa);
+    // var httpOptions = JsonDefault.getHeaders();
+    // this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL+"/logout", jsonSelectUser, httpOptions);
+  }
+
 }
