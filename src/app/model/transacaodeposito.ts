@@ -4,9 +4,9 @@ export class TransacaoDeposito{
     id_investidor: Number;
     tipo: String;
     data: String;
-    valorInvestido: Number;
+    valorinvestido: Number;
     status: String;
-    data_saque: String;
+    datasaque: String;
 
     //periodo: String;
     //lucroEsperado: Number;

@@ -18,11 +18,11 @@ export class InvestimentoComponent implements OnInit {
   transacaoDeposito: TransacaoDeposito = {
     id_transacao: 0,
     id_investidor: 0,
-    tipo: '',
-    data: '',
-    valorInvestido: 0,
+    tipo: '+',
+    data: this.dataAtual(),
+    valorinvestido: 0,
     status: '',
-    data_saque: '',
+    datasaque: '',
   };
 
 
