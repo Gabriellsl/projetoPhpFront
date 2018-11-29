@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Transacao } from '../model/transacao';
 import { TransacaoService } from '../services/transacao.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabela-sacados',
@@ -36,10 +35,9 @@ export class TabelaSacadosComponent implements OnInit {
         for (let i = 1; i < x['config']['dados']; i++) {
           this.sacados.push(x['dados'][i])
         }
-        alert("aaa")
       }
     )
-}
+  }
   solicitarSaque(transacao:Transacao){
     
   }

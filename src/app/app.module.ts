@@ -20,6 +20,7 @@ import {ChartModule} from 'primeng/chart';
 import { GraficoComponent } from './grafico/grafico.component';
 import { TabelaInvestimentosComponent } from './tabela-investimentos/tabela-investimentos.component';
 import { TabelaSacadosComponent } from './tabela-sacados/tabela-sacados.component';
+import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-acoes.component';
 
 // import { MessageService } from 'primeng/api';
 // import { ToastModule } from 'primeng/toast';
@@ -36,6 +37,7 @@ import { TabelaSacadosComponent } from './tabela-sacados/tabela-sacados.componen
     GraficoComponent,
     TabelaInvestimentosComponent,
     TabelaSacadosComponent,
+    GraficoMinhaAcoesComponent,
  
   ],
   imports: [
