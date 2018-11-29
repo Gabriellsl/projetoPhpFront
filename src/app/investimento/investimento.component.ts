@@ -21,7 +21,7 @@ export class InvestimentoComponent implements OnInit {
     tipo: '+',
     data: this.dataAtual(),
     valorinvestido: 0,
-    status: '',
+    status: 'ATIVO',
     datasaque: '',
   };
 
