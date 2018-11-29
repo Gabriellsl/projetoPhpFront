@@ -52,9 +52,6 @@
 
 
 
-
-
-
 app-header{
     width: 100%;
 }
@@ -62,4 +59,8 @@ app-header{
 .site_name{
     text-align: center;
     color: white;
+}
+
+.nome_usuario{
+    margin-top: 10px;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
    nome = this.getActualUser();
 
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   
   ngOnInit() {
@@ -23,6 +24,11 @@ export class HeaderComponent implements OnInit {
       return "Bem vindo";
     
       return JSON.parse(localStorage.getItem('currentUser'))['user']['nome'];
+  }
+
+  exit(): void {
+    this.loginService.logout();
+    localStorage.removeItem('currentUser');
   }
 
 }

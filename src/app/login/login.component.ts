@@ -48,9 +48,6 @@ export class LoginComponent implements OnInit {
     
   }
 
-  Sair(): void {
-    this.loginService.Deslogar();
-    localStorage.removeItem('currentUser');
-  }
+  
 
 }
