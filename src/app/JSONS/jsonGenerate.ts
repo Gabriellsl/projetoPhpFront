@@ -2,7 +2,6 @@ import { JsonDefault } from "./jsonDefault";
 
 
 export class JsonGenerate{
-
     
     public static getJson(token:string, classe:string, dados:string, object:Object){
         return JSON.stringify(

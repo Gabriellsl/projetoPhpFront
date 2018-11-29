@@ -5,6 +5,7 @@ import { JsonGenerate } from '../JSONS/jsonGenerate';
 import { ConfigUrl } from '../configUrl';
 import { Observable } from 'rxjs';
 
+// usado por investidor
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class TransacaoDepositoService {
 
   constructor(private http: HttpClient) { }
 
-  public insertAcao(transacao:TransacaoDeposito): Observable<TransacaoDeposito>{
+  public insertTransacao(transacao:TransacaoDeposito): Observable<TransacaoDeposito>{
 
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })

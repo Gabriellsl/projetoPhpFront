@@ -40,21 +40,15 @@ export class InvestimentoComponent implements OnInit {
       this.transacaoDeposito.tipo = "+";
 
 
-      this.transacaoDepositoService.insertAcao(this.transacaoDeposito).subscribe(
-        (x)=>{
+      this.transacaoDepositoService.insertTransacao(this.transacaoDeposito).subscribe(
+        x => {
           
         },
-        err=>{
+        err => {
           
         }
       );
-      
-     
-      // var jsonLogin = JsonGenerate.getJson('','Transacao','',this.transacaoDeposito);
-      // console.log("A");
-      // var httpOptions = JsonDefault.getHeaders();
-      
-      // return this.http.post<TransacaoDeposito>(ConfigUrl.DEFAULT_URL+"/investir", jsonLogin, httpOptions);
+
   }
   
   sacar(): void {

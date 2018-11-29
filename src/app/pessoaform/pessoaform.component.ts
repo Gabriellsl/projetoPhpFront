@@ -70,7 +70,7 @@ senha: Senha = {
       
       this.pessoa.senha = this.senha.senha1;
       this.pessoaFormService.insertPessoa(this.pessoa).subscribe(
-        (x)=>{
+        x=>{
           
             if(this.pessoa.tipo == 'ADM'){
               
