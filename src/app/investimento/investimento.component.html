@@ -1,56 +1,96 @@
-<div class="div_investimento">
-  <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-    <p-card>
-      <p-header class="card_header">
-        Saldo ativo
-      </p-header>
-      <h3 class="first"> R$ 5.000,00 </h3>
 
-      <p-footer>
-          <!-- Footer content here -->
-      </p-footer>
-    </p-card>
-  </div>
+<div class="container investimento_content">
 
-  <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-    <p-card>
-      <p-header class="card_header">
-        Lucro diário
-      </p-header>
-      <h3 class="first"> R$ 5.000,00 </h3>
-
-      <p-footer>
-          <!-- Footer content here -->
-      </p-footer>
-    </p-card>
-  </div>
-
-  <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-    <p-card>
-      <p-header class="card_header">
-        Lucro esperado
-      </p-header>
-      <h3 class="first"> R$ 5.000,00 </h3>
-
-      <p-footer>
-          <!-- Footer content here -->
-      </p-footer>
-    </p-card>
-  </div>
-
-  <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-    <p-card>
-      <p-header class="card_header">
-        Próximo saque
-      </p-header>
-      <h3 class="first"> R$ 7.000,00 </h3>
-
-      <p-footer>
-          <!-- Footer content here -->
-      </p-footer>
-    </p-card>
-  </div>
+  <div class="div_investimento ui-md-6">
+    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+      <p-card>
+        <p-header class="card_header">
+          Saldo ativo
+        </p-header>
+        <h3 class="first"> R$ 5.000,00 </h3>
+  
+        <p-footer>
+            <!-- Footer content here -->
+        </p-footer>
+      </p-card>
+    </div>
+  
+  
+    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+      <p-card>
+        <p-header class="card_header">
+          Lucro esperado
+        </p-header>
+        <h3 class="first"> R$ 5.000,00 </h3>
+  
+        <p-footer>
+            <!-- Footer content here -->
+        </p-footer>
+      </p-card>
+    </div>
+  
+    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+      <p-card>
+        <p-header class="card_header">
+          Próximo saque
+        </p-header>
+        <h3 class="first"> R$ 7.000,00 </h3>
+  
+        <p-footer>
+            <!-- Footer content here -->
+        </p-footer>
+      </p-card>
+    </div>
+  
+    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+      <p-card>
+        <p-header class="card_header">
+          Próximo saque
+        </p-header>
+        <h3 class="first"> R$ 7.000,00 </h3>
+  
+        <p-footer>
+            <!-- Footer content here -->
+        </p-footer>
+      </p-card>
+    </div>
+  
+  
 </div>
+
+  <label for="inputSenha" class="sr-only"></label>
+  <input  [(ngModel)]="transacaoDeposito.valorInvestido" name ="valor" type="number" id="inputValor" class="form-control" placeholder="Investir" required autofocus>
+  <input  [(ngModel)]="transacaoDeposito.data_saque" name ="data_saque" type="text" id="inputData" class="form-control" placeholder="Data saque" required autofocus>
+  <button  (click)="salvar()" type="submit" class="btn btn-lg btn-success btn-block">Investir</button>
+
+
+  <!-- <button [(ngModel)]="login.password" (click)="sacar()" type="submit" class="btn btn-lg btn-info btn-block">Sacar</button> -->
+
+</div>
+
+<!-- <div class="container container_login ">
+    <div class="row justify-content-center align-items-center row_login align-middle">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded container_login2 col-md-12 col-sm-6">
+            <form  action="" method="" accept-charset="utf-8" class="form-login">
+                <h3 class="form-login-heading">Area restrita!</h3>
+                <label for="inputEmail" class="sr-only">E-mail</label>
+                <input name="login" [(ngModel)]="login.login" type="login" id="inputLogin" class="form-control" placeholder="Login" required autofocus>
+                <label for="inputSenha" class="sr-only">Senha</label>
+                <input  name ="password" [(ngModel)]="login.password" type="password" id="inputSenha" class="form-control" placeholder="Senha" required autofocus>
+                <button (click)="logar()" type="submit" class="btn btn-lg btn-success btn-block">Entrar</button>
+            </form>
+        </div> 
+    </div>
+</div> -->
+
+<!-- <div class="container">
+
+  <label for="inputEmail" class="sr-only">E-mail</label>
+  <input name="login" [(ngModel)]="login.login" type="login" id="inputLogin" class="form-control" placeholder="Login" required autofocus>
+-->
+
+
+
 
 
 
