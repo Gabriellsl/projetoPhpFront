@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import {ChartModule} from 'primeng/chart';
 import { GraficoComponent } from './grafico/grafico.component';
+import { TabelaInvestimentosComponent } from './tabela-investimentos/tabela-investimentos.component';
 
 // import { MessageService } from 'primeng/api';
 // import { ToastModule } from 'primeng/toast';
@@ -32,6 +33,7 @@ import { GraficoComponent } from './grafico/grafico.component';
     PessoaformComponent,
     InvestimentoComponent,
     GraficoComponent,
+    TabelaInvestimentosComponent,
  
   ],
   imports: [
