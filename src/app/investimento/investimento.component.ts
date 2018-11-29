@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TransacaoDeposito } from '../model/transacaodeposito';
+import { Transacao } from '../model/transacao';
 import { JsonGenerate } from '../JSONS/jsonGenerate';
 import { JsonDefault } from '../JSONS/jsonDefault';
 import { ConfigUrl } from '../configUrl';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TransacaoDepositoService } from '../services/transacao-deposito.service';
+import { TransacaoService } from '../services/transacao.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ import { TransacaoDepositoService } from '../services/transacao-deposito.service
 
 export class InvestimentoComponent implements OnInit {
 
-  transacaoDeposito: TransacaoDeposito = {
+  transacaoDeposito: Transacao = {
     id_transacao: 0,
     id_investidor: 1,
     id_configtaxa:1,
@@ -30,21 +30,24 @@ export class InvestimentoComponent implements OnInit {
     datasaque: '2020-10-10',
   };
 
+  saque: Transacao={
+    id_transacao: 0,
+    id_investidor: 1,
+    id_configtaxa:1,
+    tipo: '+',
+    data: '',
+    valor: new Number,
+    status: '',
+    datasaque: '',
+  }
 
-  depositos: TransacaoDeposito[] = [
-    { id_transacao: 1, id_investidor: 1, tipo:'+' , data: '10/10/1992', valorinvestido: 2500, status: 'Ativo',datasaque: '10/10/2020'},
-    { id_transacao: 2, id_investidor: 2, tipo:'+' , data: '12/10/1992', valorinvestido: 3500, status: 'Ativo',datasaque: '12/10/2020'},
-    { id_transacao: 3, id_investidor: 3, tipo:'+' , data: '14/10/1992', valorinvestido: 4500, status: 'Ativo',datasaque: '14/10/2020'},
-    { id_transacao: 4, id_investidor: 4, tipo:'+' , data: '16/10/1992', valorinvestido: 5500, status: 'Ativo',datasaque: '16/10/2020'},
-    { id_transacao: 5, id_investidor: 5, tipo:'+' , data: '18/10/1992', valorinvestido: 6500, status: 'Ativo',datasaque: '18/10/2020'},
-    
-  ];
-
+  saquesDisponiveis: Transacao[] = new Array;
 
   constructor(private http: HttpClient,
-              private transacaoDepositoService: TransacaoDepositoService) { }
+              private transacaoService: TransacaoService) { }
 
   ngOnInit() {
+    this.findSaquesDisponiveis();
   }
 
 
@@ -55,7 +58,7 @@ export class InvestimentoComponent implements OnInit {
       this.transacaoDeposito.tipo = "+";
 
 
-      this.transacaoDepositoService.insertTransacao(this.transacaoDeposito).subscribe(
+      this.transacaoService.insertTransacao(this.transacaoDeposito).subscribe(
         x => {
           console.log(x);
         },
@@ -66,8 +69,14 @@ export class InvestimentoComponent implements OnInit {
 
   }
   
-  sacar(): void {
-      
+  findSaquesDisponiveis(): void {
+      this.transacaoService.findSaques(this.saque).subscribe(
+        x=>{
+          for (let i = 0; i < x['config']['dados']; i++) {
+            this.saquesDisponiveis.push(x['dados'][i])
+          }
+        }
+      )
   }
 
   dataAtual() {
@@ -78,7 +87,7 @@ export class InvestimentoComponent implements OnInit {
     return [ano,mes,dia].join('-');
 }
 
-teste(deposito: TransacaoDeposito){
+teste(deposito: Transacao){
   
   
   console.log(deposito.id_transacao);
