@@ -7,7 +7,7 @@ export class Pessoa{
     rg: String;
     login: String;
     senha: String;
-    tipo: Tipo;
+    tipo: String;
     
 }
 
