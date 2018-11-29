@@ -1,105 +1,114 @@
 
-<div class="investimento_content">
+<div class="div_investimento row">
+  
+  <div class="ui-md-offset-2 ui-md-4 form_ativos">
+        <label for="inputSenha" class="sr-only"></label>
+        <input  [(ngModel)]="transacaoDeposito.valor" name ="valor" type="number" id="inputValor" class="form-control" placeholder="Investir" required autofocus>
+        <input  [(ngModel)]="transacaoDeposito.datasaque" name ="datasaque" type="text" id="inputData" class="form-control" placeholder="Data saque" required autofocus>
+        <button  (click)="salvar()" type="submit" class="btn btn-lg btn-success btn-block">Investir</button>
+  </div>
 
-  <div class="div_investimento ui-md-6">
-    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-      <p-card>
-        <p-header class="card_header">
-          Saldo ativo
-        </p-header>
-        <h3 class="first"> R$ 5.000,00 </h3>
-  
-        <p-footer>
-            <!-- Footer content here -->
-        </p-footer>
-      </p-card>
-    </div>
-  
-  
-    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-      <p-card>
-        <p-header class="card_header">
-          Lucro esperado
-        </p-header>
-        <h3 class="first"> R$ 5.000,00 </h3>
-  
-        <p-footer>
-            <!-- Footer content here -->
-        </p-footer>
-      </p-card>
-    </div>
-  
-    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-      <p-card>
-        <p-header class="card_header">
-          Próximo saque
-        </p-header>
-        <h3 class="first"> R$ 7.000,00 </h3>
-  
-        <p-footer>
-            <!-- Footer content here -->
-        </p-footer>
-      </p-card>
-    </div>
-  
-    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-      <p-card>
-        <p-header class="card_header">
-          Próximo saque
-        </p-header>
-        <h3 class="first"> R$ 7.000,00 </h3>
-  
-        <p-footer>
-            <!-- Footer content here -->
-        </p-footer>
-      </p-card>
-    </div>
-  
-  
-   </div>
-    <div class="container ui-md-6">
-      <label for="inputSenha" class="sr-only"></label>
-      <input  [(ngModel)]="transacaoDeposito.valor" name ="valor" type="number" id="inputValor" class="form-control" placeholder="Investir" required autofocus>
-      <input  [(ngModel)]="transacaoDeposito.datasaque" name ="datasaque" type="text" id="inputData" class="form-control" placeholder="Data saque" required autofocus>
-      <button  (click)="salvar()" type="submit" class="btn btn-lg btn-success btn-block">Investir</button>
-    </div>
+  <div class = "ui-md-offset-2 ui-g-4 ui-md-4">
+    <div class="div_investimento">
 
-  <!-- <button [(ngModel)]="login.password" (click)="sacar()" type="submit" class="btn btn-lg btn-info btn-block">Sacar</button> -->
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <p-card>
+          <p-header class="card_header">
+            Saldo ativo
+          </p-header>
+          <h3 class="first"> R$ 5.000,00 </h3>
+    
+          <p-footer>
+              <!-- Footer content here -->
+          </p-footer>
+        </p-card>
+      </div>
+    
+    
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <p-card>
+          <p-header class="card_header">
+            Lucro esperado
+          </p-header>
+          <h3 class="first"> R$ 5.000,00 </h3>
+    
+          <p-footer>
+              <!-- Footer content here -->
+          </p-footer>
+        </p-card>
+      </div>
+    
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <p-card>
+          <p-header class="card_header">
+            Próximo saque
+          </p-header>
+          <h3 class="first"> R$ 7.000,00 </h3>
+    
+          <p-footer>
+              <!-- Footer content here -->
+          </p-footer>
+        </p-card>
+      </div>
+    
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <p-card>
+          <p-header class="card_header">
+            Próximo saque
+          </p-header>
+          <h3 class="first"> R$ 7.000,00 </h3>
+    
+          <p-footer>
+              <!-- Footer content here -->
+          </p-footer>
+        </p-card>
+      </div>
+
+    </div>
+  </div>
+  
+
+
+  
 </div>
 
 
-
-
-<div class=" form_vendas">
-  <form action="/servidor/salvar" method="post" disabled="" class="ls-form-text">
-    <input type="hidden" name="token" value="ehOCabraMesmo">
-    <table class="table ls-table table-striped">
-      <thead>
-        <tr>
-          <th class="hidden-xs">Valor investido</th>
-          <th>Data depósito</th>
-          <th class="hidden-xs">data saque</th>
-          <th class="ls-table-actions"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let deposito of depositos">
-
-
-          <td>{{deposito.valorinvestido}}</td>
-          <td>{{deposito.data}}</td>
-          <td>{{deposito.data}}</td>
-          <td>
-            <!-- <a  (click)="teste(deposito)" data-confirm-text="Confirma exclusão do item?" class="text-danger">
-              Excluir
-            </a> -->
-            <button (click)="teste(deposito)" class="bbtn btn-success">sacar</button>
-          </td>
-        </tr>
+<div class="row div_investimento">
+  <div class="ui-md-4" >
+      <div class="form_vendas">
+          <form action="/servidor/salvar" method="post" disabled="" class="ls-form-text">
+            <input type="hidden" name="token" value="ehOCabraMesmo">
+            <table class="table ls-table table-striped">
+              <thead>
+                <tr>
+                  <th class="hidden-xs">Valor investido</th>
+                  <th>Data depósito</th>
+                  <th class="hidden-xs">data saque</th>
+                  <th class="ls-table-actions"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let deposito of depositos">
         
-      </tbody>
-    </table>
-  </form>
+        
+                  <td>{{deposito.valorinvestido}}</td>
+                  <td>{{deposito.data}}</td>
+                  <td>{{deposito.data}}</td>
+                  <td>
+                    <!-- <a  (click)="teste(deposito)" data-confirm-text="Confirma exclusão do item?" class="text-danger">
+                      Excluir
+                    </a> -->
+                    <button (click)="teste(deposito)" class="bbtn btn-success">sacar</button>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </form>
+        </div>
+        
+  </div>
+
 </div>
 
 
