@@ -16,21 +16,21 @@ export class PessoaformComponent implements OnInit {
 
 pessoa: Pessoa = {
   id_pessoa : 0,
-  nome: '',
-  email: '',
-  cpf: '',
-  rg: '',
-  login: '',
-  senha: '',
-  tipo: '',
+  nome: 'Rafael',
+  email: 'ss',
+  cpf: 'ss',
+  rg: 'ss',
+  login: 's',
+  senha: 's',
+  tipo: 'INV',
 
 }
 
 gestor: Gestor = {
   id_gestor: 0,
   id_pessoa: 0,
-  meta: 0,
-  giroMaximo: 0,
+  meta: 10.0,
+  giromaximo: 10.0,
 }
 
 administrador: Administrador = {
@@ -45,8 +45,8 @@ investidor: Investidor = {
 }
 
 senha: Senha = {
-  senha1 : '',
-  senha2 : '',
+  senha1 : 'ss',
+  senha2 : 'ss',
 }
 
   constructor(
@@ -71,13 +71,10 @@ senha: Senha = {
       this.pessoa.senha = this.senha.senha1;
       this.pessoaFormService.insertPessoa(this.pessoa).subscribe(
         (x)=>{
-
+          
             if(this.pessoa.tipo == 'ADM'){
               
               this.administrador.id_pessoa   = x['dados']['1']['id_pessoa'];
-
-              console.log(x.id_pessoa);
-
 
               this.pessoaFormService.insertAdministrador(this.administrador).subscribe(
                 y=>{
@@ -91,7 +88,7 @@ senha: Senha = {
               this.investidor.id_pessoa      = x['dados']['1']['id_pessoa']
               this.pessoaFormService.insertInvestidor(this.investidor).subscribe(
                 y=>{
-                  alert("insercao de administrador");
+                  alert("insercao de investidor");
                 },
                 err=>{
                   alert("erro na insercao de investidor");

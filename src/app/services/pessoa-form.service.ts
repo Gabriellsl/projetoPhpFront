@@ -24,7 +24,6 @@ export class PessoaFormService {
     var httpOptions = JsonDefault.getHeaders();
     var jsonPessoa = JsonGenerate.getJson('',"Pessoa",'1',pessoa);
 
-    console.log(jsonPessoa);
 
     return this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL+'/insert', jsonPessoa, httpOptions);
   }
@@ -34,6 +33,8 @@ export class PessoaFormService {
     var httpOptions = JsonDefault.getHeaders();
     var jsonGestor = JsonGenerate.getJson('','Gestor','1',gestor);
 
+    console.log(jsonGestor);
+
     return this.http.post<Gestor>(ConfigUrl.DEFAULT_URL+'/insert', jsonGestor, httpOptions);
   }
 
@@ -41,14 +42,13 @@ export class PessoaFormService {
     
     var httpOptions = JsonDefault.getHeaders();
     var jsonAdministrador = JsonGenerate.getJson('','Administrador','1',administrador);
-
     return this.http.post<Administrador>(ConfigUrl.DEFAULT_URL+'/insert', jsonAdministrador, httpOptions);
   }
 
   public insertInvestidor(investidor:Investidor): Observable<Investidor>{
     
     var httpOptions = JsonDefault.getHeaders();
-    var jsonInvestidor = JsonGenerate.getJson('','Administrador','1',investidor);
+    var jsonInvestidor = JsonGenerate.getJson('','Investidor','1',investidor);
 
     return this.http.post<Investidor>(ConfigUrl.DEFAULT_URL+'/insert', jsonInvestidor, httpOptions);
   }
