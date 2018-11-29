@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { Gestor } from '../model/gestor';
 import { Administrador} from '../model/administrador';
 import { JsonDefault } from '../JSONS/jsonDefault';
+import { Investidor } from '../model/investidor';
 
 @Injectable({
   providedIn: 'root'
@@ -18,30 +19,17 @@ export class PessoaFormService {
     private http: HttpClient
   ) { }
 
-  public verificaTipo(pessoa:Pessoa, obj:Object){
-    if(pessoa.tipo == 0){
-      this.insertPessoa(pessoa);
-      this.insertAdministrador(obj);
-    }else if (pessoa.tipo == 1) {
-      this.insertPessoa(pessoa);
-    } else {
-      this.insertPessoa(pessoa);
-      this.insertGestor(obj);
-    }
-    
-  }
-
   public insertPessoa(pessoa:Pessoa): Observable<Pessoa>{
     
     var httpOptions = JsonDefault.getHeaders();
-    var jsonPessoa = JsonGenerate.getJson('',"Peassoa",'1',pessoa);
+    var jsonPessoa = JsonGenerate.getJson('',"Pessoa",'1',pessoa);
 
     console.log(jsonPessoa);
 
     return this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL+'/insert', jsonPessoa, httpOptions);
   }
 
-  public insertGestor(gestor:Object): Observable<Gestor>{
+  public insertGestor(gestor:Gestor): Observable<Gestor>{
     
     var httpOptions = JsonDefault.getHeaders();
     var jsonGestor = JsonGenerate.getJson('','Gestor','1',gestor);
@@ -49,12 +37,20 @@ export class PessoaFormService {
     return this.http.post<Gestor>(ConfigUrl.DEFAULT_URL+'/insert', jsonGestor, httpOptions);
   }
 
-  public insertAdministrador(administrador:Object): Observable<Administrador>{
+  public insertAdministrador(administrador:Administrador): Observable<Administrador>{
     
     var httpOptions = JsonDefault.getHeaders();
     var jsonAdministrador = JsonGenerate.getJson('','Administrador','1',administrador);
 
     return this.http.post<Administrador>(ConfigUrl.DEFAULT_URL+'/insert', jsonAdministrador, httpOptions);
+  }
+
+  public insertInvestidor(investidor:Investidor): Observable<Investidor>{
+    
+    var httpOptions = JsonDefault.getHeaders();
+    var jsonInvestidor = JsonGenerate.getJson('','Administrador','1',investidor);
+
+    return this.http.post<Investidor>(ConfigUrl.DEFAULT_URL+'/insert', jsonInvestidor, httpOptions);
   }
 
 }
