@@ -1,73 +1,74 @@
 
-<div class="investimento_content">
+<div class="div_investimento row">
+  
+  <div class="ui-md-offset-2 ui-md-4 form_ativos">
+        <label for="inputSenha" class="sr-only"></label>
+        <input  [(ngModel)]="transacaoDeposito.valor" name ="valor" type="number" id="inputValor" class="form-control" placeholder="Investir" required autofocus>
+        <input  [(ngModel)]="transacaoDeposito.datasaque" name ="datasaque" type="text" id="inputData" class="form-control" placeholder="Data saque" required autofocus>
+        <button  (click)="salvar()" type="submit" class="btn btn-lg btn-success btn-block">Investir</button>
+  </div>
 
-  <div class="div_investimento ui-md-6">
-    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-      <p-card>
-        <p-header class="card_header">
-          Saldo ativo
-        </p-header>
-        <h3 class="first"> R$ 5.000,00 </h3>
-  
-        <p-footer>
-            <!-- Footer content here -->
-        </p-footer>
-      </p-card>
-    </div>
-  
-  
-    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-      <p-card>
-        <p-header class="card_header">
-          Lucro esperado
-        </p-header>
-        <h3 class="first"> R$ 5.000,00 </h3>
-  
-        <p-footer>
-            <!-- Footer content here -->
-        </p-footer>
-      </p-card>
-    </div>
-  
-    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-      <p-card>
-        <p-header class="card_header">
-          Próximo saque
-        </p-header>
-        <h3 class="first"> R$ 7.000,00 </h3>
-  
-        <p-footer>
-            <!-- Footer content here -->
-        </p-footer>
-      </p-card>
-    </div>
-  
-    <div class="ui-g-12 ui-md-12 allign-right investimento_content">
-      <p-card>
-        <p-header class="card_header">
-          Próximo saque
-        </p-header>
-        <h3 class="first"> R$ 7.000,00 </h3>
-  
-        <p-footer>
-            <!-- Footer content here -->
-        </p-footer>
-      </p-card>
-    </div>
-  
-  
-   </div>
-    <div class="container ui-md-6">
-      <label for="inputSenha" class="sr-only"></label>
-      <input  [(ngModel)]="transacaoDeposito.valor" name ="valor" type="number" id="inputValor" class="form-control" placeholder="Investir" required autofocus>
-      <input  [(ngModel)]="transacaoDeposito.datasaque" name ="datasaque" type="text" id="inputData" class="form-control" placeholder="Data saque" required autofocus>
-      <button  (click)="salvar()" type="submit" class="btn btn-lg btn-success btn-block">Investir</button>
-    </div>
+  <div class = "ui-md-offset-2 ui-g-4 ui-md-4">
+    <div class="div_investimento">
 
-  <!-- <button [(ngModel)]="login.password" (click)="sacar()" type="submit" class="btn btn-lg btn-info btn-block">Sacar</button> -->
-  <app-tabela-investimentos></app-tabela-investimentos>
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <p-card>
+          <p-header class="card_header">
+            Saldo ativo
+          </p-header>
+          <h3 class="first"> R$ 5.000,00 </h3>
+    
+          <p-footer>
+              <!-- Footer content here -->
+          </p-footer>
+        </p-card>
+      </div>
+    
+    
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <p-card>
+          <p-header class="card_header">
+            Lucro esperado
+          </p-header>
+          <h3 class="first"> R$ 5.000,00 </h3>
+    
+          <p-footer>
+              <!-- Footer content here -->
+          </p-footer>
+        </p-card>
+      </div>
+    
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <p-card>
+          <p-header class="card_header">
+            Próximo saque
+          </p-header>
+          <h3 class="first"> R$ 7.000,00 </h3>
+    
+          <p-footer>
+              <!-- Footer content here -->
+          </p-footer>
+        </p-card>
+      </div>
+    
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <p-card>
+          <p-header class="card_header">
+            Próximo saque
+          </p-header>
+          <h3 class="first"> R$ 7.000,00 </h3>
+    
+          <p-footer>
+              <!-- Footer content here -->
+          </p-footer>
+        </p-card>
+      </div>
 
+    </div>
+  </div>
+  
 </div>
+
 
 
 
