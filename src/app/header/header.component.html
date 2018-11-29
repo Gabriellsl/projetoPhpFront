@@ -7,7 +7,7 @@
       
 
       <div class="col-md-4 col-sm-4 site_name text-center">
-        <a class="navbar-brand " href="#">Ultron</a>
+        <a class="navbar-brand " href="#">eXtreme Go Hourse</a>
       </div>
 
       <div class="col-md-2 col-sm-2 col-sm-offset-2 text-right text-white d-sm-none d-none d-lg-block">
@@ -17,10 +17,10 @@
         </div>
       </div>
 
-      <div class="col-md-2 col-sm-2 text-right text-white "> 
+      <div class="col-md-2 col-sm-2 text-right text-white " *ngIf="logado"> 
         <div class="em_linha">
             <div >
-                <button (click)="exit" class="btn btn-success">logout</button>   
+                <button (click)="logout()" class="btn btn-success">logout</button>   
             </div>
         </div>
       </div>

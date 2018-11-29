@@ -4,39 +4,39 @@ import { TransacaoService } from '../services/transacao.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-tabela-investimentos',
-  templateUrl: './tabela-investimentos.component.html',
-  styleUrls: ['./tabela-investimentos.component.css']
+  selector: 'app-tabela-sacados',
+  templateUrl: './tabela-sacados.component.html',
+  styleUrls: ['./tabela-sacados.component.css']
 })
-export class TabelaInvestimentosComponent implements OnInit {
+export class TabelaSacadosComponent implements OnInit {
 
   saque: Transacao={
     id_transacao: 0,
     id_investidor: 1,
     id_configtaxa:1,
-    tipo: '+',
+    tipo: '-',
     data: '',
     valor: 0,
     status: '',
     datasaque: '',
   }
 
-  saquesDisponiveis: Transacao[] = new Array;
+  sacados: Transacao[] = new Array;
   constructor(
     private transacaoService: TransacaoService
   ) { }
 
   ngOnInit() {
-    this.findSaquesDisponiveis();
+    this.findSacados();
   }
 
-  findSaquesDisponiveis(): void {
+  findSacados(): void {
     this.transacaoService.findSaques(this.saque).subscribe(
       x=>{
         for (let i = 1; i < x['config']['dados']; i++) {
-          this.saquesDisponiveis.push(x['dados'][i])
+          this.sacados.push(x['dados'][i])
         }
-        console.log(this.saquesDisponiveis)
+        alert("aaa")
       }
     )
 }

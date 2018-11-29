@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TransacaoService } from '../services/transacao.service';
 import { TabelaInvestimentosComponent } from '../tabela-investimentos/tabela-investimentos.component';
-
+import { TabelaSacadosComponent } from '../tabela-sacados/tabela-sacados.component';
 @Component({
   selector: 'app-investimento',
   templateUrl: './investimento.component.html',
@@ -29,17 +29,28 @@ export class InvestimentoComponent implements OnInit {
     status: 'ATIVO',
     datasaque: '2020-10-10',
   };
+  saque: Transacao={
+    id_transacao: 0,
+    id_investidor: 1,
+    id_configtaxa:1,
+    tipo: '+',
+    data: '',
+    valor: 0,
+    status: '',
+    datasaque: '',
+  }
 
+  saldoAtivo = 0;
 
   constructor(private http: HttpClient,
               private transacaoService: TransacaoService) { }
 
   ngOnInit() {
-    
+    this.calculaSaldoAtivo();
   }
 
 
-  salvar(): /*Observable<TransacaoDeposito>*/void {
+  public investir(): /*Observable<TransacaoDeposito>*/void {
 
       this.transacaoDeposito.status = 'ATIVO';
       this.transacaoDeposito.data = this.dataAtual();
@@ -56,9 +67,19 @@ export class InvestimentoComponent implements OnInit {
       );
 
   }
-  
 
-  dataAtual() {
+  public calculaSaldoAtivo(){
+    this.transacaoService.findSaques(this.saque).subscribe(
+      x=>{
+        for (let i = 1; i < x['config']['dados']; i++) {
+          this.saldoAtivo+=  parseFloat(x['dados'][i]['valor']);
+        }
+      }
+
+    );
+  }
+
+  private dataAtual() {
     var data = new Date();
     var dia = data.getDate();
     var mes = data.getMonth() + 1;
