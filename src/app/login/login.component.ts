@@ -28,16 +28,23 @@ export class LoginComponent implements OnInit {
   }
 
   logar(): void {
-    // this.loginService.autenticar(this.login).subscribe(x => {
-    this.router.navigate(['grafico']);
+    this.loginService.autenticar(this.login).subscribe(x => {
+    if(x["user"]["tipo"]  == "ADM" ){
+      this.router.navigate(['formulario']);
+    }else if(x["user"]["tipo"] == "INV"){
+      this.router.navigate(['investimento']);
+    }else if(x["user"]["tipo"] == "GES"){
+      this.router.navigate(['grafico']);
+    }
+    
     // localStorage.setItem('currentUser', JSON.stringify({
     //                                           "token":x["token"],
     //                                           "user":x["user"]
     //                                         }));
     
 
-    // },
-    // err=> alert("Erro no login"));
+    },
+    err=> alert("Erro no login"));
     
   }
 
