@@ -23,6 +23,9 @@ export class TransacaoDepositoService {
 
     var jsonTransacao= JsonGenerate.getJson('','Transacao','1',transacao);
 
+    console.log(jsonTransacao);
+
+
     return this.http.post<TransacaoDeposito>(ConfigUrl.DEFAULT_URL+'/insert', jsonTransacao, httpOptions)
 
   }
