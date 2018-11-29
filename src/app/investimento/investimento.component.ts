@@ -21,12 +21,13 @@ export class InvestimentoComponent implements OnInit {
 
   transacaoDeposito: TransacaoDeposito = {
     id_transacao: 0,
-    id_investidor: 0,
+    id_investidor: 1,
+    id_configtaxa:1,
     tipo: '+',
     data: this.dataAtual(),
-    valorinvestido: 0,
+    valor: 10,
     status: 'ATIVO',
-    datasaque: '',
+    datasaque: '2020-10-10',
   };
 
 
@@ -56,7 +57,7 @@ export class InvestimentoComponent implements OnInit {
 
       this.transacaoDepositoService.insertTransacao(this.transacaoDeposito).subscribe(
         x => {
-          
+          console.log(x);
         },
         err => {
           
@@ -74,7 +75,7 @@ export class InvestimentoComponent implements OnInit {
     var dia = data.getDate();
     var mes = data.getMonth() + 1;
     var ano = data.getFullYear();
-    return [dia, mes, ano].join('/');
+    return [ano,mes,dia].join('-');
 }
 
 teste(deposito: TransacaoDeposito){

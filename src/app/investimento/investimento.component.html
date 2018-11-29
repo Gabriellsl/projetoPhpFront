@@ -59,7 +59,7 @@
    </div>
     <div class="container ui-md-6">
       <label for="inputSenha" class="sr-only"></label>
-      <input  [(ngModel)]="transacaoDeposito.valorinvestido" name ="valor" type="number" id="inputValor" class="form-control" placeholder="Investir" required autofocus>
+      <input  [(ngModel)]="transacaoDeposito.valor" name ="valor" type="number" id="inputValor" class="form-control" placeholder="Investir" required autofocus>
       <input  [(ngModel)]="transacaoDeposito.datasaque" name ="datasaque" type="text" id="inputData" class="form-control" placeholder="Data saque" required autofocus>
       <button  (click)="salvar()" type="submit" class="btn btn-lg btn-success btn-block">Investir</button>
     </div>

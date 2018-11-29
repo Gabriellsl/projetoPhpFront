@@ -1,14 +1,15 @@
-export class TransacaoDeposito{
+export class Transacao{
 
     id_transacao: Number;
     id_investidor: Number;
     id_configtaxa: Number;
-    tipo: String;
+    tipo: Tipo;
     data: String;
     valor: Number;
-    status: String;
+    status: Status;
     datasaque: String;
 
-    //periodo: String;
-    //lucroEsperado: Number;
 }
+
+enum Tipo {"+","-"};
+enum Status {"ATIVO","INATIVO"};
