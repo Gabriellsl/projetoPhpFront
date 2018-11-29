@@ -13,6 +13,10 @@ import { TransacaoDepositoService } from '../services/transacao-deposito.service
   templateUrl: './investimento.component.html',
   styleUrls: ['./investimento.component.css']
 })
+
+
+
+
 export class InvestimentoComponent implements OnInit {
 
   transacaoDeposito: TransacaoDeposito = {
@@ -24,6 +28,16 @@ export class InvestimentoComponent implements OnInit {
     status: 'ATIVO',
     datasaque: '',
   };
+
+
+  depositos: TransacaoDeposito[] = [
+    { id_transacao: 1, id_investidor: 1, tipo:'+' , data: '10/10/1992', valorinvestido: 2500, status: 'Ativo',datasaque: '10/10/2020'},
+    { id_transacao: 2, id_investidor: 2, tipo:'+' , data: '12/10/1992', valorinvestido: 3500, status: 'Ativo',datasaque: '12/10/2020'},
+    { id_transacao: 3, id_investidor: 3, tipo:'+' , data: '14/10/1992', valorinvestido: 4500, status: 'Ativo',datasaque: '14/10/2020'},
+    { id_transacao: 4, id_investidor: 4, tipo:'+' , data: '16/10/1992', valorinvestido: 5500, status: 'Ativo',datasaque: '16/10/2020'},
+    { id_transacao: 5, id_investidor: 5, tipo:'+' , data: '18/10/1992', valorinvestido: 6500, status: 'Ativo',datasaque: '18/10/2020'},
+    
+  ];
 
 
   constructor(private http: HttpClient,
@@ -63,11 +77,20 @@ export class InvestimentoComponent implements OnInit {
     return [dia, mes, ano].join('/');
 }
 
+teste(deposito: TransacaoDeposito){
+  
+  
+  console.log(deposito.id_transacao);
+}
+
+
+
 
 
 }
 
   
+
   
     
 
