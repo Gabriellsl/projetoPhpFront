@@ -8,6 +8,7 @@
 
 .div_investimento{
     width: 40vw;
+    margin-top: 50px;
 }
 
 /* .div_gerencia{
@@ -16,7 +17,7 @@
 
 
 .investimento_content{
-    widows: 100vw;
+    width: 100%;
 }
 .container_transacao{
     
