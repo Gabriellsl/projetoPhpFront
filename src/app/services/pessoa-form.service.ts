@@ -33,8 +33,6 @@ export class PessoaFormService {
     var httpOptions = JsonDefault.getHeaders();
     var jsonGestor = JsonGenerate.getJson('','Gestor','1',gestor);
 
-    console.log(jsonGestor);
-
     return this.http.post<Gestor>(ConfigUrl.DEFAULT_URL+'/insert', jsonGestor, httpOptions);
   }
 
