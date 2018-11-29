@@ -1,0 +1,32 @@
+<div class=" form_vendas">
+  <form action="/servidor/salvar" method="post" disabled="" class="ls-form-text">
+    <input type="hidden" name="token" value="ehOCabraMesmo">
+    <table class="table ls-table table-striped">
+      <thead>
+        <tr>
+          <th class="hidden-xs">Valor investido</th>
+          <th>Data depósito</th>
+          <th class="hidden-xs">data saque</th>
+          <th class="ls-table-actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let saque of saquesDisponiveis">
+
+
+          <td>{{saque.valor}}</td>
+          <td>{{saque.data}}</td>
+          <td>{{saque.datasaque}}</td>
+          <td>
+            <!-- <a  (click)="teste(deposito)" data-confirm-text="Confirma exclusão do item?" class="text-danger">
+              Excluir
+            </a> -->
+            <button (click)="solicitarSaque(deposito)" class="bbtn btn-success">CU</button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </form>
+</div>
+

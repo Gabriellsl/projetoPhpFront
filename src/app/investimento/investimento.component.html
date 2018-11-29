@@ -67,49 +67,9 @@
     </div>
   </div>
   
-
-
-  
 </div>
 
 
-<div class="row div_investimento">
-  <div class="ui-md-4" >
-      <div class="form_vendas">
-          <form action="/servidor/salvar" method="post" disabled="" class="ls-form-text">
-            <input type="hidden" name="token" value="ehOCabraMesmo">
-            <table class="table ls-table table-striped">
-              <thead>
-                <tr>
-                  <th class="hidden-xs">Valor investido</th>
-                  <th>Data depósito</th>
-                  <th class="hidden-xs">data saque</th>
-                  <th class="ls-table-actions"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let deposito of depositos">
-        
-        
-                  <td>{{deposito.valorinvestido}}</td>
-                  <td>{{deposito.data}}</td>
-                  <td>{{deposito.data}}</td>
-                  <td>
-                    <!-- <a  (click)="teste(deposito)" data-confirm-text="Confirma exclusão do item?" class="text-danger">
-                      Excluir
-                    </a> -->
-                    <button (click)="teste(deposito)" class="bbtn btn-success">sacar</button>
-                  </td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </form>
-        </div>
-        
-  </div>
-
-</div>
 
 
 

@@ -6,7 +6,7 @@ import { ConfigUrl } from '../configUrl';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TransacaoService } from '../services/transacao.service';
-
+import { TabelaInvestimentosComponent } from '../tabela-investimentos/tabela-investimentos.component';
 
 @Component({
   selector: 'app-investimento',
@@ -30,24 +30,12 @@ export class InvestimentoComponent implements OnInit {
     datasaque: '2020-10-10',
   };
 
-  saque: Transacao={
-    id_transacao: 0,
-    id_investidor: 1,
-    id_configtaxa:1,
-    tipo: '+',
-    data: '',
-    valor: new Number,
-    status: '',
-    datasaque: '',
-  }
-
-  saquesDisponiveis: Transacao[] = new Array;
 
   constructor(private http: HttpClient,
               private transacaoService: TransacaoService) { }
 
   ngOnInit() {
-    this.findSaquesDisponiveis();
+    
   }
 
 
@@ -69,15 +57,6 @@ export class InvestimentoComponent implements OnInit {
 
   }
   
-  findSaquesDisponiveis(): void {
-      this.transacaoService.findSaques(this.saque).subscribe(
-        x=>{
-          for (let i = 0; i < x['config']['dados']; i++) {
-            this.saquesDisponiveis.push(x['dados'][i])
-          }
-        }
-      )
-  }
 
   dataAtual() {
     var data = new Date();
