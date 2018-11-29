@@ -12,4 +12,4 @@ export class Transacao{
 }
 
 enum Tipo {"+","-"};
-enum Status {"ATIVO","INATIVO"}
+enum Status {"ATIVO","INATIVO"};
