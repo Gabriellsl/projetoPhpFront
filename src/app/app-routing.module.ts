@@ -4,6 +4,7 @@ import { PessoaformComponent } from './pessoaform/pessoaform.component';
 import { LoginComponent} from './login/login.component';
 import { GraficoComponent} from './grafico/grafico.component';
 import { InvestimentoComponent} from './investimento/investimento.component';
+import { GestaoComponent } from './gestao/gestao.component';
 
 const routes: Routes= [
   { path: 'login', component: LoginComponent},
@@ -11,6 +12,7 @@ const routes: Routes= [
   { path: 'grafico', component: GraficoComponent},
   { path: 'investimento', component: InvestimentoComponent},
   { path: '', redirectTo: '/login', pathMatch:'full'},
+  { path: 'gestao', component: GestaoComponent},
 ];
 
 @NgModule({

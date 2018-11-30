@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 import {ChartModule} from 'primeng/chart';
 import { GraficoComponent } from './grafico/grafico.component';
 import { TabelaInvestimentosComponent } from './tabela-investimentos/tabela-investimentos.component';
+import { GestaoComponent } from './gestao/gestao.component';
 
 // import { MessageService } from 'primeng/api';
 // import { ToastModule } from 'primeng/toast';
@@ -34,6 +35,7 @@ import { TabelaInvestimentosComponent } from './tabela-investimentos/tabela-inve
     InvestimentoComponent,
     GraficoComponent,
     TabelaInvestimentosComponent,
+    GestaoComponent,
  
   ],
   imports: [
