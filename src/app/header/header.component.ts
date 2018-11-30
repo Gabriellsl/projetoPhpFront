@@ -10,6 +10,7 @@ import { LoginService } from '../services/login.service';
 export class HeaderComponent implements OnInit {
 
    nome = this.getActualUser();
+   logado = this.isLogado();
 
 
   constructor(private loginService: LoginService) { }
@@ -26,9 +27,17 @@ export class HeaderComponent implements OnInit {
       return JSON.parse(localStorage.getItem('currentUser'))['user']['nome'];
   }
 
-  exit(): void {
-    this.loginService.logout();
-    localStorage.removeItem('currentUser');
+  private isLogado(){
+    
+    if(localStorage.getItem('currentUser'))
+      return true;
+    return false;
+  }
+  
+  logout(): void {
+    var token = JSON.parse( localStorage.getItem('currentUser'));
+    this.loginService.logout(token['token']);
+    localStorage.clear();
   }
 
 }

@@ -1,0 +1,26 @@
+<div class=" form_vendas">
+    <form action="/servidor/salvar" method="post" disabled="" class="ls-form-text">
+      <table class="table ls-table table-striped">
+        <thead>
+          <tr>
+            <th class="hidden-xs">Valor investido</th>
+            <th>Data depósito</th>
+            <th class="hidden-xs">data saque</th>
+            <th class="ls-table-actions"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let saque of sacados">
+            <td>{{saque.valor}}</td>
+            <td>{{saque.data}}</td>
+            <td>{{saque.datasaque}}</td>
+            <td>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </form>
+  </div>
+  
+  

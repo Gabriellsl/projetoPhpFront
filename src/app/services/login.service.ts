@@ -37,10 +37,10 @@ export class LoginService {
   }
 
 
-  logout(){
-    //var jsonSelectUser = JsonGenerate.getJson('','Pessoa','',pessoa);
-    //var httpOptions = JsonDefault.getHeaders();
-    //this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL+"/logout", jsonSelectUser, httpOptions);
+  logout(token:string){
+     var jsonLogout = JsonGenerate.getJson(token,'','',null);
+     var httpOptions = JsonDefault.getHeaders();
+     this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL+"/logout", jsonLogout, httpOptions);
   }
 
 }

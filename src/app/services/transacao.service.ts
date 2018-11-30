@@ -22,10 +22,6 @@ export class TransacaoService {
     };
 
     var jsonTransacao= JsonGenerate.getJson('','Transacao','1',transacao);
-
-    console.log(jsonTransacao);
-
-
     return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/insert', jsonTransacao, httpOptions)
 
   }
@@ -36,10 +32,6 @@ export class TransacaoService {
     };
 
     var jsonSaque= JsonGenerate.getJson('','Transacao','1',saque);
-
-    console.log(jsonSaque);
-
-
     return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/findbyatributes', jsonSaque, httpOptions)
 
   }
