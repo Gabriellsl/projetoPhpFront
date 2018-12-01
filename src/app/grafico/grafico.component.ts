@@ -217,6 +217,7 @@ public comprarAcao(){
   this.valorAcaoUpdate();
   this.acaoCompra.valorcompra = this.valorAcaoSelecionada;
   this.gestaoService.comprarAcao(this.acaoCompra, this.quantidadeAcoes).subscribe(
+
     x=>console.log(x)
   )
 }

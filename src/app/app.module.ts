@@ -24,6 +24,7 @@ import { GestaoComponent } from './gestao/gestao.component';
 import { TabelaSacadosComponent } from './tabela-sacados/tabela-sacados.component';
 import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-acoes.component';
 import {CalendarModule} from 'primeng/calendar';
+import {SidebarModule} from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {CalendarModule} from 'primeng/calendar';
     CommonModule,
     ChartModule,
     SpinnerModule,
-    CalendarModule
+    CalendarModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

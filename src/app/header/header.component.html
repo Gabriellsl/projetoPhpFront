@@ -2,7 +2,14 @@
   <div class="row">
     <nav class="navbar fixed-top navbar-light bg-dark">
       <div class="col-md-4 col-sm-4 text-white">
-        MENU
+        <p-sidebar [(visible)]="display">
+          Desenvolvedores: 
+            <br><br>- Yobunaga Boniolo
+            <br>- Gabriel Lenin
+            <br>- Willian de Oliveira
+        </p-sidebar>
+        <button type="text" (click)="display = true" pButton icon="pi pi-bars">
+        </button>
       </div>
       
 

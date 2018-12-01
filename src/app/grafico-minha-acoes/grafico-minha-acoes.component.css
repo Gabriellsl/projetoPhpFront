@@ -1,0 +1,24 @@
+/* .grafico_content{
+    width: 60%;
+    height: 30%;
+    
+} */
+
+.dashboardVendas{
+     margin-top: 90px;   /* excluir */
+    width: 100%;
+}
+
+.compra_acao{
+
+}
+
+.botao_compra{
+    margin-top: 10px;
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+.spiner_content{
+    
+}
