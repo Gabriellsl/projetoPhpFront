@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Chart} from 'chart.js'
 import { GraficoService } from '../services/grafico.service';
 import { DadosAPI1 } from '../model/dadosAPI1';
+import {SelectItem} from 'primeng/api'; // para tabela de compra de ações
 
 @Component({
   selector: 'app-grafico',
@@ -10,7 +11,17 @@ import { DadosAPI1 } from '../model/dadosAPI1';
 })
 export class GraficoComponent implements OnInit {
 
-  constructor(private graficoService: GraficoService) { }
+  
+
+  constructor(private graficoService: GraficoService) {
+    this.acoesCompra = [
+      {label:"BAEDU",value:{id:1, name: 'BIDU', code: 'BIDU'}},
+      {label:"MICROSOFT",value:{id:1, name: 'MSFT', code: 'MSFT'}},
+      {label:"SONY",value:{id:1, name: 'SNE', code: 'SNE'}},
+      {label:"XIOMI",value:{id:1, name: 'XIACY', code: 'XIACY'}}
+    ];
+    console.log(this.acoesCompra);
+   }
 
 
   data: Chart;
@@ -25,6 +36,8 @@ export class GraficoComponent implements OnInit {
   promise:any;
   contador:number;
   acoes:string[] = new Array();
+  acoesCompra: SelectItem[];  // Array de ações para comprar
+  acaoSelecionada: string;   // utilizada pelo combobox para receber o nome da ação.
 
 
   ngOnInit() {
@@ -157,6 +170,19 @@ findData4(acao4:string){
  })
 }
 
+
+buyAction(){
+  console.log(this.acaoSelecionada["code"]);
+}
+
+
+
+
+
+
+
+
+
 //   findDataUpdate(acao1:string){
     
 //     this.graficoService.findData(acao1).subscribe(
@@ -250,3 +276,4 @@ findData4(acao4:string){
 
   
 }
+

@@ -1,5 +1,16 @@
-<button (click)="logar()" type="submit" class="btn btn-lg btn-success btn-block">Entrar</button>
+<div class="row dashboard">
+    <div class="grafico_content col-md-6">
+        <canvas id='pie' ></canvas>
+    </div>
 
-<div>
-  <canvas id='pie' ></canvas>
+    <div class="col-md-6">
+      <div class="compra_acao">
+          <h6>Selecione uma ação para comprar: </h6>
+          <p-dropdown [options]="acoesCompra" [(ngModel)]="acaoSelecionada"></p-dropdown>
+          <div class=" botao_compra">
+              <button (click)="buyAction()" type="submit" class="btn btn-lg btn-success btn-block">Comprar</button>
+          </div>
+      </div>
+    </div>
 </div>
+
