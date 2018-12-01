@@ -30,7 +30,7 @@ export class InvestimentoComponent implements OnInit {
     data: this.dataAtual(),
     valor: 10,
     status: 'ATIVO',
-    datasaque: '',
+    datasaque: '2010-10-10',
   };
   saque: Transacao={
     id_transacao: 0,
@@ -53,15 +53,16 @@ export class InvestimentoComponent implements OnInit {
     this.minDate = new Date();
     this.minDate.setMonth(11);
     this.minDate.setFullYear(2018);
+    
   }
 
 
   public investir(): /*Observable<TransacaoDeposito>*/void {
 
-      this.transacaoDeposito.status = 'ATIVO';
-      this.transacaoDeposito.data = this.dataAtual();
-      this.transacaoDeposito.tipo = "+";
+    console.log(this.transacaoDeposito);
 
+    this.transacaoDeposito.datasaque = '2010-10-10';
+    
 
       this.transacaoService.insertTransacao(this.transacaoDeposito).subscribe(
         x => {

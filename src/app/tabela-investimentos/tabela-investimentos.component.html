@@ -13,7 +13,7 @@
         <tr *ngFor="let deposito of depositosEfetuados">
 
 
-          <td>{{deposito.valor}}</td>
+          <td>{{(deposito.valor*1).toFixed(2).toLocaleString('pt-BR')}}</td>
           <td>{{deposito.data}}</td>
           <td>{{deposito.datasaque}}</td>
           <td>
