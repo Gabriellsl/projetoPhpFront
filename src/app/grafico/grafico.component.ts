@@ -4,6 +4,7 @@ import { GraficoService } from '../services/grafico.service';
 import { DadosAPI1 } from '../model/dadosAPI1';
 import {SelectItem} from 'primeng/api'; // para tabela de compra de ações
 
+
 @Component({
   selector: 'app-grafico',
   templateUrl: './grafico.component.html',
@@ -15,6 +16,7 @@ export class GraficoComponent implements OnInit {
 
   constructor(private graficoService: GraficoService) {
     this.acoesCompra = [
+      {label:'Selecione...', value:null},
       {label:"BAEDU",value:{id:1, name: 'BIDU', code: 'BIDU'}},
       {label:"MICROSOFT",value:{id:1, name: 'MSFT', code: 'MSFT'}},
       {label:"SONY",value:{id:1, name: 'SNE', code: 'SNE'}},
@@ -36,8 +38,10 @@ export class GraficoComponent implements OnInit {
   promise:any;
   contador:number;
   acoes:string[] = new Array();
-  acoesCompra: SelectItem[];  // Array de ações para comprar
-  acaoSelecionada: string;   // utilizada pelo combobox para receber o nome da ação.
+  acoesCompra: SelectItem[];   // Array de ações para comprar
+  acaoSelecionada: string;     // utilizada pelo combobox para receber o nome da ação.
+  quantidadeAcoes: number;     // Coleta a quantidade de ações que serão compradas.
+  valorAcaoSelecionada: number           // valor total da compra ! 
 
 
   ngOnInit() {
@@ -45,6 +49,7 @@ export class GraficoComponent implements OnInit {
     this.acoes.push("BIDU","MSFT","SNE","XIACY");
     this.startGrafico();
     this.findData1(this.acoes[0]);   
+    this.acaoSelecionada = this.acoesCompra[0]["code"];
     
   }
 
@@ -173,8 +178,28 @@ findData4(acao4:string){
 
 buyAction(){
   console.log(this.acaoSelecionada["code"]);
+  
+  alert("Voce comprou"+this.quantidadeAcoes);
 }
 
+valorAcaoUpdate(){
+  try {
+    if(this.acaoSelecionada["code"] == "BIDU"){
+      this.valorAcaoSelecionada = this.data1["30"];
+    }else if(this.acaoSelecionada["code"] == "MSFT"){
+      this.valorAcaoSelecionada = this.data2["30"];
+    }else if(this.acaoSelecionada["code"] == "SNE"){
+      this.valorAcaoSelecionada = this.data3["30"];
+    }else if(this.acaoSelecionada["code"] == "XIACY"){
+      this.valorAcaoSelecionada = this.data4["30"];
+    }
+  } catch (error) {
+    
+  }
+  
+}
+
+//"BIDU","MSFT","SNE","XIACY
 
 
 

@@ -6,11 +6,19 @@
     <div class="col-md-6">
       <div class="compra_acao">
           <h6>Selecione uma ação para comprar: </h6>
-          <p-dropdown [options]="acoesCompra" [(ngModel)]="acaoSelecionada"></p-dropdown>
-          <div class=" botao_compra">
-              <button (click)="buyAction()" type="submit" class="btn btn-lg btn-success btn-block">Comprar</button>
-          </div>
-      </div>
+                <div class="col-md-4">
+                        <p-dropdown (click)="valorAcaoUpdate()" [options]="acoesCompra" [(ngModel)]="acaoSelecionada"></p-dropdown>
+                        <div class="ui-spinner spiner_content">
+                                <h6>Quantidade:</h6>
+                                <p-spinner [placeholder]="Quantidade" [(ngModel)]="quantidadeAcoes" size="10" [min]="0" [max]="1000000"></p-spinner>
+                        </div>
+                        <p>Valor total: {{valorAcaoSelecionada * quantidadeAcoes}}</p>
+                        <div class=" botao_compra">
+                            <button (click)="buyAction()" type="submit" class="btn btn-lg btn-success btn-block">Comprar</button>
+                        </div>
+                </div>
+                
+        </div>
     </div>
 </div>
 
