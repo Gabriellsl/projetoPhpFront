@@ -23,6 +23,7 @@ import { TabelaInvestimentosComponent } from './tabela-investimentos/tabela-inve
 import { GestaoComponent } from './gestao/gestao.component';
 import { TabelaSacadosComponent } from './tabela-sacados/tabela-sacados.component';
 import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-acoes.component';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-
     AppRoutingModule,
     CommonModule,
     ChartModule,
-    SpinnerModule
+    SpinnerModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

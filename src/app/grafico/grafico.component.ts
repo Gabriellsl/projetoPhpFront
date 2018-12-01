@@ -46,8 +46,8 @@ export class GraficoComponent implements OnInit {
   acoes:string[] = new Array();
   acoesCompra: SelectItem[];   // Array de ações para comprar
   acaoSelecionada: string;     // utilizada pelo combobox para receber o nome da ação.
-  quantidadeAcoes: number;     // Coleta a quantidade de ações que serão compradas.
-  valorAcaoSelecionada: number           // valor total da compra ! 
+  quantidadeAcoes = 2;     // Coleta a quantidade de ações que serão compradas.
+  valorAcaoSelecionada = 2;           // valor total da compra ! 
 
   acaoCompra: Acao={
     id_acao: 0,
@@ -57,7 +57,7 @@ export class GraficoComponent implements OnInit {
     tipo: '',
     rendimento: 0,
     status: 'ATIVO',
-    valorcompra: 0,
+    valorcompra : this.valorAcaoSelecionada,
     datacompra: '',
     datavenda: ''
   };
@@ -65,8 +65,8 @@ export class GraficoComponent implements OnInit {
   ngOnInit() {
     
     this.acoes.push("BIDU","MSFT","SNE","XIACY");
-    this.startGrafico();
-    this.findData1(this.acoes[0]);   
+     this.startGrafico();
+     this.findData1(this.acoes[0]);   
     this.acaoSelecionada = this.acoesCompra[0]["code"];
     
   }
@@ -194,13 +194,6 @@ findData4(acao4:string){
 }
 
 
-private selecionarAcao(){
-  
-  this.acaoCompra.descricao = "this.acaoSelecionada";
-  this.acaoCompra.valorcompra = 5;
-
-}
-
 valorAcaoUpdate(){
   try {
     if(this.acaoSelecionada["code"] == "BIDU"){
@@ -221,9 +214,9 @@ valorAcaoUpdate(){
 //"BIDU","MSFT","SNE","XIACY
 
 public comprarAcao(){
-  this.selecionarAcao();
-  var qtd = 5;
-  this.gestaoService.comprarAcao(this.acaoCompra, qtd).subscribe(
+  this.valorAcaoUpdate();
+  this.acaoCompra.valorcompra = this.valorAcaoSelecionada;
+  this.gestaoService.comprarAcao(this.acaoCompra, this.quantidadeAcoes).subscribe(
     x=>console.log(x)
   )
 }

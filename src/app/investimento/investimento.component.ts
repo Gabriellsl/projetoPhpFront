@@ -8,16 +8,19 @@ import { Observable } from 'rxjs';
 import { TransacaoService } from '../services/transacao.service';
 import { TabelaInvestimentosComponent } from '../tabela-investimentos/tabela-investimentos.component';
 import { TabelaSacadosComponent } from '../tabela-sacados/tabela-sacados.component';
+
 @Component({
   selector: 'app-investimento',
   templateUrl: './investimento.component.html',
   styleUrls: ['./investimento.component.css']
 })
 
-
+  
 
 
 export class InvestimentoComponent implements OnInit {
+
+  minDate:Date;
 
   transacaoDeposito: Transacao = {
     id_transacao: 0,
@@ -27,7 +30,7 @@ export class InvestimentoComponent implements OnInit {
     data: this.dataAtual(),
     valor: 10,
     status: 'ATIVO',
-    datasaque: '2020-10-10',
+    datasaque: '',
   };
   saque: Transacao={
     id_transacao: 0,
@@ -47,6 +50,9 @@ export class InvestimentoComponent implements OnInit {
 
   ngOnInit() {
     this.calculaSaldoAtivo();
+    this.minDate = new Date();
+    this.minDate.setMonth(11);
+    this.minDate.setFullYear(2018);
   }
 
 
