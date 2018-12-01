@@ -6,8 +6,6 @@ import {SelectItem} from 'primeng/api'; // para tabela de compra de ações
 import { Acao } from '../model/acao';
 import { GestaoService } from '../services/gestao.service';
 
-
-
 @Component({
   selector: 'app-grafico',
   templateUrl: './grafico.component.html',
@@ -21,6 +19,7 @@ export class GraficoComponent implements OnInit {
     private graficoService: GraficoService,
     private gestaoService: GestaoService
     ) {
+
     this.acoesCompra = [
       {label:'Selecione...', value:null},
       {label:"BAEDU",value:{id:1, name: 'BIDU', code: 'BIDU'}},
@@ -216,6 +215,8 @@ valorAcaoUpdate(){
 public comprarAcao(){
   this.valorAcaoUpdate();
   this.acaoCompra.valorcompra = this.valorAcaoSelecionada;
+  this.acaoCompra.status='ATIVO';
+  this.acaoCompra.descricao=this.acaoSelecionada["code"];
   this.gestaoService.comprarAcao(this.acaoCompra, this.quantidadeAcoes).subscribe(
 
     x=>console.log(x)
