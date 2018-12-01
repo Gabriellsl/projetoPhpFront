@@ -4,7 +4,7 @@ import { DadosAPI1 } from '../model/dadosAPI1';
 import { GraficoService } from '../services/grafico.service';
 
 @Component({
-  selector: 'app-grafico-minhas-acoes',
+  selector: 'app-grafico-minha-acoes',
   templateUrl: './grafico-minha-acoes.component.html',
   styleUrls: ['./grafico-minha-acoes.component.css']
 })
@@ -45,7 +45,7 @@ export class GraficoMinhaAcoesComponent implements OnInit {
   }
 
    findData(){
-     this.graficoService.findData().subscribe(
+     this.graficoService.findData("apagar").subscribe(
       (x) => {
           
         
@@ -54,7 +54,7 @@ export class GraficoMinhaAcoesComponent implements OnInit {
 
   findDataUpdate(){
     
-    this.graficoService.findData().subscribe(
+    this.graficoService.findData("apagar").subscribe(
      (x) => {
       
         

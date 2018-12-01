@@ -14,7 +14,6 @@ export class JsonGenerate{
             token = JSON.parse(localStorage.getItem('currentUser'))['token'];
         }
 
-        
         return JSON.stringify(
             {
                 config:JsonDefault.config(token, classe, dados),
@@ -22,7 +21,15 @@ export class JsonGenerate{
                     1:object
                     }
             }
-        );
-    }
+        );        
 
+    
+}
+public static arrayAcoes = [];
+
+public static getAcoes(acao1:string, acao2:string, acao3:string, acao4:string){
+    var arrayAcoes = [];
+    arrayAcoes.push(acao1,acao2,acao3,acao4);
+    return arrayAcoes;
+}
 }
