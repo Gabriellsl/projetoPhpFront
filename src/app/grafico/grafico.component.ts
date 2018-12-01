@@ -30,8 +30,12 @@ export class GraficoComponent implements OnInit {
   ngOnInit() {
     
     this.acoes.push("BIDU","MSFT","SNE","XIACY");
-    this.findData1(this.acoes[1]);
-    //this.findData2(this.acoes[3]);
+    this.startGrafico();
+    this.findData1(this.acoes[0]);
+    this.findData2(this.acoes[1]);
+    this.findData3(this.acoes[2]);
+    this.findData4(this.acoes[3]);
+    
     
   }
 
@@ -103,70 +107,55 @@ export class GraficoComponent implements OnInit {
    findData1(acao1:string){
      this.graficoService.findData(acao1).subscribe(
       (x) => {
-        console.log(this.acoes);
-        console.log(x);
+        let i =0;
           for(var y in x['Time Series (5min)']){
             this.data1.push(x['Time Series (5min)'][y]["1. open"]);
             this.labels.push("");
-            console.log(this.data1);
+            if(i==30)break;
+            i++;
         }
-        
-        
-        setInterval(x=>this.findDataUpdate1(acao1), 1000*100);
     })
-    this.startGrafico();
+    this.data.update()
   }
 
   findData2(acao2:string){
     this.graficoService.findData(acao2).subscribe(
      (x) => {
-       console.log(x);
+      let i =0;
          for(var y in x['Time Series (5min)']){
            this.data2.push(x['Time Series (5min)'][y]["1. open"]);
-           this.labels.push("");
-           console.log(this.data2);
+           if(i==30)break;
+            i++;
        }
-       
-       
-       setInterval(x=>this.findDataUpdate2(acao2), 1000*100);
+       this.data.update()
    })
  }
 
  findData3(acao3:string){
   this.graficoService.findData(acao3).subscribe(
    (x) => {
-     console.log(x);
+    let i =0;
        for(var y in x['Time Series (5min)']){
-         this.data1.push(x['Time Series (5min)'][y]["1. open"]);
-         this.data2.push(x['Time Series (5min)'][y]["2. high"]);
-         this.data3.push(x['Time Series (5min)'][y]["3. low"]);
-         this.data4.push(x['Time Series (5min)'][y]["4. close"]);
-         this.data5.push(x['Time Series (5min)'][y]["5. volume"]);
-         this.labels.push("");
-         console.log(this.data1);
+         this.data3.push(x['Time Series (5min)'][y]["1. open"]);
+         if(i==30)break;
+            i++;
      }
-     
-     this.startGrafico();
-     setInterval(x=>this.findDataUpdate3(acao3), 1000*100);
+     this.data.update()
  })
 }
 
 findData4(acao4:string){
   this.graficoService.findData(acao4).subscribe(
    (x) => {
-     console.log(x);
+    let i =0;
        for(var y in x['Time Series (5min)']){
-         this.data1.push(x['Time Series (5min)'][y]["1. open"]);
-         this.data2.push(x['Time Series (5min)'][y]["2. high"]);
-         this.data3.push(x['Time Series (5min)'][y]["3. low"]);
-         this.data4.push(x['Time Series (5min)'][y]["4. close"]);
-         this.data5.push(x['Time Series (5min)'][y]["5. volume"]);
-         this.labels.push("");
-         console.log(this.data1);
+         this.data4.push(x['Time Series (5min)'][y]["1. open"]);
+         if(i==30)break;
+            i++;
      }
      
-     this.startGrafico();
-     setInterval(x=>this.findDataUpdate4(acao4), 1000*100);
+     this.data.update()
+     //setInterval(x=>this.findDataUpdate4(acao4), 1000*100);
  })
 }
 

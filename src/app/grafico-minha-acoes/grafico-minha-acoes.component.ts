@@ -45,7 +45,7 @@ export class GraficoMinhaAcoesComponent implements OnInit {
   }
 
    findData(){
-     this.graficoService.findData("apagar").subscribe(
+     this.graficoService.findData("s").subscribe(
       (x) => {
           
         
@@ -54,7 +54,7 @@ export class GraficoMinhaAcoesComponent implements OnInit {
 
   findDataUpdate(){
     
-    this.graficoService.findData("apagar").subscribe(
+    this.graficoService.findData("s").subscribe(
      (x) => {
       
         
