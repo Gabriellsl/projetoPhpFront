@@ -8,10 +8,11 @@ import { HeaderComponent } from './header/header.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component'; // PRIME NG
+import { LoginComponent } from './login/login.component'; // Prime ng
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { CardModule } from 'primeng/card'; // Prime ng
-import { DropdownModule } from 'primeng/dropdown'; // Prime 
+import { DropdownModule } from 'primeng/dropdown'; // Prime ng
+import {SpinnerModule} from 'primeng/spinner'; // Prime ng
 import { PessoaformComponent } from './pessoaform/pessoaform.component';
 import { InvestimentoComponent } from './investimento/investimento.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -35,7 +36,8 @@ import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-
     TabelaInvestimentosComponent,
     GestaoComponent,
     TabelaSacadosComponent,
-    GraficoMinhaAcoesComponent,
+    GraficoMinhaAcoesComponent
+   
  
   ],
   imports: [
@@ -48,7 +50,8 @@ import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-
     DropdownModule,
     AppRoutingModule,
     CommonModule,
-    ChartModule
+    ChartModule,
+    SpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ import { Acao } from '../model/acao';
 import { GestaoService } from '../services/gestao.service';
 
 
+
 @Component({
   selector: 'app-grafico',
   templateUrl: './grafico.component.html',
@@ -21,6 +22,7 @@ export class GraficoComponent implements OnInit {
     private gestaoService: GestaoService
     ) {
     this.acoesCompra = [
+      {label:'Selecione...', value:null},
       {label:"BAEDU",value:{id:1, name: 'BIDU', code: 'BIDU'}},
       {label:"MICROSOFT",value:{id:2, name: 'MSFT', code: 'MSFT'}},
       {label:"SONY",value:{id:3, name: 'SNE', code: 'SNE'}},
@@ -42,8 +44,10 @@ export class GraficoComponent implements OnInit {
   promise:any;
   contador:number;
   acoes:string[] = new Array();
-  acoesCompra: SelectItem[];  // Array de ações para comprar
-  acaoSelecionada: string;   // utilizada pelo combobox para receber o nome da ação.
+  acoesCompra: SelectItem[];   // Array de ações para comprar
+  acaoSelecionada: string;     // utilizada pelo combobox para receber o nome da ação.
+  quantidadeAcoes: number;     // Coleta a quantidade de ações que serão compradas.
+  valorAcaoSelecionada: number           // valor total da compra ! 
 
   acaoCompra: Acao={
     id_acao: 0,
@@ -61,8 +65,9 @@ export class GraficoComponent implements OnInit {
   ngOnInit() {
     
     this.acoes.push("BIDU","MSFT","SNE","XIACY");
-   // this.startGrafico();
-    //this.findData1(this.acoes[0]);   
+    this.startGrafico();
+    this.findData1(this.acoes[0]);   
+    this.acaoSelecionada = this.acoesCompra[0]["code"];
     
   }
 
@@ -195,6 +200,25 @@ private selecionarAcao(){
   this.acaoCompra.valorcompra = 5;
 
 }
+
+valorAcaoUpdate(){
+  try {
+    if(this.acaoSelecionada["code"] == "BIDU"){
+      this.valorAcaoSelecionada = this.data1["30"];
+    }else if(this.acaoSelecionada["code"] == "MSFT"){
+      this.valorAcaoSelecionada = this.data2["30"];
+    }else if(this.acaoSelecionada["code"] == "SNE"){
+      this.valorAcaoSelecionada = this.data3["30"];
+    }else if(this.acaoSelecionada["code"] == "XIACY"){
+      this.valorAcaoSelecionada = this.data4["30"];
+    }
+  } catch (error) {
+    
+  }
+  
+}
+
+//"BIDU","MSFT","SNE","XIACY
 
 public comprarAcao(){
   this.selecionarAcao();
