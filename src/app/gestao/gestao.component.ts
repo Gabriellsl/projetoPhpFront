@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GestaoService } from '../services/gestao.service';
 
 @Component({
   selector: 'app-gestao',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestaoComponent implements OnInit {
 
-  constructor() { }
+  constructor( private gestaoService:GestaoService) { }
 
   ngOnInit() {
   }

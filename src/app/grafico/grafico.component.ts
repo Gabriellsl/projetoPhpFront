@@ -31,11 +31,7 @@ export class GraficoComponent implements OnInit {
     
     this.acoes.push("BIDU","MSFT","SNE","XIACY");
     this.startGrafico();
-    this.findData1(this.acoes[0]);
-    this.findData2(this.acoes[1]);
-    this.findData3(this.acoes[2]);
-    this.findData4(this.acoes[3]);
-    
+    this.findData1(this.acoes[0]);   
     
   }
 
@@ -115,7 +111,8 @@ export class GraficoComponent implements OnInit {
             i++;
         }
     })
-    this.data.update()
+    this.data.update();
+    this.findData2(this.acoes[1]);
   }
 
   findData2(acao2:string){
@@ -127,7 +124,8 @@ export class GraficoComponent implements OnInit {
            if(i==30)break;
             i++;
        }
-       this.data.update()
+       this.data.update();
+       this.findData3(this.acoes[2]);
    })
  }
 
@@ -140,7 +138,8 @@ export class GraficoComponent implements OnInit {
          if(i==30)break;
             i++;
      }
-     this.data.update()
+     this.data.update();
+     this.findData4(this.acoes[3]);
  })
 }
 
@@ -153,9 +152,8 @@ findData4(acao4:string){
          if(i==30)break;
             i++;
      }
-     
-     this.data.update()
-     //setInterval(x=>this.findDataUpdate4(acao4), 1000*100);
+     this.data.update();
+     setInterval(x=>this.findData1(this.acoes[0]), 500000);
  })
 }
 
@@ -184,71 +182,71 @@ findData4(acao4:string){
 //  }
 
 
-  findDataUpdate1(acao1:string){
+//   findDataUpdate1(acao1:string){
     
-    this.graficoService.findData(acao1).subscribe(
-     (x) => {
+//     this.graficoService.findData(acao1).subscribe(
+//      (x) => {
       
-        this.data1 = new Array();
+//         this.data1 = new Array();
 
-         for(var y in x['Time Series (1min)']){
-           this.data1.push(x['Time Series (1min)'][y]["1. open"]);
-           this.labels.push("");
-       }
-       this.data.update();
-   })
- }
+//          for(var y in x['Time Series (1min)']){
+//            this.data1.push(x['Time Series (1min)'][y]["1. open"]);
+//            this.labels.push("");
+//        }
+//        this.data.update();
+//    })
+//  }
 
- findDataUpdate2(acao2:string){
+//  findDataUpdate2(acao2:string){
     
-  this.graficoService.findData(acao2).subscribe(
-   (x) => {
+//   this.graficoService.findData(acao2).subscribe(
+//    (x) => {
     
-      this.data2 = new Array();
+//       this.data2 = new Array();
 
-       for(var y in x['Time Series (1min)']){
-         this.data2.push(x['Time Series (1min)'][y]["1. open"]);
-         this.labels.push("");
-     }
-     this.data.update();
- })
-}
+//        for(var y in x['Time Series (1min)']){
+//          this.data2.push(x['Time Series (1min)'][y]["1. open"]);
+//          this.labels.push("");
+//      }
+//      this.data.update();
+//  })
+// }
 
-findDataUpdate3(acao3:string){
+// findDataUpdate3(acao3:string){
     
-  this.graficoService.findData(acao3).subscribe(
-   (x) => {
+//   this.graficoService.findData(acao3).subscribe(
+//    (x) => {
     
-      this.data3 = new Array();
+//       this.data3 = new Array();
 
-       for(var y in x['Time Series (1min)']){
-         this.data3.push(x['Time Series (1min)'][y]["1. open"]);
-         this.labels.push("");
-     }
-     this.data.update();
- })
-}
+//        for(var y in x['Time Series (1min)']){
+//          this.data3.push(x['Time Series (1min)'][y]["1. open"]);
+//          this.labels.push("");
+//      }
+//      this.data.update();
+//  })
+// }
 
-findDataUpdate4(acao4:string){
+// findDataUpdate4(acao4:string){
     
-  this.graficoService.findData(acao4).subscribe(
-   (x) => {
+//   this.graficoService.findData(acao4).subscribe(
+//    (x) => {
     
-      this.data4 = new Array();
+//       this.data4 = new Array();
 
-       for(var y in x['Time Series (1min)']){
-         this.data4.push(x['Time Series (1min)'][y]["1. open"]);
-         this.labels.push("");
-     }
-     this.data.update();
- })
-}
+//        for(var y in x['Time Series (1min)']){
+//          this.data4.push(x['Time Series (1min)'][y]["1. open"]);
+//          this.labels.push("");
+//      }
+//      this.data.update();
+//  })
+// }
 
 
 
-  teste(evt:Event){
-    console.log(evt);
-  }
+//   teste(evt:Event){
+//     console.log(evt);
+//   }
 
   
 }
