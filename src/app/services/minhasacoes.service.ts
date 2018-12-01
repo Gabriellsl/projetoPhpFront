@@ -17,7 +17,14 @@ export class MinhasacoesService {
   findData(acao:Acao):Observable<any>{   
     var httpOptions = JsonDefault.getHeaders();
     var jsonAcao = JsonGenerate.getJson('Acao', 1, acao);
+    console.log(jsonAcao);
     return this.http.post<any>(ConfigUrl.DEFAULT_URL+'/listarminhasacoes', jsonAcao, httpOptions);
+  }
+
+  venderAcao(acao:Acao, qtd:Number):Observable<any>{
+    var httpOptions = JsonDefault.getHeaders();
+    var jsonAcao = JsonGenerate.getJson('Acao', qtd, acao);
+    return this.http.post<any>(ConfigUrl.DEFAULT_URL+'/venderacoes', jsonAcao, httpOptions);
   }
 
 }

@@ -13,7 +13,7 @@ import { Acao } from '../model/acao';
 export class GraficoMinhaAcoesComponent implements OnInit {
 
   constructor(
-    private minhasAcoes: MinhasacoesService
+    private minhasAcoesService: MinhasacoesService
     ) { 
     
       this.acoesCompra = [
@@ -39,9 +39,10 @@ export class GraficoMinhaAcoesComponent implements OnInit {
   acoes:string[] = new Array();
   acoesCompra: SelectItem[];   // Array de ações para comprar
   acaoSelecionada: string;     // utilizada pelo combobox para receber o nome da ação.
-  quantidadeAcoes = 2;     // Coleta a quantidade de ações que serão compradas.
-  valorAcaoSelecionada = 2;           // valor total da compra ! 
+  quantidadeAcoes = 0;     // Coleta a quantidade de ações que serão compradas.
+  valorAcaoSelecionada = 0;           // valor total da compra ! 
   datasets:any = new Array();
+  minhasAcoes: Acao[] = new Array();
   
   acao:Acao={
     id_acao: 0,
@@ -60,7 +61,7 @@ export class GraficoMinhaAcoesComponent implements OnInit {
     
     
     this.acoes.push("BIDU","MSFT","SNE","XIACY");
-    // this.findData1(this.acoes[0]);   
+    this.findData();
     this.acaoSelecionada = this.acoesCompra[0]["code"];
     
     
@@ -85,13 +86,26 @@ export class GraficoMinhaAcoesComponent implements OnInit {
 
 
   findData(){
-    this.acao.descricao = this.acaoSelecionada
-    this.minhasAcoes.findData(this.acao).subscribe(
+    //this.acao.descricao = "BIDU"
+    this.minhasAcoesService.findData(this.acao).subscribe(
      (x) => {
        console.log(x)
+       for (let index = 0; index < x['config']['dados']; index++) {
+         this.minhasAcoes.push(x['dados'][index]);
+         
+       }
    },
    err=>console.log("Erro em grafico minhas ações")
    )
+ }
+
+ private venderAcao(){
+    this.acao.descricao = "XIACY";
+    this.acao.status = "ATIVO";
+
+    this.minhasAcoesService.venderAcao(this.acao, this.quantidadeAcoes).subscribe(
+      x=>console.log(x)
+    )
  }
 
   
