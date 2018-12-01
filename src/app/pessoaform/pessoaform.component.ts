@@ -74,7 +74,7 @@ senha: Senha = {
           console.log(x)
             if(this.pessoa.tipo == 'ADM'){
               
-              this.administrador.id_pessoa   = x['dados']['1']['id_pessoa'];
+              this.administrador.id_pessoa   = x['dados'][0]['id_pessoa'];
 
               this.pessoaFormService.insertAdministrador(this.administrador).subscribe(
                 y=>{
@@ -85,7 +85,7 @@ senha: Senha = {
                 }
               )
             }else if(this.pessoa.tipo == 'INV'){
-              this.investidor.id_pessoa      = x['dados']['1']['id_pessoa']
+              this.investidor.id_pessoa      = x['dados'][0]['id_pessoa']
               this.pessoaFormService.insertInvestidor(this.investidor).subscribe(
                 y=>{
                   alert("insercao de investidor");
@@ -95,7 +95,7 @@ senha: Senha = {
                 }
               )
             }else{
-              this.gestor.id_pessoa          = x['dados']['1']['id_pessoa']
+              this.gestor.id_pessoa          = x['dados'][0]['id_pessoa']
               this.pessoaFormService.insertGestor(this.gestor).subscribe(
                 y=>{
                   alert("insercao de Gestor");

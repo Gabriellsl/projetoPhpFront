@@ -4,7 +4,7 @@ export class JsonDefault{
     
     public static API_KEY = "37XW1AG28U0HVLTX";
 
-    public static config(token:string, classe:string, dados:string){
+    public static config(token:string, classe:string, dados:Number){
         return (
             {
                 token:token,

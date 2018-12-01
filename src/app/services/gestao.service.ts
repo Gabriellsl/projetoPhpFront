@@ -2,21 +2,36 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { JsonDefault } from '../JSONS/jsonDefault';
 import { JsonGenerate } from '../JSONS/jsonGenerate';
-import { Gestor } from '../model/gestor';
+import { Acao } from '../model/acao';
+import { HttpClient } from '@angular/common/http';
+import { ConfigUrl } from '../configUrl';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GestaoService {
 
-  constructor() { }
+  constructor(
+    private http:HttpClient
+  ) { }
 
-    comprarAcao():Observable<any>{
-      
-    // var jsonLogin = JsonGenerate.getJson('login','',login);
-    // var httpOptions = JsonDefault.getHeaders();
-    
-    // return this.http.post<Gestor>(ConfigUrl.DEFAULT_URL+"/login", jsonLogin, httpOptions);
-    return;
-    }
+  comprarAcao(acao:Acao, qtd:Number):Observable<Acao>{
+    var jsonAcao = JsonGenerate.getJson('Acao', qtd, acao);
+    var httpOptions = JsonDefault.getHeaders();
+    console.log(jsonAcao);
+    return this.http.post<Acao>(ConfigUrl.DEFAULT_URL+"/compraracao", jsonAcao, httpOptions);
+  }
+
+  venderAcao(acao:Acao):Observable<Acao>{
+    var jsonLogin = JsonGenerate.getJson('Acao',1,acao);
+    var httpOptions = JsonDefault.getHeaders();
+    return this.http.post<Acao>(ConfigUrl.DEFAULT_URL+"/listarminhasacoes", jsonLogin, httpOptions);
+  }
+
+  listarMinhasAcoes(acao:Acao):Observable<any>{
+    var jsonLogin = JsonGenerate.getJson('Acao',1,acao);
+    var httpOptions = JsonDefault.getHeaders();
+    return this.http.post<Acao>(ConfigUrl.DEFAULT_URL+"/listarminhasacoes", jsonLogin, httpOptions);
+  }
+
 }

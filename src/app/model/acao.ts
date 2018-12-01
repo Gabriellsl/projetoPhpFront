@@ -1,13 +1,15 @@
 export class Acao{
     
     id_acao: Number;
-    id_aplicacoes: Number;
-    valor : Number;
+    id_gestor: Number;
+    valorvenda : Number;
     descricao: String;
     tipo: String;
     rendimento: Number;
-    status: Status;
+    status: string;
     valorcompra: Number;
+    datacompra: string;
+    datavenda: string;
     
 }
 

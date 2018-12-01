@@ -1,14 +1,16 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { JsonDefault } from '../JSONS/jsonDefault';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { JsonDefault } from '../JSONS/jsonDefault';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GraficoService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    ) { }
 
 
   findData(acao:string):Observable<any>{   
@@ -17,5 +19,6 @@ export class GraficoService {
     return this.http.get<any>(urlAPI1, httpOptions);
   }
 
+  
 
 }
