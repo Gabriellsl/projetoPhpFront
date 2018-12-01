@@ -9,22 +9,22 @@ import { LoginService } from '../services/login.service';
 
 export class HeaderComponent implements OnInit {
 
-   nome = this.getActualUser();
-   logado = this.isLogado();
+   nome :string;
+   logado :boolean;
 
 
   constructor(private loginService: LoginService) { }
 
   
   ngOnInit() {
-    console.log('Component app-header iniciado..');
+    this.nome = this.getActualUser();
+    this.logado = this.isLogado();
   }
 
   private getActualUser(){
     if(localStorage.getItem('currentUser') == null)
       return "Bem vindo";
-    
-      return JSON.parse(localStorage.getItem('currentUser'))['user']['nome'];
+    return JSON.parse(localStorage.getItem('currentUser'))['user']['nome'];
   }
 
   private isLogado(){
@@ -35,8 +35,7 @@ export class HeaderComponent implements OnInit {
   }
   
   logout(): void {
-    var token = JSON.parse( localStorage.getItem('currentUser'));
-    this.loginService.logout(token['token']);
+    this.loginService.logout();
     localStorage.clear();
   }
 

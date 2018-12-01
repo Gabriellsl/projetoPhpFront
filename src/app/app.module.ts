@@ -23,10 +23,6 @@ import { GestaoComponent } from './gestao/gestao.component';
 import { TabelaSacadosComponent } from './tabela-sacados/tabela-sacados.component';
 import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-acoes.component';
 
-// import { MessageService } from 'primeng/api';
-// import { ToastModule } from 'primeng/toast';
-
-
 @NgModule({
   declarations: [
     AppComponent,

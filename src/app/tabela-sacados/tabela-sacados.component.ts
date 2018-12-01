@@ -9,10 +9,10 @@ import { TransacaoService } from '../services/transacao.service';
 })
 export class TabelaSacadosComponent implements OnInit {
 
-  saque: Transacao={
+  transacaoSaque: Transacao={
     id_transacao: 0,
-    id_investidor: 1,
-    id_configtaxa:1,
+    id_investidor: 0,
+    id_configtaxa:0,
     tipo: '-',
     data: '',
     valor: 0,
@@ -20,24 +20,32 @@ export class TabelaSacadosComponent implements OnInit {
     datasaque: '',
   }
 
-  sacados: Transacao[] = new Array;
+  transacoesSacadas: Transacao[] = new Array;
   constructor(
     private transacaoService: TransacaoService
   ) { }
 
   ngOnInit() {
-    this.findSacados();
+    this.buscarTransacoesSacadas();
   }
 
-  findSacados(): void {
-    this.transacaoService.findSaques(this.saque).subscribe(
+  buscarTransacoesSacadas(): void {
+    this.transacaoService.buscarTransacoes(this.transacaoSaque).subscribe(
       x=>{
+        alert("OK buscarTransacoesSacadas");
         for (let i = 1; i < x['config']['dados']; i++) {
-          this.sacados.push(x['dados'][i])
+          try {
+            this.transacoesSacadas.push(x['dados'][i])
+          } catch (error) {
+            alert("TRY CATCH buscarTransacoesSacadas");
+            continue;
+          } 
         }
-      }
+      },
+      err=>alert("ERRO buscarTransacoesSacadas")
     )
   }
+
   solicitarSaque(transacao:Transacao){
     
   }

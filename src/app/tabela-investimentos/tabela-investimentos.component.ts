@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Transacao } from '../model/transacao';
 import { TransacaoService } from '../services/transacao.service';
-import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-tabela-investimentos',
@@ -10,37 +10,48 @@ import { Router } from '@angular/router';
 })
 export class TabelaInvestimentosComponent implements OnInit {
 
-  saque: Transacao={
+  depositoEfetuado: Transacao={
     id_transacao: 0,
-    id_investidor: 1,
-    id_configtaxa:1,
+    id_investidor: 0,
+    id_configtaxa: 0,
     tipo: '+',
     data: '',
     valor: 0,
     status: '',
     datasaque: '',
   }
+  
+  depositosEfetuados: Transacao[] = new Array;
 
-  saquesDisponiveis: Transacao[] = new Array;
   constructor(
     private transacaoService: TransacaoService
   ) { }
 
   ngOnInit() {
-    this.findSaquesDisponiveis();
+    this.buscarDepositosEfetuados();
+    
+    
   }
 
-  findSaquesDisponiveis(): void {
-    this.transacaoService.findSaques(this.saque).subscribe(
+
+  buscarDepositosEfetuados(): void {
+    this.transacaoService.buscarTransacoes(this.depositoEfetuado).subscribe(
       x=>{
+        alert("OK buscarDepositosEfetuados")
         for (let i = 1; i < x['config']['dados']; i++) {
-          this.saquesDisponiveis.push(x['dados'][i])
+          try {
+            this.depositosEfetuados.push(x['dados'][i])
+          } catch (error) {
+            alert("TRY CATCH buscarDepositosEfetuados")
+          }
         }
-        console.log(this.saquesDisponiveis)
-      }
+      },
+      err=>alert("err buscarDepositosEfetuados")
     )
 }
   solicitarSaque(transacao:Transacao){
-    
+    this.transacaoService.sacar(transacao).subscribe(
+      x=>alert('sacou')
+    );
   }
 }

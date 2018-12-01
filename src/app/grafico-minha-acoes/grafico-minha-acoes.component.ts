@@ -5,8 +5,8 @@ import { GraficoService } from '../services/grafico.service';
 
 @Component({
   selector: 'app-grafico-minhas-acoes',
-  templateUrl: './grafico-minhas-acoes.component.html',
-  styleUrls: ['./grafico-minhas-acoes.component.css']
+  templateUrl: './grafico-minha-acoes.component.html',
+  styleUrls: ['./grafico-minha-acoes.component.css']
 })
 export class GraficoMinhaAcoesComponent implements OnInit {
 

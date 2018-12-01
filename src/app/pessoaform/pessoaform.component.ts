@@ -71,7 +71,7 @@ senha: Senha = {
       this.pessoa.senha = this.senha.senha1;
       this.pessoaFormService.insertPessoa(this.pessoa).subscribe(
         x=>{
-          
+          console.log(x)
             if(this.pessoa.tipo == 'ADM'){
               
               this.administrador.id_pessoa   = x['dados']['1']['id_pessoa'];

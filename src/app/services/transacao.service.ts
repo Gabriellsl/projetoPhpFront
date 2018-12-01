@@ -21,19 +21,34 @@ export class TransacaoService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    var jsonTransacao= JsonGenerate.getJson('','Transacao','1',transacao);
-    return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/insert', jsonTransacao, httpOptions)
+    var jsonTransacao= JsonGenerate.getJson('Transacao','1',transacao);
+    console.log(jsonTransacao);
+    
+    return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/depositar', jsonTransacao, httpOptions)
 
   }
 
-  public findSaques(saque:Transacao): Observable<Transacao>{
+  public buscarTransacoes(transacao:Transacao): Observable<Transacao>{
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-
-    var jsonSaque= JsonGenerate.getJson('','Transacao','1',saque);
-    return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/findbyatributes', jsonSaque, httpOptions)
+    
+    var jsonTransacao= JsonGenerate.getJson('Transacao','1',transacao);
+    return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/findsaquesdisponiveis', jsonTransacao, httpOptions)
 
   }
+
+  public sacar(saque:Transacao): Observable<Transacao>{
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    
+    var jsonSaque= JsonGenerate.getJson('Transacao','1',saque);
+
+    return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/sacar', jsonSaque, httpOptions)
+
+  }
+
+
 
 }

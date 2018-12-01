@@ -21,8 +21,8 @@ export class InvestimentoComponent implements OnInit {
 
   transacaoDeposito: Transacao = {
     id_transacao: 0,
-    id_investidor: 1,
-    id_configtaxa:1,
+    id_investidor: 2,
+    id_configtaxa:3,
     tipo: '+',
     data: this.dataAtual(),
     valor: 10,
@@ -31,8 +31,8 @@ export class InvestimentoComponent implements OnInit {
   };
   saque: Transacao={
     id_transacao: 0,
-    id_investidor: 1,
-    id_configtaxa:1,
+    id_investidor: 0,
+    id_configtaxa:0,
     tipo: '+',
     data: '',
     valor: 0,
@@ -69,12 +69,21 @@ export class InvestimentoComponent implements OnInit {
   }
 
   public calculaSaldoAtivo(){
-    this.transacaoService.findSaques(this.saque).subscribe(
+    this.transacaoService.buscarTransacoes(this.saque).subscribe(
       x=>{
-        for (let i = 1; i < x['config']['dados']; i++) {
-          this.saldoAtivo+=  parseFloat(x['dados'][i]['valor']);
+        alert("OK calcula saldo ativo")
+        for (let i = 1; i <= x['config']['dados']; i++) {
+          try {
+            this.saldoAtivo += parseFloat(x['dados'][i]['valor']);  
+          } catch (error) {
+            alert("TRY CATCH calculaSaldoAtivo")
+            continue;
+          }
+          
         }
-      }
+       
+      },
+      err=>alert("ERRO calculaSaldoAtivo")
 
     );
   }

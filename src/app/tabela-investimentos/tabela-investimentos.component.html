@@ -10,12 +10,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let saque of saquesDisponiveis">
+        <tr *ngFor="let deposito of depositosEfetuados">
 
 
-          <td>{{saque.valor}}</td>
-          <td>{{saque.data}}</td>
-          <td>{{saque.datasaque}}</td>
+          <td>{{deposito.valor}}</td>
+          <td>{{deposito.data}}</td>
+          <td>{{deposito.datasaque}}</td>
           <td>
             <!-- <a  (click)="teste(deposito)" data-confirm-text="Confirma exclusão do item?" class="text-danger">
               Excluir
