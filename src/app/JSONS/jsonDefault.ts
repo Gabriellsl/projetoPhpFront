@@ -1,4 +1,4 @@
-import { HttpHeaders } from "@angular/common/http";
+import { HttpHeaders, HttpInterceptor } from "@angular/common/http";
 
 export class JsonDefault{
     
@@ -15,9 +15,15 @@ export class JsonDefault{
     }
 
     public static getHeaders(){
+        
         return  {
-            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+            headers: new HttpHeaders({ 
+                'Content-Type':'application/json',
+                'Bearer': 'ew0KICAgICAgICBpZDoxMCwNCiAgICAgICAgbm9tZTpSYWZhZWwNCiAgICAgIH0='})
           };
+          
+
+
     }
 
     public static getAPI1(acao:string){
