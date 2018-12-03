@@ -4,6 +4,7 @@ import { Transacao } from '../model/transacao';
 import { JsonGenerate } from '../JSONS/jsonGenerate';
 import { ConfigUrl } from '../configUrl';
 import { Observable } from 'rxjs';
+import { JsonDefault } from '../JSONS/jsonDefault';
 
 // usado por investidor
 
@@ -17,12 +18,8 @@ export class TransacaoService {
 
   public insertTransacao(transacao:Transacao): Observable<Transacao>{
 
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-
-    var jsonTransacao= JsonGenerate.getJson('Transacao',1,transacao);
-    console.log(jsonTransacao);
+    var httpOptions = JsonDefault.getHeaders("Transacao");    
+    var jsonTransacao= JsonGenerate.getJson(transacao);
     
     return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/depositar', jsonTransacao, httpOptions)
 
@@ -33,7 +30,7 @@ export class TransacaoService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
     
-    var jsonTransacao= JsonGenerate.getJson('Transacao',1,transacao);
+    var jsonTransacao= JsonGenerate.getJson(transacao);
     return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/findsaquesdisponiveis', jsonTransacao, httpOptions)
 
   }
@@ -43,7 +40,7 @@ export class TransacaoService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
     
-    var jsonSaque= JsonGenerate.getJson('Transacao',1,saque);
+    var jsonSaque= "JsonGenerate.getJson('Transacao',1,saque)";
 
     return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/sacar', jsonSaque, httpOptions)
 

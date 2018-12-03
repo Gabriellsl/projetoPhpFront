@@ -4,22 +4,24 @@ export class JsonDefault{
     
     public static API_KEY = "37XW1AG28U0HVLTX";
 
-    public static config(token:string, classe:string, dados:Number){
-        return (
-            {
-                token:token,
-                class:classe,
-                dados:dados
-            }
-        );
-    }
-
-    public static getHeaders(){
+    public static getHeaders(classe:string){
         
+        if(classe!='login'){
+            if(!JSON.parse(localStorage.getItem('currentUser')))
+                alert("Você não está logado")
+            var token = JSON.parse(localStorage.getItem('currentUser'))['token'];
+        }
+            
+        else
+            token = '';
+
+        
+
         return  {
             headers: new HttpHeaders({ 
                 'Content-Type':'application/json',
-                'Bearer': 'ew0KICAgICAgICBpZDoxMCwNCiAgICAgICAgbm9tZTpSYWZhZWwNCiAgICAgIH0='})
+                'Bearer': token,
+                'Class' : classe})
           };
           
 

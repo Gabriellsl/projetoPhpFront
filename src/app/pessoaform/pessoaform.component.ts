@@ -5,6 +5,7 @@ import { PessoaFormService } from '../services/pessoa-form.service';
 import { Gestor} from '../model/gestor';
 import { Administrador} from '../model/administrador';
 import {Investidor} from '../model/investidor';
+import { CruddefaultService } from '../services/cruddefault.service';
 
 
 @Component({
@@ -50,7 +51,8 @@ senha: Senha = {
 }
 
   constructor(
-    private pessoaFormService: PessoaFormService
+    private pessoaFormService: PessoaFormService,
+    private cruddefaultService: CruddefaultService
   ) { }
 
   ngOnInit() {
@@ -69,14 +71,13 @@ senha: Senha = {
     if(this.validarSenhas(this.senha)){
       
       this.pessoa.senha = this.senha.senha1;
-      this.pessoaFormService.insertPessoa(this.pessoa).subscribe(
+      this.cruddefaultService.insert(this.pessoa, 'Pessoa').subscribe(
         x=>{
-          console.log(x)
             if(this.pessoa.tipo == 'ADM'){
               
-              this.administrador.id_pessoa   = x['dados'][0]['id_pessoa'];
+              this.administrador.id_pessoa = x[0].id_pessoa;
 
-              this.pessoaFormService.insertAdministrador(this.administrador).subscribe(
+              this.cruddefaultService.insert(this.administrador, 'Administrador').subscribe(
                 y=>{
                   alert("insercao de administrador");
                 },
@@ -85,8 +86,8 @@ senha: Senha = {
                 }
               )
             }else if(this.pessoa.tipo == 'INV'){
-              this.investidor.id_pessoa      = x['dados'][0]['id_pessoa']
-              this.pessoaFormService.insertInvestidor(this.investidor).subscribe(
+              this.investidor.id_pessoa      = x[0].id_pessoa;
+              this.cruddefaultService.insert(this.investidor, 'Investidor').subscribe(
                 y=>{
                   alert("insercao de investidor");
                 },
@@ -95,8 +96,8 @@ senha: Senha = {
                 }
               )
             }else{
-              this.gestor.id_pessoa          = x['dados'][0]['id_pessoa']
-              this.pessoaFormService.insertGestor(this.gestor).subscribe(
+              this.gestor.id_pessoa          = x[0].id_pessoa;
+              this.cruddefaultService.insert(this.gestor, 'Gestor').subscribe(
                 y=>{
                   alert("insercao de Gestor");
                 },

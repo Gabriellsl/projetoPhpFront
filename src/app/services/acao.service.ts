@@ -18,10 +18,10 @@ export class AcaoService {
 
   public insertAcao(acao:Acao): Observable<Acao>{
     
-    var httpOptions = JsonDefault.getHeaders();
-    var jsonAcao= JsonGenerate.getJson('Acao',1 ,acao);
+    var httpOptions// = JsonDefault.getHeaders();
+    var jsonAcao//= JsonGenerate.getJson('Acao',1 ,acao);
 
-    return this.http.post<Acao>(ConfigUrl.DEFAULT_URL+'/insert', jsonAcao, httpOptions);
+    return //this.http.post<Acao>(ConfigUrl.DEFAULT_URL+'/insert', jsonAcao, httpOptions);
   }
 
 }
