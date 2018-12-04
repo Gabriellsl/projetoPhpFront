@@ -25,6 +25,7 @@ import { TabelaSacadosComponent } from './tabela-sacados/tabela-sacados.componen
 import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-acoes.component';
 import {CalendarModule} from 'primeng/calendar';
 import {SidebarModule} from 'primeng/sidebar';
+import { AdministracaoComponent } from './administracao/administracao.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {SidebarModule} from 'primeng/sidebar';
     TabelaInvestimentosComponent,
     GestaoComponent,
     TabelaSacadosComponent,
-    GraficoMinhaAcoesComponent
+    GraficoMinhaAcoesComponent,
+    AdministracaoComponent
    
  
   ],

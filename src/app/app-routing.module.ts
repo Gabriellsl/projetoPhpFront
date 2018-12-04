@@ -7,6 +7,7 @@ import { InvestimentoComponent} from './investimento/investimento.component';
 import { GestaoComponent } from './gestao/gestao.component';
 import { TabelaInvestimentosComponent } from './tabela-investimentos/tabela-investimentos.component';
 import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-acoes.component';
+import { AdministracaoComponent } from './administracao/administracao.component';
 
 
 const routes: Routes= [
@@ -17,7 +18,8 @@ const routes: Routes= [
   { path: 'tableinv', component:TabelaInvestimentosComponent},
   { path: '', redirectTo: '/login', pathMatch:'full'},
   { path: 'gestao', component: GestaoComponent},    // Excluir
-  { path: 'graficoVendas' , component: GraficoMinhaAcoesComponent}
+  { path: 'graficoVendas' , component: GraficoMinhaAcoesComponent},
+  { path: 'administracao' , component: AdministracaoComponent}
 ];
 
 @NgModule({

@@ -16,7 +16,7 @@ export class GraficoMinhaAcoesComponent implements OnInit {
     private minhasAcoes: MinhasacoesService
     ) { 
     
-      this.acoesCompra = [
+      this.acoesVenda = [
         {label:'Selecione...', value:null},
         {label:"BAEDU",value:{id:1, name: 'BIDU', code: 'BIDU'}},
         {label:"MICROSOFT",value:{id:2, name: 'MSFT', code: 'MSFT'}},
@@ -37,7 +37,7 @@ export class GraficoMinhaAcoesComponent implements OnInit {
   promise:any;
   contador:number;
   acoes:string[] = new Array();
-  acoesCompra: SelectItem[];   // Array de ações para comprar
+  acoesVenda: SelectItem[];   // Array de ações para comprar
   acaoSelecionada: string;     // utilizada pelo combobox para receber o nome da ação.
   quantidadeAcoes = 2;     // Coleta a quantidade de ações que serão compradas.
   valorAcaoSelecionada = 2;           // valor total da compra ! 
@@ -61,7 +61,7 @@ export class GraficoMinhaAcoesComponent implements OnInit {
     
     this.acoes.push("BIDU","MSFT","SNE","XIACY");
     // this.findData1(this.acoes[0]);   
-    this.acaoSelecionada = this.acoesCompra[0]["code"];
+    this.acaoSelecionada = this.acoesVenda[0]["code"];
     
     
   }

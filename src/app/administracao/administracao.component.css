@@ -1,0 +1,119 @@
+.dashboard{
+    margin-top: 80px;
+    /* width: 100%; */
+}
+.grafico_rendimento{
+    height: 30%;
+    padding: 5px;
+}
+
+.adm_content{
+    width: 100%;
+    height: 80vh;;
+}
+.card_header{
+    margin-left: 10px;
+}
+
+.botaoCriar{
+    text-decoration: none;
+}
+
+.cardSaldo{
+    height: 200px;
+    width: 300px;
+    border-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.espaco{
+    margin-top: 80px;
+}
+
+.linha_teste{
+    min-height: 10rem;
+}
+
+.coluna_teste{
+    padding-top: .75rem;
+    padding-bottom: .75rem; 
+    background-color: aquamarine;
+    border-color: black;
+    border: 1px solid;
+}
+
+.card_teste{
+    margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header_space{
+    min-height: 70px;
+    width: 100%;
+}
+.grafico_content{
+    min-height: 300px;
+    background-color: aquamarine;
+    
+}
+
+.card2{
+    margin-top: 7px;
+    margin-bottom: 7px;
+    height: 150px;
+}
+
+.card_content{
+    height: 100%;
+    margin:0 auto;
+}
