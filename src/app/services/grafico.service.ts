@@ -14,9 +14,9 @@ export class GraficoService {
 
 
   findData(acao:string):Observable<any>{   
-    var httpOptions = JsonDefault.getHeaders();
+   // var httpOptions = JsonDefault.getHeaders('');
     var urlAPI1 = JsonDefault.getAPI1(acao);
-    return this.http.get<any>(urlAPI1, httpOptions);
+    return this.http.get<any>(urlAPI1);
   }
 
   

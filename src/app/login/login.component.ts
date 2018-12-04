@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit {
 
   
   constructor(private loginService: LoginService,
-              private route: ActivatedRoute,
-              private location: Location, 
               private router: Router) { }
 
   ngOnInit() {
@@ -28,9 +26,12 @@ export class LoginComponent implements OnInit {
   }
 
   logar(): void {
+
+
+
     this.loginService.autenticar(this.login).subscribe(x => {
       
-      
+    console.log(x);  
     
     localStorage.setItem('currentUser', JSON.stringify({
                                               "token":x["token"],
