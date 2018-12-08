@@ -3,10 +3,9 @@
     <nav class="navbar fixed-top navbar-light bg-dark">
       <div class="col-md-4 col-sm-4 col-4 text-white ">
         <p-sidebar [(visible)]="display">
-          Desenvolvedores:
-          <br><br>- Yobunaga Boniolo
-          <br>- Gabriel Lenin
-          <br>- Willian de Oliveira
+          <div>
+
+          </div>
         </p-sidebar>
         <i class="pi pi-bars menu_icon" (click)="display = true" style="font-size:2em;cursor:pointer"></i>
       </div>
@@ -26,7 +25,7 @@
       <div class="col-4 col-md-1 col-sm-2 text-right text-white ">
         <div class="em_linha">
           <div>
-            <button (click)="logout()" class="btn btn-md btn-info" *ngIf="logado">logout</button>
+            <button (click)="logout()" class="btn btn-md btn-secondary" >logout</button>
           </div>
         </div>
       </div>

@@ -1,16 +1,16 @@
-.app{
+/* .app{
     width: 100vw;
     height: 100vh;
     position: relative;
-}
+} */
 
-.header_content{
+/* .header_content{
     height: 55px;
-}
+} */
 
 
 
-.body_all{
+/* .body_all{
     background-image: url(src\assets\backGround_login.jpg);
     background-repeat: no-repeat;
     background-size: cover;  
@@ -18,7 +18,8 @@
     height: 92vh; 
     position: relative
     
-}
+} */
+
 
 
 

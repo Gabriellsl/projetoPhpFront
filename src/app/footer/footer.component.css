@@ -1,8 +1,14 @@
-.footer_all{
+.page-footer{
+    background-color: rgb(41, 41, 41);
+    margin-top: 50px;
+    color: white;
+}
+
+.footer-copyright{
+    color: white;
     background-color: black;
-    color:white;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    position: relative;
-    bottom: 0;
+}
+
+.footer_texto{
+    background-color: darkgrey;
 }
