@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from '../model/login';
 import { LoginService } from '../services/login.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import {KeyFilterModule} from 'primeng/keyfilter';
 
 @Component({
   selector: 'app-login',

@@ -26,7 +26,7 @@ import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-
 import {CalendarModule} from 'primeng/calendar';
 import {SidebarModule} from 'primeng/sidebar';
 import { AdministracaoComponent } from './administracao/administracao.component';
-
+import {KeyFilterModule} from 'primeng/keyfilter';
 import {ToastModule} from 'primeng/toast';
 
 @NgModule({
@@ -60,7 +60,8 @@ import {ToastModule} from 'primeng/toast';
     SpinnerModule,
     CalendarModule,
     SidebarModule,
-    ToastModule
+    ToastModule,
+    KeyFilterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
