@@ -8,8 +8,8 @@ export class Acao{
     rendimento: Number;
     status: string;
     valorcompra: Number;
-    datacompra: string;
-    datavenda: string;
+    datacompra: Date;
+    datavenda: Date;
     
 }
 

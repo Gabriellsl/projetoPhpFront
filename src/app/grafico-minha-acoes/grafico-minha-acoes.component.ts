@@ -39,7 +39,7 @@ export class GraficoMinhaAcoesComponent implements OnInit {
   acoes:string[] = new Array();
   acoesVenda: SelectItem[];   // Array de ações para comprar
   acaoSelecionada: string;     // utilizada pelo combobox para receber o nome da ação.
-  quantidadeAcoes = 0;     // Coleta a quantidade de ações que serão compradas.
+  quantidadeAcoes = 1;     // Coleta a quantidade de ações que serão compradas.
   valorAcaoSelecionada = 0;           // valor total da compra ! 
   datasets:any = new Array();
   minhasAcoes: Acao[] = new Array();
@@ -51,10 +51,10 @@ export class GraficoMinhaAcoesComponent implements OnInit {
     descricao: "",
     tipo: '',
     rendimento: 0,
-    status: "",
+    status: "ATIVO",
     valorcompra: 0,
-    datacompra: "",
-    datavenda: '',
+    datacompra: null,
+    datavenda: null,
   }
 
   ngOnInit() {
@@ -62,7 +62,7 @@ export class GraficoMinhaAcoesComponent implements OnInit {
     
     this.acoes.push("BIDU","MSFT","SNE","XIACY");
     this.findData();
-    this.acaoSelecionada = this.acoesCompra[0]["code"];
+    this.acaoSelecionada = this.acoesVenda[0]['code'];
     
     
   }
@@ -89,22 +89,28 @@ export class GraficoMinhaAcoesComponent implements OnInit {
     //this.acao.descricao = "BIDU"
     this.minhasAcoesService.findData(this.acao).subscribe(
      (x) => {
-       console.log(x)
-       for (let index = 0; index < x['config']['dados']; index++) {
-         this.minhasAcoes.push(x['dados'][index]);
-         
-       }
+       x.forEach(y => {
+       this.minhasAcoes.push(y);
+       });
    },
    err=>console.log("Erro em grafico minhas ações")
    )
  }
 
- private venderAcao(){
-    this.acao.descricao = "XIACY";
-    this.acao.status = "ATIVO";
+  venderAcao(){
+    
+    if(this.acaoSelecionada==this.acoesVenda[0]["code"]){
+      alert("Selecione uma ação!")
+      return;
+    }
 
+    this.acao.descricao = this.acaoSelecionada['name'];
+    this.acao.valorvenda = this.valorAcaoSelecionada;
+
+    this.acao.valorcompra = null;
     this.minhasAcoesService.venderAcao(this.acao, this.quantidadeAcoes).subscribe(
-      x=>console.log(x)
+      x=>console.log(x),
+      err=>alert("Não existem ações nesta categoria!!!")
     )
  }
 

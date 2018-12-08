@@ -25,10 +25,8 @@ export class TransacaoService {
 
   }
 
-  public buscarTransacoes(transacao:Transacao): Observable<Transacao>{
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
+  public buscarTransacoes(transacao:Transacao): Observable<any>{
+    var httpOptions = JsonDefault.getHeaders("Transacao");
     
     var jsonTransacao= JsonGenerate.getJson(transacao);
     return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/findsaquesdisponiveis', jsonTransacao, httpOptions)
@@ -36,9 +34,7 @@ export class TransacaoService {
   }
 
   public sacar(saque:Transacao): Observable<Transacao>{
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
+    var httpOptions = JsonDefault.getHeaders("Transacao");
     
     var jsonSaque= "JsonGenerate.getJson('Transacao',1,saque)";
 

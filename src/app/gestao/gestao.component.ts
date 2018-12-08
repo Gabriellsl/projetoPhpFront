@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GestaoService } from '../services/gestao.service';
 import { Acao } from '../model/acao';
+import { Router } from '@angular/router';
+import { Permission } from '../permission_controll';
 
 @Component({
   selector: 'app-gestao',
@@ -9,9 +11,12 @@ import { Acao } from '../model/acao';
 })
 export class GestaoComponent implements OnInit {
 
-  constructor( private gestaoService:GestaoService) { }
+  constructor( 
+    private gestaoService:GestaoService,
+    private router: Router) { }
 
   ngOnInit() {
+    Permission.execute(this.router)
   }
 
   

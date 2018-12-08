@@ -27,6 +27,8 @@ import {CalendarModule} from 'primeng/calendar';
 import {SidebarModule} from 'primeng/sidebar';
 import { AdministracaoComponent } from './administracao/administracao.component';
 
+import {ToastModule} from 'primeng/toast';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,8 @@ import { AdministracaoComponent } from './administracao/administracao.component'
     ChartModule,
     SpinnerModule,
     CalendarModule,
-    SidebarModule
+    SidebarModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

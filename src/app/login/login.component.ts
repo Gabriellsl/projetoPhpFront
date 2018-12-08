@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from '../model/login';
 import { LoginService } from '../services/login.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-login',
@@ -19,10 +19,25 @@ export class LoginComponent implements OnInit {
 
   
   constructor(private loginService: LoginService,
-              private router: Router) { }
+              private router: Router,
+           ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('currentUser')){
+      
+      var x = JSON.parse(localStorage.getItem('currentUser'))['user'];
 
+      console.log(x)
+
+      if(x["tipo"]  == "ADM" ){
+        this.router.navigate(['admnistracao']);
+      }else if(x["tipo"] == "INV"){
+        this.router.navigate(['investimento']);
+      }else if(x["tipo"] == "GES"){
+        this.router.navigate(['gestao']);
+      }
+    }
+    
   }
 
   logar(): void {
@@ -31,19 +46,17 @@ export class LoginComponent implements OnInit {
 
     this.loginService.autenticar(this.login).subscribe(x => {
       
-    console.log(x);  
-    
     localStorage.setItem('currentUser', JSON.stringify({
                                               "token":x["token"],
                                               "user":x["user"]
                                             }));
 
     if(x["user"]["tipo"]  == "ADM" ){
-      this.router.navigate(['formulario']);
+      this.router.navigate(['admnistracao']);
     }else if(x["user"]["tipo"] == "INV"){
       this.router.navigate(['investimento']);
     }else if(x["user"]["tipo"] == "GES"){
-      this.router.navigate(['grafico']);
+      this.router.navigate(['gestao']);
     }
     
     },

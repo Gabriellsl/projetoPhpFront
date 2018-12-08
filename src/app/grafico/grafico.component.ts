@@ -45,8 +45,8 @@ export class GraficoComponent implements OnInit {
   acoes:string[] = new Array();
   acoesCompra: SelectItem[];   // Array de ações para comprar
   acaoSelecionada: string;     // utilizada pelo combobox para receber o nome da ação.
-  quantidadeAcoes = 2;     // Coleta a quantidade de ações que serão compradas.
-  valorAcaoSelecionada = 2;           // valor total da compra ! 
+  quantidadeAcoes = 1;     // Coleta a quantidade de ações que serão compradas.
+  valorAcaoSelecionada = 0;           // valor total da compra ! 
 
   acaoCompra: Acao={
     id_acao: 0,
@@ -57,8 +57,8 @@ export class GraficoComponent implements OnInit {
     rendimento: 0,
     status: 'ATIVO',
     valorcompra : this.valorAcaoSelecionada,
-    datacompra: '',
-    datavenda: ''
+    datacompra: null,
+    datavenda: null
   };
 
   ngOnInit() {
@@ -69,6 +69,8 @@ export class GraficoComponent implements OnInit {
     this.acaoSelecionada = this.acoesCompra[0]["code"];
     
   }
+
+  
 
   startGrafico(){
     
@@ -213,6 +215,12 @@ valorAcaoUpdate(){
 //"BIDU","MSFT","SNE","XIACY
 
 public comprarAcao(){
+
+  if(this.acaoSelecionada==this.acoesCompra[0]["code"]){
+    alert("Selecione uma ação!")
+    return;
+  }
+    
   this.valorAcaoUpdate();
   this.acaoCompra.valorcompra = this.valorAcaoSelecionada;
   this.acaoCompra.status='ATIVO';

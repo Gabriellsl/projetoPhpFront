@@ -8,6 +8,9 @@ import { Observable } from 'rxjs';
 import { TransacaoService } from '../services/transacao.service';
 import { TabelaInvestimentosComponent } from '../tabela-investimentos/tabela-investimentos.component';
 import { TabelaSacadosComponent } from '../tabela-sacados/tabela-sacados.component';
+import {Permission} from '../permission_controll'
+import { Router } from '@angular/router';
+import {Util} from '../util'
 
 @Component({
   selector: 'app-investimento',
@@ -27,10 +30,10 @@ export class InvestimentoComponent implements OnInit {
     id_investidor: 2,
     id_configtaxa:3,
     tipo: '+',
-    data: this.dataAtual(),
-    valor: 10,
+    data: null ,
+    valor: null,
     status: 'ATIVO',
-    datasaque: '2010-10-10',
+    datasaque: null,
   };
   saque: Transacao={
     id_transacao: 0,
@@ -46,24 +49,34 @@ export class InvestimentoComponent implements OnInit {
   saldoAtivo = 0;
 
   constructor(private http: HttpClient,
-              private transacaoService: TransacaoService) { }
+              private transacaoService: TransacaoService,
+              private router: Router
+              ) {}
 
-  ngOnInit() {
-    this.calculaSaldoAtivo();
-    this.minDate = new Date();
-    this.minDate.setMonth(11);
-    this.minDate.setFullYear(2018);
+  ngOnInit(){
+    
+
+    if(Permission.execute(this.router)){
+      this.calculaSaldoAtivo();
+      this.minDate = new Date();
+      this.minDate.setMonth(this.minDate.getMonth() == 12? 1 : this.minDate.getMonth()+1);
+      this.minDate.setFullYear(this.minDate.getMonth() == 12 ? this.minDate.getFullYear()+1: this.minDate.getFullYear());
+    }
+    
     
   }
 
 
   public investir(): /*Observable<TransacaoDeposito>*/void {
 
-    console.log(this.transacaoDeposito);
-
-    this.transacaoDeposito.datasaque = '2010-10-10';
     
-
+    if(this.transacaoDeposito.datasaque == null || this.transacaoDeposito.valor==null){
+      alert("Prencha os campos requeridos");
+      return ;
+    }
+      
+    
+    console.log(this.transacaoDeposito.datasaque);
       this.transacaoService.insertTransacao(this.transacaoDeposito).subscribe(
         x => {
           console.log(x);
@@ -78,20 +91,13 @@ export class InvestimentoComponent implements OnInit {
   public calculaSaldoAtivo(){
     this.transacaoService.buscarTransacoes(this.saque).subscribe(
       x=>{
-        alert("OK calcula saldo ativo")
-        for (let i = 1; i <= x['config']['dados']; i++) {
+        console.log(x)
+        x.forEach(y => {
           try {
-            this.saldoAtivo += parseFloat(x['dados'][i]['valor']);  
-          } catch (error) {
-            alert("TRY CATCH calculaSaldoAtivo")
-            continue;
-          }
-          
-        }
-       
+            this.saldoAtivo += parseFloat(y.valor);  
+          } catch (error) {}
+        });
       },
-      err=>alert("ERRO calculaSaldoAtivo")
-
     );
   }
 

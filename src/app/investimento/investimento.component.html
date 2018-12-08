@@ -4,7 +4,7 @@
   <div class="ui-md-offset-2 ui-md-4 form_ativos">
         <label for="inputSenha" class="sr-only"></label>
         <input  [(ngModel)]="transacaoDeposito.valor" name ="valor" type="number" id="inputValor" class="form-control" placeholder="Investir" required autofocus>
-        <p-calendar [(ngModel)]="transacaoDeposito.datasaque" [minDate]="minDate" dateFormat="yy-mm-dd" name ="datasaque" id="inputData" ></p-calendar>
+        <p-calendar [(ngModel)]="transacaoDeposito.datasaque" [minDate]="minDate" [readonlyInput]="true" showButtonBar="true"  dateFormat="yy-mm-dd" name ="datasaque" id="inputData"  ></p-calendar>
         <button  (click)="investir()"  type="submit" class="btn btn-lg btn-success btn-block">Investir</button>
   </div>
 
@@ -69,8 +69,7 @@
   
 </div>
 
-<app-tabela-investimentos></app-tabela-investimentos>
-<!-- <app-tabela-sacados></app-tabela-sacados> -->
+<app-tabela-sacados></app-tabela-sacados>
 
 
 

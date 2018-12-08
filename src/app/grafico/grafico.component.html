@@ -10,7 +10,7 @@
                         <p-dropdown (click)="valorAcaoUpdate()" [options]="acoesCompra" [(ngModel)]="acaoSelecionada"></p-dropdown>
                         <div class="ui-spinner spiner_content">
                                 <h6>Quantidade:</h6>
-                                <p-spinner [placeholder]="Quantidade" [(ngModel)]="quantidadeAcoes" size="10" [min]="0" [max]="1000000"></p-spinner>
+                                <p-spinner [placeholder]="Quantidade" [(ngModel)]="quantidadeAcoes" size="10" [min]="1" [max]="1000000"></p-spinner>
                         </div>
                         <p>Valor total: {{(valorAcaoSelecionada * quantidadeAcoes).toFixed(2).toLocaleString('pt-BR')}}</p>
                         <div class=" botao_compra">

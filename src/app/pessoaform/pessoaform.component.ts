@@ -4,7 +4,7 @@ import { Senha } from '../model/senha';
 import { PessoaFormService } from '../services/pessoa-form.service';
 import { Gestor} from '../model/gestor';
 import { Administrador} from '../model/administrador';
-import {Investidor} from '../model/investidor';
+import { Investidor } from '../model/investidor';
 import { CruddefaultService } from '../services/cruddefault.service';
 
 

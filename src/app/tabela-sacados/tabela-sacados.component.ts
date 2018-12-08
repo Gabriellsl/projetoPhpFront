@@ -32,19 +32,14 @@ export class TabelaSacadosComponent implements OnInit {
   buscarTransacoesSacadas(): void {
     this.transacaoService.buscarTransacoes(this.transacaoSaque).subscribe(
       x=>{
-        alert("OK buscarTransacoesSacadas");
-        for (let i = 1; i < x['config']['dados']; i++) {
-          try {
-            this.transacoesSacadas.push(x['dados'][i])
-          } catch (error) {
-            alert("TRY CATCH buscarTransacoesSacadas");
-            continue;
-          } 
-        }
-      },
-      err=>alert("ERRO buscarTransacoesSacadas")
-    )
-  }
+          x.forEach(y => {
+              try {
+                this.transacoesSacadas.push(y);  
+              } catch (error) {}
+            });
+          },
+        );
+    }
 
   solicitarSaque(transacao:Transacao){
     

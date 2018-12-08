@@ -30,7 +30,7 @@
       <div class="compra_acao">
           <h6>Selecione uma ação para vender: </h6>
                 <div class="col-md-4">
-                        <p-dropdown (click)="valorAcaoUpdate()" [options]="acoesCompra" [(ngModel)]="acaoSelecionada"></p-dropdown>
+                        <p-dropdown (click)="valorAcaoUpdate()" [options]="acoesVenda" [(ngModel)]="acaoSelecionada"></p-dropdown>
                         <div class="ui-spinner spiner_content">
                                 <h6>Quantidade:</h6>
                                 <p-spinner [placeholder]="Quantidade" [(ngModel)]="quantidadeAcoes" size="10" [min]="0" [max]="1000000"></p-spinner>
