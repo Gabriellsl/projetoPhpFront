@@ -103,7 +103,7 @@
 }
 .grafico_content{
     min-height: 300px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     
 }
 
@@ -114,6 +114,111 @@
 }
 
 .card_content{
-    height: 100%;
-    margin:0 auto;
+    
+
+}
+
+.simple_card{
+    background-color: blueviolet;
+    height: 300px;
+}
+
+.ui-card-body{
+    height: 140px;
+}
+
+.valor_total{
+    font-size: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.investimento_content{
+    
+    width: 100%;
+    height: 120px;
+    /* background-color: bisque; */
+    box-shadow: 0px 0px 5px slategray;
+    border-radius:4px
+}
+
+.investimento_content2{
+    margin-top: 15px;
+    
+    width: 100%;
+    height: 120px;
+    /* background-color: bisque; */
+    box-shadow: 0px 0px 5px slategray;
+    border-radius:4px
+}
+
+.investimento_content3{
+    padding-top: 30px;
+    width: 100%;
+    height: 255px;
+    /* background-color: bisque; */
+    box-shadow: 0px 0px 5px slategray;
+    border-radius:4px
+}
+
+
+.header_fundo{
+    margin-left: 25px;
+}
+.botao_criar{
+    color: black;
+}
+
+.botao_criar:hover{
+    color: green;
+    transition-duration: 0.2s;
+}
+
+.adm_card:hover{
+    transform: scale(1.02);
+    transition-duration: 0.2s;
+}
+
+.grafico_adm{
+    
+    margin-top: 10px; 
+    padding: 10px;
+    max-width: 100%;
+    width: 100%;
+    /* height: 350px;; */
+    box-shadow: 0px 0px 5px slategray;
+    border-radius:4px
+}
+
+.linha_tabelas{
+    margin-top: 30px;
+    /* background-color:  whitesmoke; */
+}
+
+.tabela_adm{
+    padding-top: 20px;
+    width: 100%;
+    height: 255px;
+    /* background-color: bisque; */
+    box-shadow: 0px 0px 5px slategray;
+    border-radius:4px
+}
+
+.titulo_tabela{
+    margin-left: 20px;
+}
+
+.botao_busca{
+    max-width: 70%;;
 }

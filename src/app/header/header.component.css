@@ -64,3 +64,8 @@ app-header{
 .nome_usuario{
     margin-top: 10px;
 }
+
+.menu_icon:hover{
+    font-size: 1.1em;
+    transition-duration: 0.2s;
+}

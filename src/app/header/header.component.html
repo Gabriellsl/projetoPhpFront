@@ -1,40 +1,40 @@
 <div class="container">
   <div class="row">
     <nav class="navbar fixed-top navbar-light bg-dark">
-      <div class="col-md-4 col-sm-4 text-white">
+      <div class="col-md-4 col-sm-4 col-4 text-white ">
         <p-sidebar [(visible)]="display">
-          Desenvolvedores: 
-            <br><br>- Yobunaga Boniolo
-            <br>- Gabriel Lenin
-            <br>- Willian de Oliveira
+          Desenvolvedores:
+          <br><br>- Yobunaga Boniolo
+          <br>- Gabriel Lenin
+          <br>- Willian de Oliveira
         </p-sidebar>
-        <i class="pi pi-bars" (click)="display = true" style="font-size:2em;cursor:pointer"></i>
-      </div>
-      
-
-      <div class="col-md-4 col-sm-4 site_name text-center">
-        <a class="navbar-brand " href="#">Ultron </a>
+        <i class="pi pi-bars menu_icon" (click)="display = true" style="font-size:2em;cursor:pointer"></i>
       </div>
 
-      <div class="col-md-2 col-sm-2 col-sm-offset-2 text-right text-white d-sm-none d-none d-lg-block">
-        
-        <div  class="nome_usuario">
-            <p *ngIf="nome">{{nome}}</p>
+
+      <div class="col-md-4 col-sm-4 col-4 site_name text-center">
+        <a class="navbar-brand" href="#">Ultron </a>
+      </div>
+
+      <div class="col-md-3 col-sm-2 col-sm-offset-2 text-right text-white d-sm-none d-none d-lg-block">
+
+        <div class="nome_usuario text-right">
+          <p *ngIf="nome">{{nome}}<i class="pi pi-user" style="font-size:1.2em;"></i></p>
         </div>
       </div>
 
-      <div class="col-md-2 col-sm-2 text-right text-white " *ngIf="logado"> 
+      <div class="col-4 col-md-1 col-sm-2 text-right text-white ">
         <div class="em_linha">
-            <div >
-                <button (click)="logout()" class="btn btn-success">logout</button>   
-            </div>
+          <div>
+            <button (click)="logout()" class="btn btn-md btn-info" *ngIf="logado">logout</button>
+          </div>
         </div>
       </div>
-      
 
-   </nav>
+
+    </nav>
   </div>
-  
+
 </div>
 
 

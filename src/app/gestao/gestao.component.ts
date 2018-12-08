@@ -16,7 +16,7 @@ export class GestaoComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    Permission.execute(this.router)
+    //Permission.execute(this.router)
   }
 
   

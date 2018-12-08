@@ -47,31 +47,97 @@
     </div>
 
 </div> -->
-
 <div class="container-fluid">
   <div class="row header_space"></div>
   <div class="row grafico_content align-items-center">
-    <div class="col-md-8 col-sm-12">
-      
+    <div class="col-md-5 col-sm-12">
+      <div class="chart-container grafico_adm" style="position: relative;">
+        <canvas responsive="true" id='grafico_adm'></canvas>
+      </div>
     </div>
+
+    <div class="col-md-3">
+      <div class="investimento_content3 adm_card">
+        <div class="header_fundo">
+          <h6>Quantidade de Investores</h6>
+        </div>
+        <div class="text-center">
+          <h3>278</h3>
+        </div>
+
+        <div class="header_fundo">
+          <h6>Quantidade de Gestores</h6>
+        </div>
+        <div class="text-center">
+          <h3>50</h3>
+        </div>
+
+        <div class="header_fundo">
+          <h6>Quantidade de Administradores</h6>
+        </div>
+        <div class="text-center">
+          <h3>3</h3>
+        </div>
+      </div>
+    </div>
+
     <div class="col-md-4 col-sm-12">
-      <div class="card2">
-          <p-card  header="Simple Card" [style]="{width: '100%;'}">
-              <div class="card_content">
-                <div>
-                  <i class  ="pi pi-user-plus" style="font-size:4em"></i>
-                  <h3 class="first">Criar usuário</h3>
-                </div>  
-                
-              </div>
-          </p-card>
+      <a href="#">
+        <div class="ui-g-12 ui-md-12 allign-right investimento_content adm_card">
+          <div class="text-center botao_criar">
+            <i class="pi pi-user-plus" style="font-size:4em"></i>
+            <h3 class="first">Criar usuário</h3>
+          </div>
+        </div>
+      </a>
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content2 adm_card">
+        <div class="header_fundo">
+          <h6>Fundo total</h6>
+        </div>
+        <div class="text-center">
+          <h3>R$ 54.400,50</h3>
+        </div>
       </div>
-      <div class="card2">
-          <p-card   header="Simple Card" [style]="{width: '100%;'}">
-              <div class="card_content"></div>
-          </p-card>
+
+    </div>
+  </div>
+  <div class="row align-items-center linha_tabelas justify-content-around">
+    <div class="col-md-5">
+      <div class="tabela_adm adm_card">
+        <div class="titulo_tabela">
+          <h5>Selecione um investidor</h5>
+          <div class="row justify-content-around">
+            <div class="col-md-6 col-5">
+              <p-dropdown [options]="listaInvestidores" [(ngModel)]="invSelecionado"></p-dropdown>
+            </div>
+
+            <div class="col-md-6 col-5">
+              <button (click)="comprarAcao()" type="submit" class="btn btn-md btn-primary btn-block botao_busca">buscar</button>
+            </div>
+          </div>
+
+
+        </div>
       </div>
-      
+    </div>
+    <div class="col-md-5">
+      <div class="tabela_adm adm_card">
+        <div class="titulo_tabela">
+          <h5>Selecione um Gestor</h5>
+          <div class="row justify-content-around">
+            <div class="col-md-6 col-5 allign-right">
+              <p-dropdown [options]="listaInvestidores" [(ngModel)]="invSelecionado"></p-dropdown>
+            </div>
+
+            <div class="col-md-6 col-5">
+              <button (click)="comprarAcao()" type="submit" class="btn btn-md btn-primary btn-block botao_busca">buscar</button>
+            </div>
+          </div>
+          <div class="row">
+            testando
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -88,14 +154,25 @@
 
 
 
-
-
-
-
-
-
-
-
+<!-- 
+<div class="card2">
+  <p-card  class="simple_card" header="Simple Card" [style]="{width: '100%;'}">
+      <div class="card_content">
+        <div class="text-center">
+          <i class  ="pi pi-user-plus" style="font-size:4em"></i>
+          <h3 class="first">Criar usuário</h3>
+        </div>    
+      </div>
+  </p-card>
+</div>
+<div class="card2 ">
+  <p-card  class="simple_card" header="Simple Card" [style]="{width: '100%;'}">
+      <div class="card_content">
+          <div>Fundo Total</div>
+          <div class="text-center valor_total">R$ 53.590,00</div>
+      </div>
+  </p-card>
+</div> -->
 
 
 
