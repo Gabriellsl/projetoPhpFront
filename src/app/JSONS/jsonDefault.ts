@@ -1,4 +1,5 @@
-import { HttpHeaders, HttpInterceptor } from "@angular/common/http";
+import { HttpHeaders } from "@angular/common/http";
+
 
 export class JsonDefault{
     
@@ -7,7 +8,7 @@ export class JsonDefault{
     public static getHeaders(classe:string){
         
         if(classe!='login'){
-            if(!JSON.parse(localStorage.getItem('currentUser')))
+            // if(!JSON.parse(localStorage.getItem('currentUser')))
                 // alert("Você não está logado")  FFFFFDDDPUUUUTAAA
             var token = JSON.parse(localStorage.getItem('currentUser'))['token'];
         }
@@ -21,7 +22,8 @@ export class JsonDefault{
             headers: new HttpHeaders({ 
                 'Content-Type':'application/json',
                 'Bearer': token,
-                'Class' : classe})
+                'Class' : classe,
+            })
           };
           
 
