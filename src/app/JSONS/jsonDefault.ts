@@ -8,7 +8,7 @@ export class JsonDefault{
         
         if(classe!='login'){
             if(!JSON.parse(localStorage.getItem('currentUser')))
-                alert("Você não está logado")
+                // alert("Você não está logado")  FFFFFDDDPUUUUTAAA
             var token = JSON.parse(localStorage.getItem('currentUser'))['token'];
         }
             

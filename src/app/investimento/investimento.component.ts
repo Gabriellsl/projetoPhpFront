@@ -58,11 +58,12 @@ export class InvestimentoComponent implements OnInit {
 /*
     if(Permission.execute(this.router)){
       this.calculaSaldoAtivo();
+*/
       this.minDate = new Date();
       this.minDate.setMonth(this.minDate.getMonth() == 12? 1 : this.minDate.getMonth()+1);
       this.minDate.setFullYear(this.minDate.getMonth() == 12 ? this.minDate.getFullYear()+1: this.minDate.getFullYear());
-    }
-*/  
+   /* }*/
+  
     
   }
 
