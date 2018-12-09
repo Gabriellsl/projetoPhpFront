@@ -62,27 +62,27 @@
           <h6>Quantidade de Investores</h6>
         </div>
         <div class="text-center">
-          <h3>278</h3>
+          <h3>{{numInvestidor}}</h3>
         </div>
 
         <div class="header_fundo">
           <h6>Quantidade de Gestores</h6>
         </div>
         <div class="text-center">
-          <h3>50</h3>
+          <h3>{{numGestor}}</h3>
         </div>
 
         <div class="header_fundo">
           <h6>Quantidade de Administradores</h6>
         </div>
         <div class="text-center">
-          <h3>3</h3>
+          <h3>{{numAdministrador}}</h3>
         </div>
       </div>
     </div>
 
     <div class="col-md-4 col-sm-12">
-      <a href="#">
+      <a (click)="createUser()">
         <div class="ui-g-12 ui-md-12 allign-right investimento_content adm_card">
           <div class="text-center botao_criar">
             <i class="pi pi-user-plus" style="font-size:4em"></i>

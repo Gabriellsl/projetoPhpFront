@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Chart} from 'chart.js'
 import { SelectItem } from 'primeng/api';
+import { Router } from '@angular/router';
+import { CruddefaultService } from '../services/cruddefault.service';
+import { Gestor } from '../model/gestor';
+import { Investidor } from '../model/investidor';
+import { Administrador } from '../model/administrador';
 
 @Component({
   selector: 'app-administracao',
@@ -9,7 +14,10 @@ import { SelectItem } from 'primeng/api';
 })
 export class AdministracaoComponent implements OnInit {
 
-  constructor() {
+  constructor(
+    private router:Router,
+    private crudDefautService:CruddefaultService
+  ) {
     this.listaInvestidores = [
       {label:'Selecione...', value:null},
       {label:"Bob",value:{id:1, name: 'bob', code: 'test1'}},
@@ -34,9 +42,34 @@ export class AdministracaoComponent implements OnInit {
   data: Chart;
   invSelecionado: string;
   gesSelecionado: string;
+  numGestor:number = 0;
+  numAdministrador:number = 0;
+  numInvestidor:number = 0;
+
+  gestor:Gestor = {
+    id_gestor :0,
+    id_pessoa :0,
+    meta      :0,
+    giromaximo:0,
+  }
+
+   administrador:Administrador={
+    id_administrador    :0,
+    id_pessoa    :0
+   }
+
+   investidor:Investidor={
+    id_investidor :0,
+    id_pessoa     :0,
+    saldo         :0
+   }
 
   ngOnInit() {
     this.startGrafico();
+    // this.numeroAdministrador();
+    // this.numeroGestor();
+    this.numeroInvestidor();
+    
   }
 
 startGrafico(){
@@ -66,7 +99,34 @@ startGrafico(){
     console.log(this.gesSelecionado);
   }
 
+  numeroGestor(){
+    this.crudDefautService.findAll(new Gestor(), 'Gestor').subscribe(
+      x =>
+        x.foreach(
+          y=>this.numGestor+=1
+        )
+    )
+  }
+  numeroInvestidor(){
+    this.crudDefautService.findAll(new Investidor(), 'Investidor').subscribe(
+      x =>{
+      console.log(x);
+        x.foreach(
+          y=>this.numInvestidor+=1
+        )}
+    )
+  }
+  numeroAdministrador(){
+    this.crudDefautService.findAll(this.administrador, 'Administrador').subscribe(
+      x =>
+        x.foreach(
+          y=>this.numAdministrador+=1
+        )
+    )
+  }
+
   createUser(){
-    alert("Usuario criado !");
+    alert()
+    this.router.navigate(['formulario']);
   }
 }

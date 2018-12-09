@@ -23,4 +23,11 @@ export class CruddefaultService {
 
     return this.http.post<Object>(ConfigUrl.DEFAULT_URL+'/insert', json, httpOptions);
   }
+
+  public findAll(object:Object, type:string):Observable<any>{
+    var httpOptions = JsonDefault.getHeaders(type);
+    var json = JsonGenerate.getJson(object);
+    
+    return this.http.post<Object>(ConfigUrl.DEFAULT_URL+'/findall', json, httpOptions);  
+  }
 }
