@@ -1,27 +1,65 @@
-
-<div class="gestao_content">
+<!-- <div class="gestao_content">
 
   <div class="container-fluid">
 
-    <div class="grafico_acoes">
-      <h4>Ações disponiveis</h4>
-      <div class="chart-container div_graficoacao">
-        <app-grafico class="chart-container grafico_acoes"></app-grafico>
-      </div>
-    </div>
+    
   </div>
 
   <div class="container-fluid">
       <div class="grafico_vendas">
-          <h4>Suas ações</h4>
-          <div class="">
-              <app-grafico-minha-acoes></app-grafico-minha-acoes>
-          </div>
+          
       </div>
     
   </div>
 
+</div> -->
+
+<div class="container-fluid">
+  <div class="row space"></div>
+
+  <div class="row justify-content-md-center">
+
+    <div class="col-md-12">
+      <div class="dashboard_container">
+        <h4>Ações disponiveis</h4>
+        <app-grafico></app-grafico>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row gestao_content">
+
+    <div class="col-md-8">
+      <div class="dashboard_container">
+        <h4>Suas ações</h4>
+        <app-grafico-minha-acoes></app-grafico-minha-acoes>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card-container">
+
+        <div class="ges_card">
+          <h6>Fundo atual</h6>
+          <h5 class="text-center">R$ 54.000,50</h5>
+        </div>
+
+        <div class="ges_card">
+          <h6>Meta atual</h6>
+          <h5 class="text-center">R$ 4.000,50</h5>
+        </div>
+
+        <div class="ges_card">
+          <h6>Lucro atual</h6>
+          <h5 class="text-center">R$ 3.500,50</h5>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row space"></div>
 </div>
-
-
-

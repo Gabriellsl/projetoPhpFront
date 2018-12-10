@@ -1,4 +1,4 @@
-<div class="row dashboard">
+<!-- <div class="row dashboard">
     <div class="grafico_content col-md-6">
         <canvas id='pie' ></canvas>
     </div>
@@ -20,5 +20,29 @@
                 
         </div>
     </div>
-</div>
+</div> -->
+<div class="row">
 
+    <div class="col-md-8">
+        <div class="grafico_ges">
+            <canvas id='pie' responsive="true" width="80vw" height="30vh"></canvas>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <h6>Selecione uma ação para comprar: </h6>
+        <div>
+            <p-dropdown (click)="valorAcaoUpdate()" [options]="acoesCompra" [(ngModel)]="acaoSelecionada" class="input_acao"></p-dropdown>
+            <div class="ui-spinner spiner_content">
+                <h6>Quantidade:</h6>
+                <p-spinner [placeholder]="Quantidade" [(ngModel)]="quantidadeAcoes" size="10" [min]="1" [max]="1000000" class="input_acao"></p-spinner>
+            </div>
+            <p class="input_acao">Valor total: {{(valorAcaoSelecionada * quantidadeAcoes).toFixed(2).toLocaleString('pt-BR')}}</p>
+        </div>
+
+        <div class=" botao_compra">
+            <button (click)="comprarAcao()" type="submit" class="btn btn-lg btn-success btn-block">Comprar</button>
+        </div>
+    </div>
+
+</div>

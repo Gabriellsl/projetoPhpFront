@@ -1,45 +1,95 @@
-<div class="row dashboardVendas">
-    <div class="grafico_content col-md-6">
-        <div class=" form_vendas">
-            <form action="/servidor/salvar" method="post" disabled="" class="ls-form-text">
-              <table class="table ls-table table-striped">
-                <thead>
-                  <tr>
-                    <th class="hidden-xs">Data compra</th>
-                    <th>Descricao</th>
-                    <th class="hidden-xs">Valor compra</th>
-                    <th class="ls-table-actions"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let acao of minhasAcoes">
-          
-          
-                    <td>{{acao.datacompra}}</td>
-                    <td>{{acao.descricao}}</td>
-                    <td>{{acao.valorcompra}}</td>
-                  </tr>
-                  
-                </tbody>
-              </table>
-            </form>
-          </div>
+<!-- <form action="/servidor/salvar" method="post" disabled="" class="ls-form-text">
+  <table class="table ls-table table-striped">
+    <thead>
+      <tr>
+        <th class="hidden-xs">Data compra</th>
+        <th>Descricao</th>
+        <th class="hidden-xs">Valor compra</th>
+        <th class="ls-table-actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let acao of minhasAcoes">
+
+
+        <td>{{acao.datacompra}}</td>
+        <td>{{acao.descricao}}</td>
+        <td>{{acao.valorcompra}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</form> -->
+
+
+
+
+
+
+
+<div class="row minhasAcoes_container">
+  <div class="col-md-8">
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead class="bg-success text-white">
+          <tr>
+            <th scope="col"><i class="pi pi-angle-double-down menu_icon" style="font-size:1em;cursor:pointer"></i></th>
+            <th scope="col">Data compra</th>
+            <th scope="col">Descricao</th>
+            <th scope="col">Valor compra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let acao of minhasAcoes">
+            <th scope="row">{{acao.id_acao}}</th>
+            <td>{{acao.datacompra}}</td>
+            <td>{{acao.descricao}}</td>
+            <td>{{acao.valorcompra}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="col-md-6">
-      <div class="compra_acao">
-          <h6>Selecione uma ação para vender: </h6>
-                <div class="col-md-4">
-                        <p-dropdown (click)="valorAcaoUpdate()" [options]="acoesVenda" [(ngModel)]="acaoSelecionada"></p-dropdown>
-                        <div class="ui-spinner spiner_content">
-                                <h6>Quantidade:</h6>
-                                <p-spinner [placeholder]="Quantidade" [(ngModel)]="quantidadeAcoes" size="10" [min]="0" [max]="1000000"></p-spinner>
-                        </div>
-                        <p>Valor total: {{(valorAcaoSelecionada * quantidadeAcoes).toFixed(2).toLocaleString('pt-BR')}}</p>
-                        <div class=" botao_compra">
-                            <button (click)="venderAcao()" type="submit" class="btn btn-lg btn-info btn-block">Vender</button>
-                        </div>
-                </div>
-        </div>
+  </div>
+
+  <div class="col-md-4">
+    <h6>Selecione uma ação para comprar: </h6>
+    <div>
+      <p-dropdown (click)="valorAcaoUpdate()" [options]="acoesVenda" [(ngModel)]="acaoSelecionada" class="input_acao"></p-dropdown>
+      <div class="ui-spinner spiner_content">
+        <h6>Quantidade:</h6>
+        <p-spinner [placeholder]="Quantidade" [(ngModel)]="quantidadeAcoes" size="10" [min]="1" [max]="1000000" class="input_acao"></p-spinner>
+      </div>
+      <p class="input_acao">Valor total: {{(valorAcaoSelecionada *
+        quantidadeAcoes).toFixed(2).toLocaleString('pt-BR')}}</p>
     </div>
+
+    <div class=" botao_compra">
+      <button (click)="venderAcao()" type="submit" class="btn btn-lg btn-primary btn-block">Vender</button>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+<!-- 
+  <div class="compra_acao">
+    <h6>Selecione uma ação para vender: </h6>
+    <div class="col-md-4">
+      <p-dropdown (click)="valorAcaoUpdate()" [options]="acoesVenda" [(ngModel)]="acaoSelecionada"></p-dropdown>
+      <div class="ui-spinner spiner_content">
+        <h6>Quantidade:</h6>
+        <p-spinner [placeholder]="Quantidade" [(ngModel)]="quantidadeAcoes" size="10" [min]="0" [max]="1000000"></p-spinner>
+      </div>
+      <p>Valor total: {{(valorAcaoSelecionada * quantidadeAcoes).toFixed(2).toLocaleString('pt-BR')}}</p>
+      <div class=" botao_compra">
+        <button (click)="venderAcao()" type="submit" class="btn btn-lg btn-info btn-block">Vender</button>
+      </div>
+    </div>
+  </div> -->
