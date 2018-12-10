@@ -8,9 +8,8 @@ public static getJson(object: Object){
     var token = '';
 
     var x = new Array();
-    
-    x.push(object);   
-    console.log(x);
+    console.log(x)
+    x.push(object);  
     return JSON.stringify(x);        
 }
 

@@ -18,4 +18,9 @@ export class AdministracaoService {
     var httpOptions = JsonDefault.getHeaders('Transacao');
     return this.http.get<any>(ConfigUrl.DEFAULT_URL+"/fundodisponivel", httpOptions );
   }
+
+  public ganhosTotais():Observable<any>{
+    var httpOptions = JsonDefault.getHeaders('Acao');
+    return this.http.get<any>(ConfigUrl.DEFAULT_URL+"/ganhostotais", httpOptions );
+  }
 }

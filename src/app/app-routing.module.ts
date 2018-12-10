@@ -8,6 +8,7 @@ import { GestaoComponent } from './gestao/gestao.component';
 import { TabelaInvestimentosComponent } from './tabela-investimentos/tabela-investimentos.component';
 import { GraficoMinhaAcoesComponent } from './grafico-minha-acoes/grafico-minha-acoes.component';
 import { AdministracaoComponent } from './administracao/administracao.component';
+import { TabelaSacadosComponent } from './tabela-sacados/tabela-sacados.component';
 
 
 const routes: Routes= [
@@ -16,6 +17,8 @@ const routes: Routes= [
   { path: 'grafico', component: GraficoComponent},  // Excluir 
   { path: 'investimento', component: InvestimentoComponent},
   { path: 'tableinv', component:TabelaInvestimentosComponent},
+  { path: 'tablesac', component:TabelaSacadosComponent},
+  
   { path: '', redirectTo: '/login', pathMatch:'full'},
   { path: 'gestao', component: GestaoComponent},    // Excluir
   { path: 'graficoVendas' , component: GraficoMinhaAcoesComponent},

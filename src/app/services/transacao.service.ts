@@ -36,7 +36,7 @@ export class TransacaoService {
   public sacar(saque:Transacao): Observable<Transacao>{
     var httpOptions = JsonDefault.getHeaders("Transacao");
     
-    var jsonSaque= "JsonGenerate.getJson('Transacao',1,saque)";
+    var jsonSaque= JsonGenerate.getJson(saque);
 
     return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/sacar', jsonSaque, httpOptions)
 

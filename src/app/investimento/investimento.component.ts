@@ -55,14 +55,16 @@ export class InvestimentoComponent implements OnInit {
 
   ngOnInit(){
     
-/*
+
     if(Permission.execute(this.router)){
       this.calculaSaldoAtivo();
-*/
+
+
+
       this.minDate = new Date();
       this.minDate.setMonth(this.minDate.getMonth() == 12? 1 : this.minDate.getMonth()+1);
       this.minDate.setFullYear(this.minDate.getMonth() == 12 ? this.minDate.getFullYear()+1: this.minDate.getFullYear());
-   /* }*/
+   }
   
     
   }
@@ -92,7 +94,6 @@ export class InvestimentoComponent implements OnInit {
   public calculaSaldoAtivo(){
     this.transacaoService.buscarTransacoes(this.saque).subscribe(
       x=>{
-        console.log(x)
         x.forEach(y => {
           try {
             this.saldoAtivo += parseFloat(y.valor);  
@@ -115,10 +116,6 @@ teste(deposito: Transacao){
   
   console.log(deposito.id_transacao);
 }
-
-
-
-
 
 }
 

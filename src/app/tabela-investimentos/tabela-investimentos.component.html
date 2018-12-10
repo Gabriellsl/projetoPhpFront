@@ -46,8 +46,8 @@
             <td>{{(deposito.valor*1).toFixed(2).toLocaleString('pt-BR')}}</td>
             <td>{{deposito.data}}</td>
             <td>{{deposito.datasaque}}</td>
-            <td> <i (click)="teste(deposito)" class="pi pi-arrow-circle-down menu_icon" style="font-size:1em;cursor:pointer"></i>
-                 <i (click)="teste(deposito)" data-confirm-text="Confirma exclusão do item?" class="texto_sacar" style="cursor:pointer">
+            <td> <i (click)="sacar(deposito)" class="pi pi-arrow-circle-down menu_icon" style="font-size:1em;cursor:pointer"></i>
+                 <i (click)="sacar(deposito)" data-confirm-text="Confirma exclusão do item?" class="texto_sacar" style="cursor:pointer">
                    Sacar
                  </i>
             </td>

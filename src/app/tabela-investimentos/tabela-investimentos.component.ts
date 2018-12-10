@@ -44,20 +44,20 @@ export class TabelaInvestimentosComponent implements OnInit {
   buscarDepositosEfetuados(): void {
     this.transacaoService.buscarTransacoes(this.depositoEfetuado).subscribe(
       x=>{
-        alert("OK buscarDepositosEfetuados")
+        // alert("OK buscarDepositosEfetuados")
         x.map(y=> {
           try {
             this.depositosEfetuados.push(y)
           } catch (error) {
-            alert("TRY CATCH buscarDepositosEfetuados")
+            // alert("TRY CATCH buscarDepositosEfetuados")
           }
         })
         
       },
-      err=>alert("err buscarDepositosEfetuados")
+      // err=>alert("err buscarDepositosEfetuados")
     )
 }
-  solicitarSaque(transacao:Transacao){
+  sacar(transacao:Transacao){
     this.transacaoService.sacar(transacao).subscribe(
       x=>alert('sacou')
     );

@@ -40,6 +40,7 @@ export class AdministracaoComponent implements OnInit {
   numAdministrador:number = 0;
   numInvestidor:number = 0;
   fundo:number = 0;
+  ganhos : number[] = new Array();
 
   pessoa:Pessoa={
     id_pessoa: null,
@@ -53,7 +54,10 @@ export class AdministracaoComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.startGrafico();
+
+    this.ganhosTotais();
+
+    
     this.carregarPessoas();
     this.fundoDisponivel();
   }
@@ -67,7 +71,7 @@ startGrafico(){
         
         datasets: [{
               label: 'Ganhos totais',
-              data: [4000,5500,6300,7100,1000,16100,2900,7800,3960,18000],
+              data: this.ganhos,
               backgroundColor:'rgba(255, 99, 132, 0.2)',
               borderColor: 'rgba(255,99,132,1)',
               borderWidth: 1
@@ -126,5 +130,22 @@ startGrafico(){
     this.administracaoService.fundoDisponivel().subscribe(
       x=>this.fundo = x['total']
     );
+  }
+  ganhosTotais(){
+
+    for (let i = 0; i < 12; i++) {
+      this.ganhos[i] = 0;
+    }
+
+    this.administracaoService.ganhosTotais().subscribe(
+      x=> {
+        for (const key in x){
+          this.ganhos[Number.parseInt(key)-1] = x[key];
+        }
+        console.log(this.ganhos);
+        this.startGrafico(); 
+      }
+      
+    )
   }
 }
