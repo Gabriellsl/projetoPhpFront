@@ -28,6 +28,7 @@ import {SidebarModule} from 'primeng/sidebar';
 import { AdministracaoComponent } from './administracao/administracao.component';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {ToastModule} from 'primeng/toast';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import {ToastModule} from 'primeng/toast';
     SidebarModule,
     ToastModule,
    KeyFilterModule,
+   InputTextModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

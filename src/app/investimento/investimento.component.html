@@ -88,9 +88,11 @@
           <h4>Faça um deposito</h4>
         </div>
         
+          <span class="ui-float-label">
             <input [(ngModel)]="transacaoDeposito.valor" name="valor" type="number" id="inputValor" class="input_data"
-            placeholder=" Valor" required autofocus>
-        
+             pKeyFilter="pnum" pInputText required autofocus>
+            <label for="float-input">Valor</label>
+          </span>
         
             <p-calendar [(ngModel)]="transacaoDeposito.datasaque" [minDate]="minDate" [readonlyInput]="true" [showIcon]="true" showButtonBar="true"
             dateFormat="yy-mm-dd" placeholder="Data para saque" name="datasaque" id="inputData" class="input_data" ></p-calendar>

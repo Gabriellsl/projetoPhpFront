@@ -13,7 +13,7 @@ export class TabelaSacadosComponent implements OnInit {
     id_transacao: 0,
     id_investidor: 0,
     id_configtaxa:0,
-    tipo: '-',
+    tipo: "-",
     data: '',
     valor: 0,
     status: '',
