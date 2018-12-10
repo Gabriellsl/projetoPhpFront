@@ -47,6 +47,7 @@ export class GraficoComponent implements OnInit {
   acaoSelecionada: string;     // utilizada pelo combobox para receber o nome da ação.
   quantidadeAcoes = 1;     // Coleta a quantidade de ações que serão compradas.
   valorAcaoSelecionada = 0;           // valor total da compra ! 
+  statusOperacaoCompra = true; 
 
   acaoCompra: Acao={
     id_acao: 0,
@@ -138,6 +139,14 @@ export class GraficoComponent implements OnInit {
  */
 
    findData1(acao1:string){
+
+    this.data1 = [];
+    this.data2 = [];
+    this.data3 = [];
+    this.data4 = [];
+    this.labels = [];
+    
+
      this.graficoService.findData(acao1).subscribe(
       (x) => {
         let i =0;
@@ -149,7 +158,7 @@ export class GraficoComponent implements OnInit {
         }
     })
     this.data.update();
-    this.findData2(this.acoes[1]);
+    //this.findData2(this.acoes[1]);
   }
 
   findData2(acao2:string){
@@ -225,10 +234,20 @@ public comprarAcao(){
   this.acaoCompra.valorcompra = this.valorAcaoSelecionada;
   this.acaoCompra.status='ATIVO';
   this.acaoCompra.descricao=this.acaoSelecionada["code"];
-  this.gestaoService.comprarAcao(this.acaoCompra, this.quantidadeAcoes).subscribe(
+ 
+  for (let i = 0; i < this.quantidadeAcoes; i++) {
+    this.gestaoService.comprarAcao(this.acaoCompra, this.quantidadeAcoes).subscribe(
+      z=>{
+        console.log(z)
+        this.statusOperacaoCompra = true
+      },
+      err=> this.statusOperacaoCompra = false);  
+  }
 
-    x=>console.log(x)
-  )
+  if(this.statusOperacaoCompra)
+    alert("Sucesso na compra!");
+  else
+    alert("Erro na compra!")
 }
 
 

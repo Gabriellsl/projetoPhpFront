@@ -95,7 +95,7 @@
           <h6>Fundo total</h6>
         </div>
         <div class="text-center">
-          <h3>R$ 54.400,50</h3>
+          <h3>R$ {{fundo}} </h3>
         </div>
       </div>
 
@@ -126,7 +126,7 @@
           <h5>Selecione um Gestor</h5>
           <div class="row justify-content-around">
             <div class="col-md-6 col-5 allign-right">
-              <p-dropdown [options]="listaInvestidores" [(ngModel)]="invSelecionado"></p-dropdown>
+              <p-dropdown [options]="listaGestores" [(ngModel)]="gesSelecionado"></p-dropdown>
             </div>
 
             <div class="col-md-6 col-5">

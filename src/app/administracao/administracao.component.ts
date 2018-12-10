@@ -6,6 +6,8 @@ import { CruddefaultService } from '../services/cruddefault.service';
 import { Gestor } from '../model/gestor';
 import { Investidor } from '../model/investidor';
 import { Administrador } from '../model/administrador';
+import { Pessoa } from '../model/pessoa';
+import { AdministracaoService } from '../services/administracao.service';
 
 @Component({
   selector: 'app-administracao',
@@ -16,24 +18,16 @@ export class AdministracaoComponent implements OnInit {
 
   constructor(
     private router:Router,
-    private crudDefautService:CruddefaultService
+    private crudDefautService:CruddefaultService,
+    private administracaoService:AdministracaoService
   ) {
     this.listaInvestidores = [
       {label:'Selecione...', value:null},
-      {label:"Bob",value:{id:1, name: 'bob', code: 'test1'}},
-      {label:"Toshiro",value:{id:2, name: 'toshi', code: 'test2'}},
-      {label:"Nobunaga",value:{id:3, name: 'nobu', code: 'test3'}},
-      {label:"Zizao",value:{id:4, name: 'zi', code: 'test4'}},
-      {label:"Bil",value:{id:4, name: 'bil', code: 'test5'}}
+
     ];
 
     this.listaGestores = [
       {label:'Selecione...', value:null},
-      {label:"Bob",value:{id:1, name: 'bob', code: 'test1'}},
-      {label:"Toshiro",value:{id:2, name: 'toshi', code: 'test2'}},
-      {label:"Nobunaga",value:{id:3, name: 'nobu', code: 'test3'}},
-      {label:"Zizao",value:{id:4, name: 'zi', code: 'test4'}},
-      {label:"Bil",value:{id:4, name: 'bil', code: 'test5'}}
     ];
    }
   
@@ -45,31 +39,23 @@ export class AdministracaoComponent implements OnInit {
   numGestor:number = 0;
   numAdministrador:number = 0;
   numInvestidor:number = 0;
+  fundo:number = 0;
 
-  gestor:Gestor = {
-    id_gestor :0,
-    id_pessoa :0,
-    meta      :0,
-    giromaximo:0,
+  pessoa:Pessoa={
+    id_pessoa: null,
+    nome: null,
+    email: null,
+    cpf: null,
+    rg: null,
+    login: null,
+    senha: null,
+    tipo: null,
   }
-
-   administrador:Administrador={
-    id_administrador    :0,
-    id_pessoa    :0
-   }
-
-   investidor:Investidor={
-    id_investidor :0,
-    id_pessoa     :0,
-    saldo         :0
-   }
-
+  
   ngOnInit() {
     this.startGrafico();
-    // this.numeroAdministrador();
-    // this.numeroGestor();
-    this.numeroInvestidor();
-    
+    this.carregarPessoas();
+    this.fundoDisponivel();
   }
 
 startGrafico(){
@@ -99,34 +85,46 @@ startGrafico(){
     console.log(this.gesSelecionado);
   }
 
-  numeroGestor(){
-    this.crudDefautService.findAll(new Gestor(), 'Gestor').subscribe(
+  carregarPessoas(){
+    this.crudDefautService.findAll(this.pessoa, 'Pessoa').subscribe(
       x =>
-        x.foreach(
-          y=>this.numGestor+=1
+        x.map(
+          y=>{
+            switch (y['tipo']) {
+              case "ADM":{
+                this.numAdministrador+=1
+              }
+              break;
+            
+              case "INV":{
+                this.listaInvestidores.push({label:y['nome'],value:y});
+                this.numInvestidor+=1
+              }
+              break;
+              case "GES":{
+                this.listaGestores.push({label:y['nome'],value:y});
+                this.numGestor+=1
+              }
+              break;
+            
+
+              default:
+                break;
+            }
+          },
+          
         )
     )
   }
-  numeroInvestidor(){
-    this.crudDefautService.findAll(new Investidor(), 'Investidor').subscribe(
-      x =>{
-      console.log(x);
-        x.foreach(
-          y=>this.numInvestidor+=1
-        )}
-    )
-  }
-  numeroAdministrador(){
-    this.crudDefautService.findAll(this.administrador, 'Administrador').subscribe(
-      x =>
-        x.foreach(
-          y=>this.numAdministrador+=1
-        )
-    )
-  }
+  
 
   createUser(){
-    alert()
     this.router.navigate(['formulario']);
+  }
+
+  fundoDisponivel(){
+    this.administracaoService.fundoDisponivel().subscribe(
+      x=>this.fundo = x['total']
+    );
   }
 }

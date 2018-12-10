@@ -61,7 +61,7 @@ import {ToastModule} from 'primeng/toast';
     CalendarModule,
     SidebarModule,
     ToastModule,
-    KeyFilterModule,
+   KeyFilterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

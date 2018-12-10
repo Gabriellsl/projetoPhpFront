@@ -15,19 +15,25 @@ export class GestaoService {
     private http:HttpClient
   ) { }
 
-  comprarAcao(acao:Acao, qtd:Number):Observable<Acao>{
+  comprarAcao(acao:Acao, qtd:Number):Observable<any>{
+    // alert()
     var jsonAcao = JsonGenerate.getJson(acao);
     var httpOptions = JsonDefault.getHeaders('Acao');
     //console.log(jsonAcao);
-    return this.http.post<Acao>(ConfigUrl.DEFAULT_URL+"/compraracao", jsonAcao, httpOptions);
+    
+   // for (let index = 1; index < qtd; index++){
+     // alert()
+      return this.http.post<Acao>(ConfigUrl.DEFAULT_URL+"/compraracao", jsonAcao, httpOptions);  
+    //}
   }
 
-  venderAcao(acao:Acao):Observable<Acao>{
-    var jsonAcao = JsonGenerate.getJson(acao);
-    var httpOptions = JsonDefault.getHeaders('Acao');
-   // console.log(jsonAcao)
-    return this.http.post<Acao>(ConfigUrl.DEFAULT_URL+"/listarminhasacoes", jsonAcao, httpOptions);
-  }
+  
+  // venderAcao(acao:Acao):Observable<Acao>{
+  //   var jsonAcao = JsonGenerate.getJson(acao);
+  //   var httpOptions = JsonDefault.getHeaders('Acao');
+  //  // console.log(jsonAcao)
+  //   return this.http.post<Acao>(ConfigUrl.DEFAULT_URL+"/listarminhasacoes", jsonAcao, httpOptions);
+  // }
 
   listarMinhasAcoes(acao:Acao):Observable<any>{
     var jsonLogin = JsonGenerate.getJson(acao);
