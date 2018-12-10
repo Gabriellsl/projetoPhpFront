@@ -41,4 +41,11 @@ export class GestaoService {
     return this.http.post<Acao>(ConfigUrl.DEFAULT_URL+"/listarminhasacoes", jsonLogin, httpOptions);
   }
 
+  dadosGestor():Observable<any>{
+    //var jsonLogin = JsonGenerate.getJson(acao);
+    var httpOptions = JsonDefault.getHeaders('Gestor');
+    return this.http.get<any>(ConfigUrl.DEFAULT_URL+"/dadosgestor", httpOptions);
+
+  }
+
 }

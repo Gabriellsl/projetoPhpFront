@@ -11,7 +11,13 @@ export class Util{
         return ano+'-'+mes+'-'+dia;
     }
 
-    public static date_mysql_ts(s:String){
+    public static formatReal( valor ){
+        var tmp = valor+'';
+        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+        if( tmp.length > 6 )
+                tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
 
+        return tmp;
     }
+
 }

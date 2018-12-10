@@ -30,7 +30,7 @@
             <p-header class="card_header">
               Saldo ativo
             </p-header>
-            <h3 class="first">R$ {{(saldoAtivo).toFixed(2).toLocaleString('pt-BR')}} </h3>
+            <h3 class="first">R$ {{saldoAtivo}} </h3>
           </p-card>
         </div>
 
@@ -40,7 +40,7 @@
             <p-header class="card_header">
               Lucro esperado
             </p-header>
-            <h3 class="first"> R$ {{(saldoAtivo*0.02).toFixed(2).toLocaleString('pt-BR')}} </h3>
+            <h3 class="first"> R$ {{(saldoAtivo*0.02).toLocaleString('pt-BR')}} </h3>
           </p-card>
         </div>
 
@@ -49,7 +49,7 @@
             <p-header class="card_header">
               Lucro Diário
             </p-header>
-            <h3 class="first"> R$ {{((saldoAtivo*0.02)/60).toFixed(2).toLocaleString('pt-BR')}} </h3>
+            <h3 class="first"> R$ {{((saldoAtivo*0.02)/60).toLocaleString('pt-BR')}} </h3>
           </p-card>
         </div>
 

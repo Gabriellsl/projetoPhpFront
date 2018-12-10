@@ -38,7 +38,7 @@
         <tbody>
           <tr *ngFor="let saque of transacoesSacadas">
             <th scope="row">{{saque.id_transacao}}</th>
-            <td>{{saque.valor}}</td>
+            <td>R$ {{(saque.valor).toLocaleString('pt-BR')}}</td>
             <td>{{saque.data}}</td>
             <td>{{saque.datasaque}}</td>
           </tr>

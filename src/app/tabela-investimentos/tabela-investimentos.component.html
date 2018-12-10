@@ -43,7 +43,7 @@
         <tbody>
           <tr *ngFor="let deposito of depositosEfetuados">
             <th scope="row">{{deposito.id_transacao}}</th>
-            <td>{{(deposito.valor*1).toFixed(2).toLocaleString('pt-BR')}}</td>
+            <td>{{deposito.valor.toLocaleString('pt-BR')}}</td>
             <td>{{deposito.data}}</td>
             <td>{{deposito.datasaque}}</td>
             <td> <i (click)="sacar(deposito)" class="pi pi-arrow-circle-down menu_icon" style="font-size:1em;cursor:pointer"></i>

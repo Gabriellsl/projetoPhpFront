@@ -46,7 +46,9 @@ export class InvestimentoComponent implements OnInit {
     datasaque: '',
   }
 
-  saldoAtivo = 0;
+  saldoAtivo:number = 0;
+
+  saldoAtivoFormatado = Util.formatReal(this.saldoAtivo);
 
   constructor(private http: HttpClient,
               private transacaoService: TransacaoService,
@@ -59,7 +61,7 @@ export class InvestimentoComponent implements OnInit {
     if(Permission.execute(this.router)){
       this.calculaSaldoAtivo();
 
-
+      
 
       this.minDate = new Date();
       this.minDate.setMonth(this.minDate.getMonth() == 12? 1 : this.minDate.getMonth()+1);
@@ -98,6 +100,7 @@ export class InvestimentoComponent implements OnInit {
           try {
             this.saldoAtivo += parseFloat(y.valor);  
           } catch (error) {}
+         // this.saldoAtivoFormatado =  Util.formatReal(this.saldoAtivo.toFixed(2));
         });
       },
     );
