@@ -1,4 +1,4 @@
-<div class=" form_vendas">
+<!-- <div class="form_vendas">
   <form action="/servidor/salvar" method="post" disabled="" class="ls-form-text">
     <table class="table ls-table table-striped">
       <thead>
@@ -17,9 +17,9 @@
           <td>{{deposito.data}}</td>
           <td>{{deposito.datasaque}}</td>
           <td>
-            <!-- <a  (click)="teste(deposito)" data-confirm-text="Confirma exclusão do item?" class="text-danger">
-              Excluir
-            </a> -->
+             <a  (click)="teste(deposito)" data-confirm-text="Confirma exclusão do item?" class="text-danger">
+              Excluir   // comentar
+            </a> 
             <button (click)="solicitarSaque(deposito)" class="bbtn btn-success">CU</button>
           </td>
         </tr>
@@ -27,5 +27,37 @@
       </tbody>
     </table>
   </form>
-</div>
+</div> -->
 
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead class="bg-success text-white">
+          <tr>
+            <th scope="col"><i class="pi pi-angle-double-down menu_icon" style="font-size:1em;cursor:pointer"></i></th>
+            <th scope="col">Valor investido</th>
+            <th scope="col">Data depósito</th>
+            <th scope="col">Data saque</th>
+            <th scope="col">Sacar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let deposito of depositosEfetuados">
+            <th scope="row">{{deposito.id_transacao}}</th>
+            <td>{{(deposito.valor*1).toFixed(2).toLocaleString('pt-BR')}}</td>
+            <td>{{deposito.data}}</td>
+            <td>{{deposito.datasaque}}</td>
+            <td> <i (click)="teste(deposito)" class="pi pi-arrow-circle-down menu_icon" style="font-size:1em;cursor:pointer"></i>
+                 <i (click)="teste(deposito)" data-confirm-text="Confirma exclusão do item?" class="texto_sacar" style="cursor:pointer">
+                   Sacar
+                 </i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+<!-- 
+       <a  (click)="teste(deposito)" data-confirm-text="Confirma exclusão do item?" class="text-danger">
+        Excluir   // comentar
+      </a> 
+      <button (click)="solicitarSaque(deposito)" class="bbtn btn-success">CU</button> -->

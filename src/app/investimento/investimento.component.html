@@ -1,77 +1,108 @@
-<div class="container-fluid">
-  <div class="div_investimento row">
 
-    <div class="ui-md-offset-2 ui-md-4 ">
+<div class="container-fluid invest_container">
+  <div class="space row"></div>
+  <div class="row dados_container">
+
+    <div class="investir_content col-md-8">
       
-      <input [(ngModel)]="transacaoDeposito.valor" name="valor" type="number" id="inputValor" class="form-control"
+      <!-- <input [(ngModel)]="transacaoDeposito.valor" name="valor" type="number" id="inputValor" class="form-control"
         placeholder="Investir" required autofocus>
       <p-calendar [(ngModel)]="transacaoDeposito.datasaque" [minDate]="minDate" [readonlyInput]="true" showButtonBar="true"
         dateFormat="yy-mm-dd" name="datasaque" id="inputData"></p-calendar>
-      <button (click)="investir()" type="submit" class="btn btn-lg btn-success btn-block">Investir</button>
+      <button (click)="investir()" type="submit" class="btn btn-lg btn-success btn-block">Investir</button> -->
+      <!-- <app-tabela-investimentos></app-tabela-investimentos> -->
+
+      <div class="table_container inv_card">
+        <div class="card_name">
+          <h4>Ações ativas</h4>
+        </div>
+        
+        <app-tabela-investimentos></app-tabela-investimentos>
+      </div>
+ 
     </div>
 
-    <div class="ui-md-offset-2 ui-g-4 ui-md-4">
-      <div class="div_investimento">
+    <div class="col-md-4">
 
-        <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+
+        <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
           <p-card>
             <p-header class="card_header">
               Saldo ativo
             </p-header>
             <h3 class="first">R$ {{(saldoAtivo).toFixed(2).toLocaleString('pt-BR')}} </h3>
-
-            <p-footer>
-              <!-- Footer content here -->
-            </p-footer>
           </p-card>
         </div>
 
 
-        <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
           <p-card>
             <p-header class="card_header">
               Lucro esperado
             </p-header>
             <h3 class="first"> R$ {{(saldoAtivo*0.02).toFixed(2).toLocaleString('pt-BR')}} </h3>
-
-            <p-footer>
-              <!-- Footer content here -->
-            </p-footer>
           </p-card>
         </div>
 
-        <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
           <p-card>
             <p-header class="card_header">
               Lucro Diário
             </p-header>
             <h3 class="first"> R$ {{((saldoAtivo*0.02)/60).toFixed(2).toLocaleString('pt-BR')}} </h3>
-
-            <p-footer>
-              <!-- Footer content here -->
-            </p-footer>
           </p-card>
         </div>
 
-        <div class="ui-g-12 ui-md-12 allign-right investimento_content">
+        <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
           <p-card>
             <p-header class="card_header">
               Próximo saque
             </p-header>
             <h3 class="first"> R$ 7.000,00 </h3>
-
-            <p-footer>
-              <!-- Footer content here -->
-            </p-footer>
           </p-card>
         </div>
 
-      </div>
+
     </div>
 
   </div>
+  <div class="divisor">
+    <hr>
+    
+  </div>
+  <div class="row relatorio_content">
 
-  <app-tabela-sacados></app-tabela-sacados>
+    <div class="investir_content col-md-8">
+        <div class="table_container inv_card">
+          <div class="card_name">
+             <h4>Ações ativas</h4>
+          </div>
+          <app-tabela-sacados></app-tabela-sacados>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+
+      <div class="deposito_content inv_card">
+        <div class="card_name">
+          <h4>Faça um deposito</h4>
+        </div>
+        
+            <input [(ngModel)]="transacaoDeposito.valor" name="valor" type="number" id="inputValor" class="input_data"
+            placeholder=" Valor" required autofocus>
+        
+        
+            <p-calendar [(ngModel)]="transacaoDeposito.datasaque" [minDate]="minDate" [readonlyInput]="true" [showIcon]="true" showButtonBar="true"
+            dateFormat="yy-mm-dd" placeholder="Data para saque" name="datasaque" id="inputData" class="input_data" ></p-calendar>
+        
+         
+        
+         <button (click)="investir()" type="submit" class="btn btn-md btn-success btn-block button_investir">Investir</button>
+      </div>
+
+    </div>
+  </div>
+  <div class="space row"></div>
 </div>
 
 

@@ -1,4 +1,4 @@
-<div class=" form_vendas">
+<!-- <div class=" form_vendas">
     <form action="/servidor/salvar" method="post" disabled="" class="ls-form-text">
       <table class="table ls-table table-striped">
         <thead>
@@ -21,6 +21,27 @@
         </tbody>
       </table>
     </form>
-  </div>
+  </div> -->
   
   
+  
+  <div class="table-responsive">
+      <table class="table table-hover">
+        <thead class="bg-primary text-white">
+          <tr>
+            <th scope="col"><i class="pi pi-angle-double-down menu_icon" style="font-size:1em;cursor:pointer"></i></th>
+            <th scope="col">Valor investido</th>
+            <th scope="col">Data depósito</th>
+            <th scope="col">Data saque</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let saque of transacoesSacadas">
+            <th scope="row">{{saque.id_transacao}}</th>
+            <td>{{saque.valor}}</td>
+            <td>{{saque.data}}</td>
+            <td>{{saque.datasaque}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

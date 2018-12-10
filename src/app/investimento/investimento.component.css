@@ -37,7 +37,61 @@
     margin-bottom: 30px;
 }
 
-.div_investimento{
-    margin-top: 60px;
+
+.investir_content{
+    /* max-height: 300px; */
+}
+
+.space{
+    height: 100px;
+}
+
+
+.table_container{
+    max-height: 400px;
+    box-shadow: 0px 0px 8px slategray;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 5px;
+    padding-top:20px; 
+}
+.card_name{
+    margin-bottom: 20px;
+}
+.inv_card:hover{
+    transform: scale(1.02);
+    transition-duration: 0.2s;
+}
+
+.relatorio_content{
+    margin-top: 50px;
+    widows: 100%;
+}
+
+.deposito_content{
+    box-shadow: 0px 0px 8px slategray;
+    padding: 15px;
+}
+
+.divisor{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.dados_container{
+    margin-bottom: 40px;
+}
+.button_investir{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    
+}
+
+.input_data{
+    margin-top: 5px;
+    height: 35px;
+    /* border-radius:1px; */
     width: 100%;
+    margin-bottom: 10px;
 }

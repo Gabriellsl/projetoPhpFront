@@ -1,0 +1,19 @@
+.form_container{
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+
+.table-responsive{
+    max-height: 330px;
+}
+
+.texto_sacar{
+    font-weight: bold;
+}
+
+.texto_sacar:hover{
+    color: green;
+    transition-duration: 0.2s;
+}
+
+
