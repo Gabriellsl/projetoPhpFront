@@ -11,15 +11,17 @@
                 <form action="" method="" accept-charset="utf-8" class="form-login">
 
                     <h3 class="form-login-heading">Faça o login</h3>
-                    <label for="inputEmail" class="sr-only">E-mail</label>
-                    <input name="login" [(ngModel)]="login.login" type="login" id="inputLogin" class="form-control"
-                        placeholder="Login" required autofocus>
-                    <label for="inputSenha" class="sr-only">Senha</label>
-                    <input name="password" [(ngModel)]="login.password" type="password" id="inputSenha" class="form-control"
-                        placeholder="Senha" required autofocus>
+                    <span class="ui-float-label">
+                        <input name="login" [(ngModel)]="login.login" type="login" id="inputLogin" class="form-control"
+                            pInputText required autofocus>
+                        <label for="float-input">Login</label>
+                    </span>
+                    <span class="ui-float-label">
+                        <input name="password" [(ngModel)]="login.password" type="password" id="inputSenha" class="form-control"
+                                pInputText required autofocus>
+                        <label for="float-input">Senha</label>
+                    </span>
                     <button (click)="logar()" type="submit" class="btn btn-lg btn-success btn-block">Entrar</button>
-                    <!-- <router-outlet></router-outlet> -->
-
                 </form>
             </div>
         </div>
