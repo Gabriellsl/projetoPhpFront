@@ -9,26 +9,26 @@
             <div class="ui-g ui-fluid pessoaForm">
 
                 <div class="ui-g-12 ui-md-6">
-                    <div class="ui-inputgroup">
-                        <label for="inputNome" class="sr-only">Nome</label>
+                    <div class="ui-float-label">
                         <input name="nome" [(ngModel)]="pessoa.nome" type="login" class="form-control inputPessoa"
-                            placeholder="Nome" required autofocus>
+                        pInputText required autofocus>
+                        <label for="float-input" >Nome</label>
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
-                    <div class="ui-inputgroup">
-                        <label for="inputCPF" class="sr-only">CPF</label>
+                    <div class="ui-float-label">
                         <input name="cpf" [(ngModel)]="pessoa.cpf" type="login" class="form-control inputPessoa"
-                            placeholder="CPF" pKeyFilter="int" required autofocus>
+                        pInputText pKeyFilter="int" required autofocus>
+                        <label for="float-input" >CPF</label>
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
-                    <div class="ui-inputgroup">
-                        <label for="inputRG" class="sr-only">RG</label>
+                    <div class="ui-float-label">
                         <input name="rg" [(ngModel)]="pessoa.rg" type="login" class="form-control inputPessoa"
-                            placeholder="RG" pKeyFilter="int" required autofocus>
+                        pInputText pKeyFilter="int" required autofocus>
+                        <label for="float-input" >RG</label>
                     </div>
                 </div>
 
@@ -43,67 +43,56 @@
                                     <option value="GES">Gestor</option>
                                     <option value="ADM">Administrador</option>
                             </select>
-
-                        <!-- <p-dropdown [options]="Tipo" [(ngModel)]="pessoa.tipo" placeholder="Selecione o tipo" optionLabel="tipo" [showClear]="true"></p-dropdown> -->
-                        <!-- <p>Selected Type: {{pessoa.tipo ? pessoa.tipo.tipo : 'none'}}</p> -->
-                        <!-- <select>
-                                <option value="ADM" [(ngModel)]="pessoa.tipo" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>Adiministrador</option>
-                                <option value="INV" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>Investidor</option>
-                                <option value="GES" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>Gestor</option>
-                            </select> -->
-                        <!-- <input name="ADM" [(ngModel)]="pessoa.tipo" type="checkbox" value="ADM" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>ADM<br>
-                            <input name="INV" [(ngModel)]="pessoa.tipo" type="checkbox" value="INV" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>INV<br>
-                            <input name="GES" [(ngModel)]="pessoa.tipo" type="checkbox" value="GES" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>GES<br>      -->
                     </div>
                 </div>
 
             
                 <div class="ui-g-12 ui-md-6" *ngIf="validadorGestor">
-                    <div class="ui-inputgroup">
-                        <label for="inputMeta" class="sr-only">Meta</label>
+                    <div class="ui-float-label">
                         <input name="meta" [(ngModel)]="gestor.meta" type="login" class="form-control inputPessoa"
-                            placeholder="Meta" pKeyFilter="pnum" required autofocus>
+                        pInputText pKeyFilter="pnum" required autofocus>
+                        <label for="float-input">Meta</label>
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-6" *ngIf="validadorGestor"> 
-                    <div class="ui-inputgroup">
-                        <label for="inputLimite" class="sr-only">Limite de giro</label>
+                    <div class="ui-float-label">
                         <input name="limite" [(ngModel)]="gestor.giroMaximo" type="login" class="form-control inputPessoa"
-                            placeholder="Limite de giro" pKeyFilter="pnum" required autofocus>
+                        pInputText pKeyFilter="pnum" required autofocus>
+                        <label for="float-input" >Limite de giro</label>
                     </div>
                 </div>
             
 
                 <div class="ui-g-12 ui-md-6">
-                    <div class="ui-inputgroup">
-                        <label for="inputUsuario" class="sr-only">Usuario</label>
+                    <div class="ui-float-label">
                         <input name="usuario" [(ngModel)]="pessoa.login" type="login" class="form-control inputPessoa"
-                            placeholder="Usuario" required autofocus>
+                        pInputText required autofocus>
+                        <label for="float-input">Usuario</label>
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
-                    <div class="ui-inputgroup">
-                        <label for="inputEmail" class="sr-only">Email</label>
+                    <div class="ui-float-label">
                         <input name="email" [(ngModel)]="pessoa.email" type="login" class="form-control inputPessoa"
-                            placeholder="Email" pKeyFilter="email" required autofocus>
+                        pInputText pKeyFilter="email" required autofocus>
+                        <label for="float-input" >Email</label>
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
-                    <div class="ui-inputgroup">
-                        <label for="inputSenha" class="sr-only">Senha</label>
+                    <div class="ui-float-label">
                         <input name="senha" [(ngModel)]="senha.senha1" type="login" class="form-control inputPessoa"
-                            placeholder="Senha" required autofocus>
+                        pInputText required autofocus>
+                        <label for="float-input">Senha</label>
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
-                    <div class="ui-inputgroup">
-                        <label for="inputConfSenha" class="sr-only">Confirmar senha</label>
+                    <div class="ui-float-label">
                         <input name="confSenha" [(ngModel)]="senha.senha2" type="login" class="form-control inputPessoa"
-                            placeholder="Confirmar senha" required autofocus>
+                        pInputText required autofocus>
+                        <label for="float-input">Confirmar senha</label>
                     </div>
                 </div>
 

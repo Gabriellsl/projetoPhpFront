@@ -132,8 +132,8 @@ export class GestaoComponent implements OnInit {
 
 
   ngOnInit() {
-    //Permission.execute(this.router)
-    this.dadosGestor();
+    if(Permission.execute(this.router)){
+      this.dadosGestor();
 
 
     // GRÁFICO
@@ -149,7 +149,10 @@ export class GestaoComponent implements OnInit {
     this.acoes.push("BIDU", "MSFT", "SNE", "XIACY");
     this.findData();
     this.acaoSelecionada = this.acoesVenda[0]['code'];
-  }
+
+    }
+    
+}
 
   dadosGestor() {
     this.gestaoService.dadosGestor().subscribe(
@@ -339,8 +342,13 @@ export class GestaoComponent implements OnInit {
     this.acaoCompra.status = 'ATIVO';
     this.acaoCompra.descricao = this.acaoSelecionada["code"];
 
+    //this.statusOperacaoCompra = true
+
     for (let i = 0; i < this.quantidadeAcoes; i++) {
-      this.gestaoService.comprarAcao(this.acaoCompra, this.quantidadeAcoes).subscribe(
+
+      var tmp = this.acaoCompra;
+
+      this.gestaoService.comprarAcao(tmp, this.quantidadeAcoes).subscribe(
         z => {
             console.log(z[0])
             this.minhasAcoes.push(z[0]);
