@@ -153,6 +153,8 @@ senha: Senha = {
 
 
   selecionaTipo(){
+    console.log(this.pessoa);
+    this.pessoa.tipo=this.tipoSelecionado;
     if(this.tipoSelecionado=="GES"){
       this.validadorGestor=true;
     }else{
