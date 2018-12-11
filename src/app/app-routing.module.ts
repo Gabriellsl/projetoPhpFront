@@ -13,15 +13,10 @@ import { TabelaSacadosComponent } from './tabela-sacados/tabela-sacados.componen
 
 const routes: Routes= [
   { path: 'login', component: LoginComponent},
-  { path: 'formulario', component: PessoaformComponent},
-  { path: 'grafico', component: GraficoComponent},  // Excluir 
+  { path: 'formulario', component: PessoaformComponent}, 
   { path: 'investimento', component: InvestimentoComponent},
-  { path: 'tableinv', component:TabelaInvestimentosComponent},
-  { path: 'tablesac', component:TabelaSacadosComponent},
-  
   { path: '', redirectTo: '/login', pathMatch:'full'},
-  { path: 'gestao', component: GestaoComponent},    // Excluir
-  { path: 'graficoVendas' , component: GraficoMinhaAcoesComponent},
+  { path: 'gestao', component: GestaoComponent},   
   { path: 'administracao' , component: AdministracaoComponent}
 ];
 

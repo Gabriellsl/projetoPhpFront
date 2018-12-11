@@ -15,7 +15,7 @@ export class MinhasacoesService {
   ) { }
 
   findData(acao:Acao):Observable<any>{   
-    var httpOptions = JsonDefault.getHeaders("acao");
+    var httpOptions = JsonDefault.getHeaders("Acao");
     var jsonAcao = JsonGenerate.getJson(acao);
     return this.http.post<any>(ConfigUrl.DEFAULT_URL+'/listarminhasacoes', jsonAcao, httpOptions);
   }
