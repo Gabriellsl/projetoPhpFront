@@ -24,3 +24,31 @@
     height:100px;
     margin-bottom: 20px;
 }
+
+
+
+
+
+
+/* ############################################## Gráfico ############################################ */
+
+
+.botao_compra{
+    margin-top: 10px;
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+.grafico_ges{
+    position: relative;
+    width: 100%;
+}
+.input_acao{
+    display: block;
+}
+
+
+
+
+/* ############################################## Ex Grafico minhas acoes ############################################ */
+
