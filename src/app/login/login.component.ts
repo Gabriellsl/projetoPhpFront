@@ -3,6 +3,8 @@ import { Login } from '../model/login';
 import { LoginService } from '../services/login.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {KeyFilterModule} from 'primeng/keyfilter';
+import { HeaderComponent } from '../header/header.component';
+
 
 @Component({
   selector: 'app-login',
@@ -20,9 +22,9 @@ export class LoginComponent implements OnInit {
   
   constructor(private loginService: LoginService,
               private router: Router,
-           ) { }
+              ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
     if(localStorage.getItem('currentUser')){
       
       var x = JSON.parse(localStorage.getItem('currentUser'))['user'];
@@ -52,7 +54,8 @@ export class LoginComponent implements OnInit {
                                             }));
        
                                             
-
+    
+    
     if(x["user"]["tipo"]  == "ADM" ){
       this.router.navigate(['administracao']);
     }else if(x["user"]["tipo"] == "INV"){
