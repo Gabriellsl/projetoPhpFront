@@ -81,14 +81,13 @@ senha: Senha = {
 
   public salvarPessoa(): void {
 
-    alert(this.tipoSelecionado);
+    
 
     if(this.validarSenhas(this.senha)){
-      
       this.pessoa.senha = this.senha.senha1;
       this.cruddefaultService.insert(this.pessoa, 'Pessoa').subscribe(
         x=>{
-            if(this.tipoSelecionado== 'ADM'){
+            if(this.tipoSelecionado == 'ADM'){
               
               this.administrador.id_pessoa = x[0].id_pessoa;
 
@@ -126,6 +125,7 @@ senha: Senha = {
             }
         }
       );
+      this.limpar();
     }else{
       alert("Senhas diferentes");
     }

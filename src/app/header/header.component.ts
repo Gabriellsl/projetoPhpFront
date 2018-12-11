@@ -39,10 +39,12 @@ export class HeaderComponent implements OnInit {
   }
   
   logout(): void {
-    this.loginService.logout();
+    // this.loginService.logout();
+    this.logado = false;
     localStorage.clear();
     this.nome="Bem vindo"
     this.router.navigate(['login']);
+    
   }
 
 }
