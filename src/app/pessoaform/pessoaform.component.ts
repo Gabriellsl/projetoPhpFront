@@ -126,6 +126,7 @@ senha: Senha = {
             }
         }
       );
+      this.limpar();
     }else{
       alert("Senhas diferentes");
     }
