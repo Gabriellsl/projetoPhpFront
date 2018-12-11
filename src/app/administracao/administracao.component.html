@@ -113,16 +113,16 @@
             </div>
 
             <div class="col-md-6 col-5">
-              <button (click)="comprarAcao()" type="submit" class="btn btn-md btn-primary btn-block botao_busca">buscar</button>
+              <button (click)="buscarInvestidor()" type="submit" class="btn btn-md btn-primary btn-block botao_busca">buscar</button>
             </div>
           </div>
           <div class="dados_content">
               <div class="row justify-content-around">
                 
-                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Nome:</i> gabriel </div>
-                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Email:</i> Gabriellsl2009@hotmail.com</div>
-                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">CPF:</i></div>
-                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Saldo:</i></div>
+                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Nome:</i>  {{nomeI}} </div>
+                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Email:</i> {{emailI}}</div>
+                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">CPF:</i>   {{cpfI}}</div>
+                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Saldo:</i> {{saldoI}}</div>
                 
               </div>
             </div>
@@ -140,16 +140,16 @@
             </div>
 
             <div class="col-md-6 col-5">
-              <button (click)="comprarAcao()" type="submit" class="btn btn-md btn-primary btn-block botao_busca">buscar</button>
+              <button (click)="buscarGestor()" type="submit" class="btn btn-md btn-primary btn-block botao_busca">buscar</button>
             </div>
           </div>
           <div class="dados_content">
             <div class="row justify-content-around">
               
-              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Nome:</i> gabriel </div>
-              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Email:</i> Gabriellsl2009@hotmail.com</div>
-              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Meta:</i></div>
-              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Capital:</i></div>
+              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Nome:</i>   {{nomeG}} </div>
+              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Email:</i>  {{emailG}}</div>
+              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Meta:</i>   {{metaG}} </div>
+              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Capital:</i>{{capitalG}}</div>
               
             </div>
           </div>

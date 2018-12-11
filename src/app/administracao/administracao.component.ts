@@ -43,6 +43,7 @@ export class AdministracaoComponent implements OnInit {
   fundo:number = 0;
   ganhos : number[] = new Array();
 
+
   pessoa:Pessoa={
     id_pessoa: null,
     nome: null,
@@ -53,12 +54,36 @@ export class AdministracaoComponent implements OnInit {
     senha: null,
     tipo: null,
   }
-  
+
+  investidor:Investidor={
+    id_investidor     :0,
+    id_pessoa         :0,
+    saldo            :0,
+  }
+
+  gestor:Gestor={
+    id_gestor    :0,
+    id_pessoa    :0,
+    meta        :0,
+    giromaximo  :0
+  }
+
+  nomeI = ""
+  emailI = ""
+  cpfI = ""
+  saldoI = ''
+
+  nomeG = ''
+  emailG = ''
+  metaG = ''
+  capitalG = ''
+
   ngOnInit() {
     if(Permission.execute(this.router)){
       this.ganhosTotais();
       this.carregarPessoas();
       this.fundoDisponivel();
+       
     }
 }
 
@@ -82,11 +107,36 @@ startGrafico(){
   }
 
   buscarInvestidor(){
-    console.log(this.invSelecionado);
+    this.nomeI = this.invSelecionado['nome']; 
+    this.emailI = this.invSelecionado['email']; 
+    this.cpfI = this.invSelecionado['cpf']; 
+
+    this.crudDefautService.findAll(this.investidor, "Investidor").subscribe(
+      x=>{
+        x.forEach(y => {
+          if(y['id_pessoa'] == this.invSelecionado['id_pessoa'])
+            this.saldoI = y['saldo']
+        });
+      }
+    )
   }
 
   buscarGestor(){
-    console.log(this.gesSelecionado);
+    this.nomeG = this.gesSelecionado['nome']; 
+    this.emailG = this.gesSelecionado['email']; 
+
+
+    this.crudDefautService.findAll(this.gestor, "Gestor").subscribe(
+      x=>{
+        x.forEach(y => {
+          if(y['id_pessoa'] == this.gesSelecionado['id_pessoa']){
+            this.metaG = y['meta']
+            this.capitalG = y['giromaximo']
+          }
+            
+        });
+      }
+    )
   }
 
   carregarPessoas(){
