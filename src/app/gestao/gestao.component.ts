@@ -111,8 +111,21 @@ export class GestaoComponent implements OnInit {
     valorcompra: 0,
     datacompra: null,
     datavenda: null,
+  } 
+  acao2: Acao = {
+    id_acao: 0,
+    id_gestor: 0,
+    valorvenda: 0,
+    descricao: "",
+    tipo: '',
+    rendimento: 0,
+    status: "ATIVO",
+    valorcompra: 0,
+    datacompra: null,
+    datavenda: null,
   }
 
+  
 
 
 
@@ -126,11 +139,12 @@ export class GestaoComponent implements OnInit {
 
     this.acoes.push("BIDU", "MSFT", "SNE", "XIACY");
     this.startGrafico();
+
     this.findData1(this.acoes[0]);
     this.acaoSelecionada = this.acoesCompra[0]["code"];
 
 
-    // GRAFICO MINHAS ACOES
+    // // GRAFICO MINHAS ACOES
     this.acoes.push("BIDU", "MSFT", "SNE", "XIACY");
     this.findData();
     this.acaoSelecionada = this.acoesVenda[0]['code'];
@@ -244,7 +258,7 @@ export class GestaoComponent implements OnInit {
         }
       })
     this.data.update();
-    //this.findData2(this.acoes[1]);
+    this.findData2(this.acoes[1]);
   }
 
   findData2(acao2: string) {
@@ -285,7 +299,9 @@ export class GestaoComponent implements OnInit {
           i++;
         }
         this.data.update();
+        this.startGrafico();
         setInterval(x => this.findData1(this.acoes[0]), 500000);
+        this.valorAcaoUpdateVenda();
       })
   }
 
@@ -306,6 +322,8 @@ export class GestaoComponent implements OnInit {
 
   }
 
+  
+
   //"BIDU","MSFT","SNE","XIACY
 
   public comprarAcao() {
@@ -323,7 +341,9 @@ export class GestaoComponent implements OnInit {
     for (let i = 0; i < this.quantidadeAcoes; i++) {
       this.gestaoService.comprarAcao(this.acaoCompra, this.quantidadeAcoes).subscribe(
         z => {
-          console.log(z)
+            console.log(z[0])
+            this.minhasAcoes.push(z[0]);
+          
           this.statusOperacaoCompra = true
         },
         err => this.statusOperacaoCompra = false);
@@ -338,22 +358,17 @@ export class GestaoComponent implements OnInit {
 
 
 
-
-
-
-
-
   // GRAFICO MINHAS ACOES
 
   valorAcaoUpdateVenda() {
     try {
-      if (this.acaoSelecionada["code"] == "BIDU") {
+      if (this.acaoSelecionadaVenda["code"] == "BIDU") {
         this.valorAcaoSelecionadaVenda = this.data1["30"];
-      } else if (this.acaoSelecionada["code"] == "MSFT") {
+      } else if (this.acaoSelecionadaVenda["code"] == "MSFT") {
         this.valorAcaoSelecionadaVenda = this.data2["30"];
-      } else if (this.acaoSelecionada["code"] == "SNE") {
+      } else if (this.acaoSelecionadaVenda["code"] == "SNE") {
         this.valorAcaoSelecionadaVenda = this.data3["30"];
-      } else if (this.acaoSelecionada["code"] == "XIACY") {
+      } else if (this.acaoSelecionadaVenda["code"] == "XIACY") {
         this.valorAcaoSelecionadaVenda = this.data4["30"];
       }
     } catch (error) {
@@ -363,9 +378,11 @@ export class GestaoComponent implements OnInit {
   }
 
   findData() {
-    //this.acao.descricao = "BIDU"
-    this.minhasAcoesService.findData(this.acao).subscribe(
+    
+    this.minhasAcoesService.findData(this.acao2).subscribe(
       (x) => {
+        this.minhasAcoes = new Array();
+        console.log(x);
         x.forEach(y => {
           this.minhasAcoes.push(y);
         });
@@ -385,10 +402,18 @@ export class GestaoComponent implements OnInit {
     this.acao.valorvenda = this.valorAcaoSelecionadaVenda;
 
     this.acao.valorcompra = null;
-    this.minhasAcoesService.venderAcao(this.acao, this.quantidadeAcoesVenda).subscribe(
-      x => console.log(x),
-      err => alert("Não existem ações nesta categoria!!!")
-    )
+    for (let i = 0; i < this.quantidadeAcoesVenda; i++) {
+     
+      this.minhasAcoesService.venderAcao(this.acao, this.quantidadeAcoesVenda).subscribe(
+        z=>{
+          this.findData();
+          this.dadosGestor();
+
+        },
+        err => alert("Não existem ações nesta categoria!!!")
+      )
+      
+    }
   }
 
 }
