@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 import { TransacaoService } from '../services/transacao.service';
 import { TabelaInvestimentosComponent } from '../tabela-investimentos/tabela-investimentos.component';
 import { TabelaSacadosComponent } from '../tabela-sacados/tabela-sacados.component';
-import {Permission} from '../permission_controll'
+import { Permission } from '../permission_controll'
 import { Router } from '@angular/router';
-import {Util} from '../util'
+import { Util } from '../util'
 
 @Component({
   selector: 'app-investimento',
@@ -18,92 +18,176 @@ import {Util} from '../util'
   styleUrls: ['./investimento.component.css']
 })
 
-  
+
 
 
 export class InvestimentoComponent implements OnInit {
 
-  minDate:Date;
+  minDate: Date;
+
+  // TABELA INVESTIMENTOS
+  depositoEfetuado: Transacao = {
+    id_transacao: 1,
+    id_investidor: 0,
+    id_configtaxa: 0,
+    tipo: '+',
+    data: null,
+    valor: null,
+    status: '',
+    datasaque: null,
+    dataprevistasaque: null,
+    rendimento: null
+  }
+
+  depositosEfetuados: Transacao[] = new Array;
+
+  // TABELA SACADOS
+  transacaoSaque: Transacao = {
+    id_transacao: 0,
+    id_investidor: 0,
+    id_configtaxa: 0,
+    tipo: "-",
+    data: '',
+    valor: 0,
+    status: '',
+    datasaque: '',
+    dataprevistasaque: null,
+    rendimento: null
+  }
+
+  transacoesSacadas: Transacao[] = new Array;
+
 
   transacaoDeposito: Transacao = {
     id_transacao: 0,
     id_investidor: 2,
-    id_configtaxa:3,
+    id_configtaxa: 3,
     tipo: '+',
-    data: null ,
+    data: null,
     valor: null,
     status: 'ATIVO',
     datasaque: null,
-    dataprevistasaque:null,
-    rendimento:null
+    dataprevistasaque: null,
+    rendimento: null
   };
-  saque: Transacao={
+  saque: Transacao = {
     id_transacao: 0,
     id_investidor: 0,
-    id_configtaxa:0,
+    id_configtaxa: 0,
     tipo: '+',
     data: '',
     valor: 0,
     status: '',
     datasaque: '',
-    dataprevistasaque:null,
-    rendimento:0
+    dataprevistasaque: null,
+    rendimento: 0
   }
 
-  saldoAtivo:number = 0;
+  saldoAtivo: number = 0;
 
   saldoAtivoFormatado = Util.formatReal(this.saldoAtivo);
 
   constructor(private http: HttpClient,
-              private transacaoService: TransacaoService,
-              private router: Router
-              ) {}
+    private transacaoService: TransacaoService,
+    private router: Router
+  ) { }
 
-  ngOnInit(){
-    
+  ngOnInit() {
 
-    if(Permission.execute(this.router)){
+
+    if (Permission.execute(this.router)) {
       this.calculaSaldoAtivo();
 
       this.minDate = new Date();
-      this.minDate.setMonth(this.minDate.getMonth() == 12? 1 : this.minDate.getMonth()+1);
-      this.minDate.setFullYear(this.minDate.getMonth() == 12 ? this.minDate.getFullYear()+1: this.minDate.getFullYear());
-   }
-  
-    
+      this.minDate.setMonth(this.minDate.getMonth() == 12 ? 1 : this.minDate.getMonth() + 1);
+      this.minDate.setFullYear(this.minDate.getMonth() == 12 ? this.minDate.getFullYear() + 1 : this.minDate.getFullYear());
+    }
+
+    //  TABELA INVESTIMENTOS
+    this.buscarDepositosEfetuados();
+    //  TABELA SACADOS
+    this.buscarTransacoesSacadas();
+  }
+
+  // teste(transacao:Transacao){
+  //   alert(transacao.valor);
+  //   this.depositosEfetuados.pop;
+  // }
+
+  buscarDepositosEfetuados(): void {
+    this.transacaoService.buscarTransacoes(this.depositoEfetuado).subscribe(
+      x => {
+        // alert("OK buscarDepositosEfetuados")
+        x.map(y => {
+          try {
+            this.depositosEfetuados.push(y)
+          } catch (error) {
+            // alert("TRY CATCH buscarDepositosEfetuados")
+          }
+        })
+
+      },
+      // err=>alert("err buscarDepositosEfetuados")
+    )
+  }
+
+  sacar(transacao: Transacao) {
+    this.transacaoService.sacar(transacao).subscribe(
+      x => alert('sacou')
+    );
+  }
+
+
+  //  TABELA SACADOS
+  buscarTransacoesSacadas(): void {
+    this.transacaoService.buscarTransacoes(this.transacaoSaque).subscribe(
+      x => {
+        x.forEach(y => {
+          try {
+            this.transacoesSacadas.push(y);
+          } catch (error) { }
+        });
+      },
+    );
+  }
+
+  solicitarSaque(transacao: Transacao) {
+
   }
 
 
   public investir(): /*Observable<TransacaoDeposito>*/void {
 
-    
-    if(this.transacaoDeposito.dataprevistasaque == null || this.transacaoDeposito.valor==null){
+
+
+
+    if (this.transacaoDeposito.dataprevistasaque == null || this.transacaoDeposito.valor == null) {
       alert("Prencha os campos requeridos");
-      return ;
+      return;
     }
-      
-    
+
+
     console.log(this.transacaoDeposito.datasaque);
-      this.transacaoService.insertTransacao(this.transacaoDeposito).subscribe(
-        x => {
-          console.log(x);
-          this.transacaoDeposito.valor=0;
-        },
-        err => {
-          
-        }
-      );
+    this.transacaoService.insertTransacao(this.transacaoDeposito).subscribe(
+      x => {
+        console.log(x);
+        this.transacaoDeposito.valor = 0;
+      },
+      err => {
+
+      }
+    );
 
   }
 
-  public calculaSaldoAtivo(){
+  public calculaSaldoAtivo() {
     this.transacaoService.buscarTransacoes(this.saque).subscribe(
-      x=>{
+      x => {
         x.forEach(y => {
           try {
-            this.saldoAtivo += parseFloat(y.valor);  
-          } catch (error) {}
-         // this.saldoAtivoFormatado =  Util.formatReal(this.saldoAtivo.toFixed(2));
+            this.saldoAtivo += parseFloat(y.valor);
+          } catch (error) { }
+          // this.saldoAtivoFormatado =  Util.formatReal(this.saldoAtivo.toFixed(2));
         });
       },
     );
@@ -114,21 +198,21 @@ export class InvestimentoComponent implements OnInit {
     var dia = data.getDate();
     var mes = data.getMonth() + 1;
     var ano = data.getFullYear();
-    return [ano,mes,dia].join('-');
+    return [ano, mes, dia].join('-');
+  }
+
+  teste(deposito: Transacao) {
+
+
+    console.log(deposito.id_transacao);
+  }
+
 }
 
-teste(deposito: Transacao){
-  
-  
-  console.log(deposito.id_transacao);
-}
 
-}
 
-  
 
-  
-    
+
 
 
 

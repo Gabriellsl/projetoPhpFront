@@ -1,10 +1,9 @@
-
 <div class="container-fluid invest_container">
   <div class="space row"></div>
   <div class="row dados_container">
 
     <div class="investir_content col-md-8">
-      
+
       <!-- <input [(ngModel)]="transacaoDeposito.valor" name="valor" type="number" id="inputValor" class="form-control"
         placeholder="Investir" required autofocus>
       <p-calendar [(ngModel)]="transacaoDeposito.datasaque" [minDate]="minDate" [readonlyInput]="true" showButtonBar="true"
@@ -16,51 +15,77 @@
         <div class="card_name">
           <h4>Saques ativos</h4>
         </div>
-        
-        <app-tabela-investimentos></app-tabela-investimentos>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="bg-success text-white">
+              <tr>
+                <th scope="col"><i class="pi pi-angle-double-down menu_icon" style="font-size:1em;cursor:pointer"></i></th>
+                <th scope="col">Valor investido</th>
+                <th scope="col">Data depósito</th>
+                <th scope="col">Data prevista saque</th>
+                <th scope="col">Sacar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let deposito of depositosEfetuados">
+                <th scope="row">{{deposito.id_transacao}}</th>
+                <td>{{deposito.valor.toLocaleString('pt-BR')}}</td>
+                <td>{{deposito.data}}</td>
+                <td>{{deposito.dataprevistasaque}}</td>
+                <td> <i (click)="sacar(deposito)" class="pi pi-arrow-circle-down menu_icon" style="font-size:1em;cursor:pointer"></i>
+                  <i (click)="sacar(deposito)" data-confirm-text="Confirma exclusão do item?" class="texto_sacar" style="cursor:pointer">
+                    Sacar
+                  </i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
- 
+
     </div>
 
     <div class="col-md-4">
 
 
-        <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
-          <p-card>
-            <p-header class="card_header">
-              Saldo ativo
-            </p-header>
-            <h3 class="first">R$ {{saldoAtivo}} </h3>
-          </p-card>
-        </div>
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
+        <p-card>
+          <p-header class="card_header">
+            Saldo ativo
+          </p-header>
+          <h3 class="first">R$ {{saldoAtivo}} </h3>
+        </p-card>
+      </div>
 
 
-        <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
-          <p-card>
-            <p-header class="card_header">
-              Lucro esperado
-            </p-header>
-            <h3 class="first"> R$ {{(saldoAtivo*0.02).toLocaleString('pt-BR')}} </h3>
-          </p-card>
-        </div>
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
+        <p-card>
+          <p-header class="card_header">
+            Lucro esperado
+          </p-header>
+          <h3 class="first"> R$ {{(saldoAtivo*0.02).toLocaleString('pt-BR')}} </h3>
+        </p-card>
+      </div>
 
-        <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
-          <p-card>
-            <p-header class="card_header">
-              Lucro Diário
-            </p-header>
-            <h3 class="first"> R$ {{((saldoAtivo*0.02)/60).toLocaleString('pt-BR')}} </h3>
-          </p-card>
-        </div>
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
+        <p-card>
+          <p-header class="card_header">
+            Lucro Diário
+          </p-header>
+          <h3 class="first"> R$ {{((saldoAtivo*0.02)/60).toLocaleString('pt-BR')}} </h3>
+        </p-card>
+      </div>
 
-        <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
-          <p-card>
-            <p-header class="card_header">
-              Próximo saque
-            </p-header>
-            <h3 class="first"> R$ 7.000,00 </h3>
-          </p-card>
-        </div>
+      <div class="ui-g-12 ui-md-12 allign-right investimento_content inv_card">
+        <p-card>
+          <p-header class="card_header">
+            Próximo saque
+          </p-header>
+          <h3 class="first"> R$ 7.000,00 </h3>
+        </p-card>
+      </div>
 
 
     </div>
@@ -68,17 +93,42 @@
   </div>
   <div class="divisor">
     <hr>
-    
+
   </div>
   <div class="row relatorio_content">
 
     <div class="investir_content col-md-8">
-        <div class="table_container inv_card">
-          <div class="card_name">
-             <h4>Saques encerrados</h4>
-          </div>
-          <app-tabela-sacados></app-tabela-sacados>
+      <div class="table_container inv_card">
+        <div class="card_name">
+          <h4>Saques encerrados</h4>
         </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th scope="col"><i class="pi pi-angle-double-down menu_icon" style="font-size:1em;cursor:pointer"></i></th>
+                <th scope="col">Valor investido</th>
+                <th scope="col">Lucro</th>
+                <th scope="col">Data depósito</th>
+                <th scope="col">Data prevista</th>
+                <th scope="col">Data saque</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let saque of transacoesSacadas">
+                <th scope="row">{{saque.id_transacao}}</th>
+                <td>R$ {{(saque.valor).toLocaleString('pt-BR')}}</td>
+                <td>R$ {{(saque.rendimento).toLocaleString('pt-BR')}}</td>
+                <td>{{saque.data}}</td>
+                <td>{{saque.dataprevistasaque}}</td>
+                <td>{{saque.datasaque}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
     </div>
 
     <div class="col-md-4">
@@ -87,19 +137,20 @@
         <div class="card_name">
           <h4>Faça um deposito</h4>
         </div>
-        
-          <span class="ui-float-label">
-            <input [(ngModel)]="transacaoDeposito.valor" name="valor" type="number" id="inputValor" class="input_data"
-             pKeyFilter="pnum" pInputText required autofocus>
-            <label for="float-input">Valor</label>
-          </span>
-        
-            <p-calendar [(ngModel)]="transacaoDeposito.dataprevistasaque" [minDate]="minDate" [readonlyInput]="true" [showIcon]="true" showButtonBar="true"
-            dateFormat="yy-mm-dd" placeholder="Data para saque" name="datasaque" id="inputData" class="input_data" ></p-calendar>
-        
-         
-        
-         <button (click)="investir()" type="submit" class="btn btn-md btn-success btn-block button_investir">Investir</button>
+
+        <span class="ui-float-label">
+          <input [(ngModel)]="transacaoDeposito.valor" name="valor" type="number" id="inputValor" class="input_data"
+            pKeyFilter="pnum" pInputText required autofocus>
+          <label for="float-input">Valor</label>
+        </span>
+
+        <p-calendar [(ngModel)]="transacaoDeposito.dataprevistasaque" [minDate]="minDate" [readonlyInput]="true"
+          [showIcon]="true" showButtonBar="true" dateFormat="yy-mm-dd" placeholder="Data para saque" name="datasaque"
+          id="inputData" class="input_data"></p-calendar>
+
+
+
+        <button (click)="investir()" type="submit" class="btn btn-md btn-success btn-block button_investir">Investir</button>
       </div>
 
     </div>
@@ -152,7 +203,7 @@
 
 
 
-  <!-- <div class="ui-g ui-fluid pessoaForm">
+<!-- <div class="ui-g ui-fluid pessoaForm">
               
       <div class="ui-g-12 ui-md-6">
           <div class="ui-inputgroup">
