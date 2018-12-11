@@ -15,6 +15,9 @@ import { CruddefaultService } from '../services/cruddefault.service';
 })
 export class PessoaformComponent implements OnInit {
 
+tipoSelecionado: string;
+validadorGestor: boolean;
+
 pessoa: Pessoa = {
   id_pessoa : 0,
   nome: 'Rafael',
@@ -56,7 +59,8 @@ senha: Senha = {
   ) { }
 
   ngOnInit() {
-    
+    this.tipoSelecionado="";
+    this.validadorGestor=false;
   }
 
   private validarSenhas(senha:Senha):boolean{
@@ -114,6 +118,15 @@ senha: Senha = {
     }
     
       
+  }
+
+
+  selecionaTipo(){
+    if(this.tipoSelecionado=="GES"){
+      this.validadorGestor=true;
+    }else{
+      this.validadorGestor=false;
+    }
   }
 
 
