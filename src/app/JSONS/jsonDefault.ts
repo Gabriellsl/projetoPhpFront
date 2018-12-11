@@ -8,8 +8,6 @@ export class JsonDefault{
     public static getHeaders(classe:string){
         
         if(classe!='login'){
-            // if(!JSON.parse(localStorage.getItem('currentUser')))
-                // alert("Você não está logado")  FFFFFDDDPUUUUTAAA
             var token = JSON.parse(localStorage.getItem('currentUser'))['token'];
         }
             

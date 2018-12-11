@@ -219,28 +219,6 @@ export class GestaoComponent implements OnInit {
     })
   }
 
-  /*
-  findData(){
-    this.graficoService.findData().subscribe(
-     (x) => {
-       console.log(this.acoes);
-       console.log(x);
-         for(var y in x['Time Series (5min)']){
-           this.data1.push(x['Time Series (5min)'][y]["1. open"]);
-           this.data2.push(x['Time Series (5min)'][y]["2. high"]);
-           this.data3.push(x['Time Series (5min)'][y]["3. low"]);
-           this.data4.push(x['Time Series (5min)'][y]["4. close"]);
-           this.data5.push(x['Time Series (5min)'][y]["5. volume"]);
-           this.labels.push("");
-           console.log(this.data1);
-       }
-       
-       this.startGrafico();
-       setInterval(x=>this.findDataUpdate(), 1000*62);
-   })
-  }
-  
-  */
 
   findData1(acao1: string) {
 

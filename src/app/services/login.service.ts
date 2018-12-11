@@ -14,29 +14,29 @@ import { Pessoa } from '../model/pessoa';
 export class LoginService {
 
   constructor(
-    private http: HttpClient ) { }
+    private http: HttpClient) { }
 
-  autenticar(login: Login):Observable<Login>{
+  autenticar(login: Login): Observable<Login> {
     var jsonLogin = JsonGenerate.getJson(login);
     var httpOptions = JsonDefault.getHeaders('login');
-    
-    return this.http.post<Login>(ConfigUrl.DEFAULT_URL+"/login", jsonLogin, httpOptions);
+
+    return this.http.post<Login>(ConfigUrl.DEFAULT_URL + "/login", jsonLogin, httpOptions);
   }
 
 
   // Metodo utilizado para resgatar os dados de tipo e id do tipo de uma pessoa 
-  selectUser(pessoa:Pessoa):Observable<any>{
+  selectUser(pessoa: Pessoa): Observable<any> {
 
-      var jsonSelectUser// = JsonGenerate.getJson('Pessoa',1,pessoa);
-      var httpOptions// = JsonDefault.getHeaders();
-      return this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL+"/selectuser", jsonSelectUser, httpOptions);
+    var jsonSelectUser// = JsonGenerate.getJson('Pessoa',1,pessoa);
+    var httpOptions// = JsonDefault.getHeaders();
+    return this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL + "/selectuser", jsonSelectUser, httpOptions);
   }
 
 
-  logout(){
-     var jsonLogout //= //JsonGenerate.getJson('login',1,null);
-     var httpOptions //= JsonDefault.getHeaders();
-     this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL+"/logout", jsonLogout, httpOptions);
+  logout() {
+    var jsonLogout //= //JsonGenerate.getJson('login',1,null);
+    var httpOptions //= JsonDefault.getHeaders();
+    this.http.post<Pessoa>(ConfigUrl.DEFAULT_URL + "/logout", jsonLogout, httpOptions);
   }
 
 }
