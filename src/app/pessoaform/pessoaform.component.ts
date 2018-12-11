@@ -132,6 +132,7 @@ senha: Senha = {
       this.senha.senha2='';
       this.gestor.giromaximo=0;
       this.gestor.meta=0;
+      alert("Cadastrado com sucesso");
     }else{
       alert("Senhas diferentes");
     }
@@ -139,6 +140,9 @@ senha: Senha = {
       
   }
 
+  public voltar(): void{
+    this.router.navigate(['administracao']);
+  }
 
   selecionaTipo(){
     if(this.tipoSelecionado=="GES"){

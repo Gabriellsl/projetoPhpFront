@@ -342,6 +342,8 @@ export class GestaoComponent implements OnInit {
     this.acaoCompra.status = 'ATIVO';
     this.acaoCompra.descricao = this.acaoSelecionada["code"];
 
+
+
     //this.statusOperacaoCompra = true
 
     for (let i = 0; i < this.quantidadeAcoes; i++) {
@@ -358,9 +360,10 @@ export class GestaoComponent implements OnInit {
         err => this.statusOperacaoCompra = false);
     }
 
-    if (this.statusOperacaoCompra)
+    if (this.statusOperacaoCompra){
       alert("Sucesso na compra!");
-    else
+      this.quantidadeAcoes = 0;
+    }else
       alert("Erro na compra!")
   }
 
@@ -423,6 +426,7 @@ export class GestaoComponent implements OnInit {
       )
       
     }
+    this.quantidadeAcoesVenda=0;
   }
 
 }

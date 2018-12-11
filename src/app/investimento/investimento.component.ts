@@ -87,6 +87,7 @@ export class InvestimentoComponent implements OnInit {
       this.transacaoService.insertTransacao(this.transacaoDeposito).subscribe(
         x => {
           console.log(x);
+          this.transacaoDeposito.valor=0;
         },
         err => {
           
