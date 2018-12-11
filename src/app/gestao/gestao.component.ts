@@ -183,28 +183,28 @@ export class GestaoComponent implements OnInit {
         labels: this.labels,
 
         datasets: [{
-          label: '1. BIDU',
+          label: '1. BAEDU',
           data: this.data1,
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           borderColor: 'rgba(255,99,132,1)',
           borderWidth: 1
         },
         {
-          label: '2. MSFT',
+          label: '2. MICROSOFT',
           data: this.data2,
           backgroundColor: 'rgba(153, 102, 255, 0.2)',
           borderColor: 'rgba(153, 102, 255, 1)',
           borderWidth: 1
         },
         {
-          label: "3. SNE",
+          label: "3. SONY",
           data: this.data3,
           backgroundColor: 'rgba(255, 206, 86, 0.2)',
           borderColor: 'rgba(255, 206, 86, 1)',
           borderWidth: 1
         },
         {
-          label: "4. XIANCY",
+          label: "4. XIAOMI",
           data: this.data4,
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',

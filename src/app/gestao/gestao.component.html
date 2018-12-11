@@ -29,7 +29,7 @@
               <canvas id='pie' responsive="true" width="80vw" height="30vh"></canvas>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="offset-md-* col-md-3">
             <h6>Selecione uma ação para comprar: </h6>
             <div>
               <p-dropdown (click)="valorAcaoUpdate()" [options]="acoesCompra" [(ngModel)]="acaoSelecionada" class="input_acao"></p-dropdown>
