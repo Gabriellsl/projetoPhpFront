@@ -1,99 +1,124 @@
-<p-card>
+<!-- <div class="row space"></div> -->
 
-  <h3 class="first">Cadastro</h3>
-<div class="ui-g ui-fluid pessoaForm">
+<div class="container-fluid">
+    <div class="row space"></div>
+    <div class="row">
+        <p-card>
+
+            <h3 class="first">Cadastro</h3>
+            <div class="ui-g ui-fluid pessoaForm">
+
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-inputgroup">
+                        <label for="inputNome" class="sr-only">Nome</label>
+                        <input name="nome" [(ngModel)]="pessoa.nome" type="login" class="form-control inputPessoa"
+                            placeholder="Nome" required autofocus>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-inputgroup">
+                        <label for="inputCPF" class="sr-only">CPF</label>
+                        <input name="cpf" [(ngModel)]="pessoa.cpf" type="login" class="form-control inputPessoa"
+                            placeholder="CPF" pKeyFilter="int" required autofocus>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-inputgroup">
+                        <label for="inputRG" class="sr-only">RG</label>
+                        <input name="rg" [(ngModel)]="pessoa.rg" type="login" class="form-control inputPessoa"
+                            placeholder="RG" pKeyFilter="int" required autofocus>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-inputgroup">
+                        <label for="inputTipo" class="sr-only">Tipo</label>
+                        <!-- <input name="tipo" [(ngModel)]="pessoa.tipo" type="login" id="inputLogin" class="form-control inputPessoa"
+                            placeholder="Tipo" pKeyFilter="alpha" required autofocus> -->
+                            <select [(ngModel)]="tipoSelecionado" (change)="selecionaTipo()" class="form-control inputPessoa">
+                                    <option value="" disabled selected>Tipo</option>
+                                    <option value="INV">Investidor</option>
+                                    <option value="GES">Gestor</option>
+                                    <option value="ADM">Administrador</option>
+                            </select>
+
+                        <!-- <p-dropdown [options]="Tipo" [(ngModel)]="pessoa.tipo" placeholder="Selecione o tipo" optionLabel="tipo" [showClear]="true"></p-dropdown> -->
+                        <!-- <p>Selected Type: {{pessoa.tipo ? pessoa.tipo.tipo : 'none'}}</p> -->
+                        <!-- <select>
+                                <option value="ADM" [(ngModel)]="pessoa.tipo" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>Adiministrador</option>
+                                <option value="INV" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>Investidor</option>
+                                <option value="GES" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>Gestor</option>
+                            </select> -->
+                        <!-- <input name="ADM" [(ngModel)]="pessoa.tipo" type="checkbox" value="ADM" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>ADM<br>
+                            <input name="INV" [(ngModel)]="pessoa.tipo" type="checkbox" value="INV" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>INV<br>
+                            <input name="GES" [(ngModel)]="pessoa.tipo" type="checkbox" value="GES" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>GES<br>      -->
+                    </div>
+                </div>
+
             
-    <div class="ui-g-12 ui-md-6">
-        <div class="ui-inputgroup">
-            <label for="inputNome" class="sr-only">Nome</label>
-            <input name="nome" [(ngModel)]="pessoa.nome" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Nome" required autofocus>     
-        </div>
-    </div>
+                <div class="ui-g-12 ui-md-6" *ngIf="validadorGestor">
+                    <div class="ui-inputgroup">
+                        <label for="inputMeta" class="sr-only">Meta</label>
+                        <input name="meta" [(ngModel)]="gestor.meta" type="login" class="form-control inputPessoa"
+                            placeholder="Meta" pKeyFilter="pnum" required autofocus>
+                    </div>
+                </div>
 
-    <div class="ui-g-12 ui-md-6">
-        <div class="ui-inputgroup">
-            <label for="inputCPF" class="sr-only">CPF</label>
-            <input name="cpf" [(ngModel)]="pessoa.cpf" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="CPF" pKeyFilter="int" required autofocus>     
-        </div>
-    </div>
+                <div class="ui-g-12 ui-md-6" *ngIf="validadorGestor"> 
+                    <div class="ui-inputgroup">
+                        <label for="inputLimite" class="sr-only">Limite de giro</label>
+                        <input name="limite" [(ngModel)]="gestor.giroMaximo" type="login" class="form-control inputPessoa"
+                            placeholder="Limite de giro" pKeyFilter="pnum" required autofocus>
+                    </div>
+                </div>
+            
 
-    <div class="ui-g-12 ui-md-6">
-        <div class="ui-inputgroup">
-            <label for="inputRG" class="sr-only">RG</label>
-            <input name="rg" [(ngModel)]="pessoa.rg" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="RG" pKeyFilter="int" required autofocus>     
-        </div>
-    </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-inputgroup">
+                        <label for="inputUsuario" class="sr-only">Usuario</label>
+                        <input name="usuario" [(ngModel)]="pessoa.login" type="login" class="form-control inputPessoa"
+                            placeholder="Usuario" required autofocus>
+                    </div>
+                </div>
 
-    <div class="ui-g-12 ui-md-6">
-        <div class="ui-inputgroup">
-            <label for="inputTipo" class="sr-only">Tipo</label>
-            <input name="tipo" [(ngModel)]="pessoa.tipo" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>
-            <!-- <p-dropdown [options]="Tipo" [(ngModel)]="pessoa.tipo" placeholder="Selecione o tipo" optionLabel="tipo" [showClear]="true"></p-dropdown> -->
-            <!-- <p>Selected Type: {{pessoa.tipo ? pessoa.tipo.tipo : 'none'}}</p> -->
-            <!-- <select>
-                <option value="ADM" [(ngModel)]="pessoa.tipo" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>Adiministrador</option>
-                <option value="INV" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>Investidor</option>
-                <option value="GES" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>Gestor</option>
-            </select> -->
-            <!-- <input name="ADM" [(ngModel)]="pessoa.tipo" type="checkbox" value="ADM" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>ADM<br>
-            <input name="INV" [(ngModel)]="pessoa.tipo" type="checkbox" value="INV" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>INV<br>
-            <input name="GES" [(ngModel)]="pessoa.tipo" type="checkbox" value="GES" id="inputLogin" class="form-control inputPessoa" placeholder="Tipo" pKeyFilter="alpha" required autofocus>GES<br>      -->
-        </div>
-    </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-inputgroup">
+                        <label for="inputEmail" class="sr-only">Email</label>
+                        <input name="email" [(ngModel)]="pessoa.email" type="login" class="form-control inputPessoa"
+                            placeholder="Email" pKeyFilter="email" required autofocus>
+                    </div>
+                </div>
 
-    <div class="ui-g-12 ui-md-6">
-        <div class="ui-inputgroup">
-            <label for="inputMeta" class="sr-only">Meta</label>
-            <input name="meta" [(ngModel)]="gestor.meta" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Meta" pKeyFilter="pnum" required autofocus>     
-        </div>
-    </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-inputgroup">
+                        <label for="inputSenha" class="sr-only">Senha</label>
+                        <input name="senha" [(ngModel)]="senha.senha1" type="login" class="form-control inputPessoa"
+                            placeholder="Senha" required autofocus>
+                    </div>
+                </div>
 
-    <div class="ui-g-12 ui-md-6">
-        <div class="ui-inputgroup">
-            <label for="inputLimite" class="sr-only">Limite de giro</label>
-            <input name="limite" [(ngModel)]="gestor.giroMaximo" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Limite de giro" pKeyFilter="pnum" required autofocus>     
-        </div>
-    </div>
-
-    <div class="ui-g-12 ui-md-6">
-        <div class="ui-inputgroup">
-            <label for="inputUsuario" class="sr-only">Usuario</label>
-            <input name="usuario" [(ngModel)]="pessoa.login" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Usuario" required autofocus>     
-        </div>
-    </div>
-
-    <div class="ui-g-12 ui-md-6">
-        <div class="ui-inputgroup">
-            <label for="inputEmail" class="sr-only">Email</label>
-            <input name="email" [(ngModel)]="pessoa.email" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Email" pKeyFilter="email" required autofocus>     
-        </div>
-    </div>
-
-    <div class="ui-g-12 ui-md-6">
-        <div class="ui-inputgroup">
-            <label for="inputSenha" class="sr-only">Senha</label>
-            <input name="senha" [(ngModel)]="senha.senha1" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Senha" required autofocus>     
-        </div>
-    </div>
-
-    <div class="ui-g-12 ui-md-6">
-        <div class="ui-inputgroup">
-            <label for="inputConfSenha" class="sr-only">Confirmar senha</label>
-            <input name="confSenha" [(ngModel)]="senha.senha2" type="login" id="inputLogin" class="form-control inputPessoa" placeholder="Confirmar senha" required autofocus>     
-        </div>
-    </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-inputgroup">
+                        <label for="inputConfSenha" class="sr-only">Confirmar senha</label>
+                        <input name="confSenha" [(ngModel)]="senha.senha2" type="login" class="form-control inputPessoa"
+                            placeholder="Confirmar senha" required autofocus>
+                    </div>
+                </div>
 
 
-    <div class="ui-g-12 ui-md-offset-4 ui-md-4 ui-md-offset-4 botaoCadastrar">
-        <div class="ui-inputgroup">
-            <button (click)="salvarPessoa()" type="submit" class="btn btn-lg btn-success btn-block btCadastrar">Cadastrar</button>
-        </div>
+                <div class="ui-g-12 ui-md-offset-4 ui-md-4 ui-md-offset-4 botaoCadastrar">
+                    <div class="ui-inputgroup">
+                        <button (click)="salvarPessoa()" type="submit" class="btn btn-lg btn-success btn-block btCadastrar">Cadastrar</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </p-card>
     </div>
-    
 
 
 </div>
-  <p-footer>
-      Footer content here
-  </p-footer>
-</p-card>

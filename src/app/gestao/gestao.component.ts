@@ -20,6 +20,7 @@ export class GestaoComponent implements OnInit {
   meta: Number = 0;
   fundoAtual: Number = 0;
   lucroAtual: Number = 0;
+  
 
 
 
