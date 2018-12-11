@@ -22,13 +22,13 @@ validadorGestor: boolean;
 
 pessoa: Pessoa = {
   id_pessoa : 0,
-  nome: 'Rafael',
-  email: 'ss',
-  cpf: 'ss',
-  rg: 'ss',
-  login: 's',
-  senha: 's',
-  tipo: 'INV',
+  nome: '',
+  email: '',
+  cpf: '',
+  rg: '',
+  login: '',
+  senha: '',
+  tipo: this.tipoSelecionado,
 
 }
 
@@ -51,8 +51,8 @@ investidor: Investidor = {
 }
 
 senha: Senha = {
-  senha1 : 'ss',
-  senha2 : 'ss',
+  senha1 : '',
+  senha2 : '',
 }
 
   constructor(
@@ -80,28 +80,33 @@ senha: Senha = {
   }
 
   public salvarPessoa(): void {
+
+    alert(this.tipoSelecionado);
+
     if(this.validarSenhas(this.senha)){
       
       this.pessoa.senha = this.senha.senha1;
       this.cruddefaultService.insert(this.pessoa, 'Pessoa').subscribe(
         x=>{
-            if(this.pessoa.tipo == 'ADM'){
+            if(this.tipoSelecionado== 'ADM'){
               
               this.administrador.id_pessoa = x[0].id_pessoa;
 
               this.cruddefaultService.insert(this.administrador, 'Administrador').subscribe(
                 y=>{
                   alert("insercao de administrador");
+                  this.limpar();
                 },
                 err=>{
                   alert("erro na insercao de administrador");
                 }
               )
-            }else if(this.pessoa.tipo == 'INV'){
+            }else if(this.tipoSelecionado == 'INV'){
               this.investidor.id_pessoa      = x[0].id_pessoa;
               this.cruddefaultService.insert(this.investidor, 'Investidor').subscribe(
                 y=>{
                   alert("insercao de investidor");
+                  this.limpar();
                 },
                 err=>{
                   alert("erro na insercao de investidor");
@@ -112,6 +117,7 @@ senha: Senha = {
               this.cruddefaultService.insert(this.gestor, 'Gestor').subscribe(
                 y=>{
                   alert("insercao de Gestor");
+                  this.limpar();
                 },
                 err=>{
                   alert("erro na insercao de gestor");
@@ -120,19 +126,6 @@ senha: Senha = {
             }
         }
       );
-
-      this.pessoa.nome='';
-      this.pessoa.email='';
-      this.pessoa.cpf='';
-      this.pessoa.rg='';
-      this.pessoa.login='';
-      this.pessoa.senha='';
-      this.pessoa.tipo='';
-      this.senha.senha1='';
-      this.senha.senha2='';
-      this.gestor.giromaximo=0;
-      this.gestor.meta=0;
-      alert("Cadastrado com sucesso");
     }else{
       alert("Senhas diferentes");
     }
@@ -143,6 +136,21 @@ senha: Senha = {
   public voltar(): void{
     this.router.navigate(['administracao']);
   }
+
+  public limpar(){
+    this.pessoa.nome='';
+    this.pessoa.email='';
+    this.pessoa.cpf='';
+    this.pessoa.rg='';
+    this.pessoa.login='';
+    this.pessoa.senha='';
+    this.pessoa.tipo='';
+    this.senha.senha1='';
+    this.senha.senha2='';
+    this.gestor.giromaximo=0;
+    this.gestor.meta=0;
+  }
+
 
   selecionaTipo(){
     if(this.tipoSelecionado=="GES"){
