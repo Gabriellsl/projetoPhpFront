@@ -30,6 +30,7 @@ import {KeyFilterModule} from 'primeng/keyfilter';
 import {ToastModule} from 'primeng/toast';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputMaskModule} from 'primeng/inputmask';
+import {FieldsetModule} from 'primeng/fieldset';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import {InputMaskModule} from 'primeng/inputmask';
    KeyFilterModule,
    InputTextModule,
    InputMaskModule,
+   FieldsetModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

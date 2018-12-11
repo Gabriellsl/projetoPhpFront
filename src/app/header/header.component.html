@@ -3,8 +3,25 @@
     <nav class="navbar fixed-top navbar-light bg-dark">
       <div class="col-md-4 col-sm-4 col-4 text-white ">
         <p-sidebar [(visible)]="display">
-          <div>
-
+          <div class="row text-center">
+            <div class="col-12">
+                <strong>Ultron Fundos</strong>
+            </div>  
+            <div class="col-12">
+              <div class="container">
+                  <p-fieldset legend="Investidor">
+                      Os investidores podem realizar depósitos e saques, de acordo com as respectivas datas. <br> 
+                  </p-fieldset>
+                  <p-fieldset legend="Gestor">
+                      Os gestores por sua vez, tem a função de utilizar o dinheiro investido para aplicar em ações, visando sempre a obtenção de lucro.<br> 
+                  </p-fieldset>
+                  <p-fieldset legend="Admin">
+                      Administradores gerenciam o sistema, eles podem gerenciar usuários e os rendimentos.<br> 
+                  </p-fieldset>
+              </div>
+                
+            </div>
+           
           </div>
         </p-sidebar>
         <i class="pi pi-bars menu_icon" (click)="display = true" style="font-size:2em;cursor:pointer"></i>
