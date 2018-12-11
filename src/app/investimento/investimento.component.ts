@@ -34,6 +34,8 @@ export class InvestimentoComponent implements OnInit {
     valor: null,
     status: 'ATIVO',
     datasaque: null,
+    dataprevistasaque:null,
+    rendimento:null
   };
   saque: Transacao={
     id_transacao: 0,
@@ -44,6 +46,8 @@ export class InvestimentoComponent implements OnInit {
     valor: 0,
     status: '',
     datasaque: '',
+    dataprevistasaque:null,
+    rendimento:0
   }
 
   saldoAtivo:number = 0;
@@ -75,7 +79,7 @@ export class InvestimentoComponent implements OnInit {
   public investir(): /*Observable<TransacaoDeposito>*/void {
 
     
-    if(this.transacaoDeposito.datasaque == null || this.transacaoDeposito.valor==null){
+    if(this.transacaoDeposito.dataprevistasaque == null || this.transacaoDeposito.valor==null){
       alert("Prencha os campos requeridos");
       return ;
     }

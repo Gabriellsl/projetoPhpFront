@@ -36,7 +36,7 @@
             <th scope="col"><i class="pi pi-angle-double-down menu_icon" style="font-size:1em;cursor:pointer"></i></th>
             <th scope="col">Valor investido</th>
             <th scope="col">Data depósito</th>
-            <th scope="col">Data saque</th>
+            <th scope="col">Data prevista saque</th>
             <th scope="col">Sacar</th>
           </tr>
         </thead>
@@ -45,7 +45,7 @@
             <th scope="row">{{deposito.id_transacao}}</th>
             <td>{{deposito.valor.toLocaleString('pt-BR')}}</td>
             <td>{{deposito.data}}</td>
-            <td>{{deposito.datasaque}}</td>
+            <td>{{deposito.dataprevistasaque}}</td>
             <td> <i (click)="sacar(deposito)" class="pi pi-arrow-circle-down menu_icon" style="font-size:1em;cursor:pointer"></i>
                  <i (click)="sacar(deposito)" data-confirm-text="Confirma exclusão do item?" class="texto_sacar" style="cursor:pointer">
                    Sacar

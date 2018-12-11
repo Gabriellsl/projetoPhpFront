@@ -19,6 +19,8 @@ export class TabelaInvestimentosComponent implements OnInit {
     valor: null,
     status: '',
     datasaque: null,
+    dataprevistasaque:null,
+    rendimento:null
   }
 
  

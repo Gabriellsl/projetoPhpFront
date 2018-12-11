@@ -18,6 +18,8 @@ export class TabelaSacadosComponent implements OnInit {
     valor: 0,
     status: '',
     datasaque: '',
+    dataprevistasaque:null,
+    rendimento:null
   }
 
   transacoesSacadas: Transacao[] = new Array;

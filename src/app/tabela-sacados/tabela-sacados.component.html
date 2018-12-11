@@ -31,7 +31,9 @@
           <tr>
             <th scope="col"><i class="pi pi-angle-double-down menu_icon" style="font-size:1em;cursor:pointer"></i></th>
             <th scope="col">Valor investido</th>
+            <th scope="col">Lucro</th>
             <th scope="col">Data depósito</th>
+            <th scope="col">Data prevista</th>
             <th scope="col">Data saque</th>
           </tr>
         </thead>
@@ -39,7 +41,9 @@
           <tr *ngFor="let saque of transacoesSacadas">
             <th scope="row">{{saque.id_transacao}}</th>
             <td>R$ {{(saque.valor).toLocaleString('pt-BR')}}</td>
+            <td>R$ {{(saque.rendimento).toLocaleString('pt-BR')}}</td>
             <td>{{saque.data}}</td>
+            <td>{{saque.dataprevistasaque}}</td>
             <td>{{saque.datasaque}}</td>
           </tr>
         </tbody>

@@ -8,6 +8,8 @@ export class Transacao{
     valor: Number;
     status: string;
     datasaque: String;
+    dataprevistasaque:String;
+    rendimento:Number;
 
 }
 
