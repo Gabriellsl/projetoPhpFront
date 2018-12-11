@@ -9,7 +9,7 @@
 
 .adm_content{
     width: 100%;
-    height: 80vh;;
+    height: 80vh;
 }
 .card_header{
     margin-left: 10px;
@@ -113,10 +113,10 @@
     height: 150px;
 }
 
-.card_content{
+/* .card_content{
     
 
-}
+} */
 
 .simple_card{
     background-color: blueviolet;
@@ -202,7 +202,7 @@
 }
 
 .linha_tabelas{
-    margin-top: 30px;
+    margin-top: 33px;
     /* background-color:  whitesmoke; */
     margin-bottom: 60px;
 }
