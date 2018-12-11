@@ -83,7 +83,7 @@
 
     <div class="col-md-4 col-sm-12">
       <a (click)="createUser()">
-        <div class="ui-g-12 ui-md-12 allign-right investimento_content adm_card">
+        <div class="ui-g-12 ui-md-12 allign-right investimento_content adm_card" style="cursor: pointer;">
           <div class="text-center botao_criar">
             <i class="pi pi-user-plus" style="font-size:4em"></i>
             <h3 class="first">Criar usuário</h3>
@@ -107,7 +107,7 @@
       <div class="tabela_adm adm_card">
         <div class="titulo_tabela">
           <h5>Selecione um investidor</h5>
-          <div class="row justify-content-around">
+          <div class="row justify-content-around container_busca">
             <div class="col-md-6 col-5">
               <p-dropdown [options]="listaInvestidores" [(ngModel)]="invSelecionado"></p-dropdown>
             </div>
@@ -117,12 +117,12 @@
             </div>
           </div>
           <div class="dados_content">
-              <div class="row justify-content-around">
+              <div class="row justify-content-around container_busca">
                 
-                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Nome:</i>  {{nomeI}} </div>
-                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Email:</i> {{emailI}}</div>
-                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">CPF:</i>   {{cpfI}}</div>
-                <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Saldo:</i> {{saldoI}}</div>
+                <div class="col-12 col-md-5 dados_pesquisa"><i class="estilo_texto">Nome:</i>  {{nomeI}} </div>
+                <div class="col-12 col-md-5 dados_pesquisa"><i class="estilo_texto">Email:</i> {{emailI}}</div>
+                <div class="col-12 col-md-5 dados_pesquisa"><i class="estilo_texto">CPF:</i>   {{cpfI}}</div>
+                <div class="col-12 col-md-5 dados_pesquisa"><i class="estilo_texto">Saldo:</i> {{saldoI}}</div>
                 
               </div>
             </div>
@@ -146,10 +146,10 @@
           <div class="dados_content">
             <div class="row justify-content-around">
               
-              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Nome:</i>   {{nomeG}} </div>
-              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Email:</i>  {{emailG}}</div>
-              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Meta:</i>   {{metaG}} </div>
-              <div class="col-12 col-md-6 dados_pesquisa"><i class="estilo_texto">Capital:</i>{{capitalG}}</div>
+              <div class="col-12 col-md-5 dados_pesquisa"><i class="estilo_texto">Nome:</i>   {{nomeG}} </div>
+              <div class="col-12 col-md-5 dados_pesquisa"><i class="estilo_texto">Email:</i>  {{emailG}}</div>
+              <div class="col-12 col-md-5 dados_pesquisa"><i class="estilo_texto">Meta:</i>   {{metaG}} </div>
+              <div class="col-12 col-md-5 dados_pesquisa"><i class="estilo_texto">Capital:</i>{{capitalG}}</div>
               
             </div>
           </div>

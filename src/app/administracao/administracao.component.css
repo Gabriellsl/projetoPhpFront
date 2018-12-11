@@ -237,3 +237,7 @@
 .estilo_texto{
     font-weight: bold;
 }
+
+.container_busca{
+    width: 100%;
+}
