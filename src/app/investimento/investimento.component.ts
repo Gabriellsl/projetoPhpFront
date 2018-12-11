@@ -50,7 +50,7 @@ export class InvestimentoComponent implements OnInit {
     data: '',
     valor: 0,
     status: '',
-    datasaque: '',
+    datasaque: null,
     dataprevistasaque: null,
     rendimento: null
   }
@@ -78,7 +78,7 @@ export class InvestimentoComponent implements OnInit {
     data: '',
     valor: 0,
     status: '',
-    datasaque: '',
+    datasaque: null,
     dataprevistasaque: null,
     rendimento: 0
   }
@@ -115,6 +115,7 @@ export class InvestimentoComponent implements OnInit {
   // }
 
   buscarDepositosEfetuados(): void {
+    this.depositosEfetuados = new Array();
     this.transacaoService.buscarTransacoes(this.depositoEfetuado).subscribe(
       x => {
         // alert("OK buscarDepositosEfetuados")
@@ -132,14 +133,22 @@ export class InvestimentoComponent implements OnInit {
   }
 
   sacar(transacao: Transacao) {
+    transacao.datasaque="";
     this.transacaoService.sacar(transacao).subscribe(
-      x => alert('sacou')
+      x => {
+        alert("Saque efetuado com sucesso!");
+        this.buscarTransacoesSacadas();
+        this.buscarDepositosEfetuados();
+        this.calculaSaldoAtivo();
+      },
+      y=> alert("Erro ao sacar!")
     );
   }
 
 
   //  TABELA SACADOS
   buscarTransacoesSacadas(): void {
+    this.transacoesSacadas = new Array();
     this.transacaoService.buscarTransacoes(this.transacaoSaque).subscribe(
       x => {
         x.forEach(y => {
@@ -151,14 +160,9 @@ export class InvestimentoComponent implements OnInit {
     );
   }
 
-  solicitarSaque(transacao: Transacao) {
-
-  }
 
 
   public investir(): /*Observable<TransacaoDeposito>*/void {
-
-
 
 
     if (this.transacaoDeposito.dataprevistasaque == null || this.transacaoDeposito.valor == null) {
@@ -170,17 +174,20 @@ export class InvestimentoComponent implements OnInit {
     console.log(this.transacaoDeposito.datasaque);
     this.transacaoService.insertTransacao(this.transacaoDeposito).subscribe(
       x => {
-        console.log(x);
+        alert("Deposito efetuado com sucesso!");
         this.transacaoDeposito.valor = 0;
+        this.buscarDepositosEfetuados();
+        this.calculaSaldoAtivo();
       },
       err => {
-
+        alert("Erro ao depositar!");
       }
     );
 
   }
 
   public calculaSaldoAtivo() {
+    this.saldoAtivo = 0;
     this.transacaoService.buscarTransacoes(this.saque).subscribe(
       x => {
         x.forEach(y => {

@@ -38,6 +38,8 @@ export class TransacaoService {
     
     var jsonSaque= JsonGenerate.getJson(saque);
 
+    console.log(saque);
+
     return this.http.post<Transacao>(ConfigUrl.DEFAULT_URL+'/sacar', jsonSaque, httpOptions)
 
   }
