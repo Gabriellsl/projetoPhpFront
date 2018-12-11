@@ -5,30 +5,31 @@
     <div class="row">
         <p-card>
 
-            <h3 class="first">Cadastro</h3>
+            <h3 class="first"><i class="pi pi-user-plus menu_icon" (click)="display = true" style="font-size:2em;cursor:pointer"></i>
+                Cadastro</h3>
             <div class="ui-g ui-fluid pessoaForm">
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
                         <input name="nome" [(ngModel)]="pessoa.nome" type="login" class="form-control inputPessoa"
-                        pInputText required autofocus>
-                        <label for="float-input" >Nome</label>
+                            pInputText required autofocus>
+                        <label for="float-input">Nome</label>
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
                         <input name="cpf" [(ngModel)]="pessoa.cpf" type="login" class="form-control inputPessoa"
-                        pInputText pKeyFilter="int" required autofocus>
-                        <label for="float-input" >CPF</label>
+                            pInputText pKeyFilter="int" required autofocus>
+                        <label for="float-input">CPF</label>
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
                         <input name="rg" [(ngModel)]="pessoa.rg" type="login" class="form-control inputPessoa"
-                        pInputText pKeyFilter="int" required autofocus>
-                        <label for="float-input" >RG</label>
+                            pInputText pKeyFilter="int" required autofocus>
+                        <label for="float-input">RG</label>
                     </div>
                 </div>
 
@@ -37,37 +38,37 @@
                         <label for="inputTipo" class="sr-only">Tipo</label>
                         <!-- <input name="tipo" [(ngModel)]="pessoa.tipo" type="login" id="inputLogin" class="form-control inputPessoa"
                             placeholder="Tipo" pKeyFilter="alpha" required autofocus> -->
-                            <select [(ngModel)]="tipoSelecionado" (change)="selecionaTipo()" class="form-control inputPessoa">
-                                    <option value="" disabled selected>Tipo</option>
-                                    <option value="INV">Investidor</option>
-                                    <option value="GES">Gestor</option>
-                                    <option value="ADM">Administrador</option>
-                            </select>
+                        <select [(ngModel)]="tipoSelecionado" (change)="selecionaTipo()" class="form-control inputPessoa">
+                            <option value="" disabled selected>Tipo</option>
+                            <option value="INV">Investidor</option>
+                            <option value="GES">Gestor</option>
+                            <option value="ADM">Administrador</option>
+                        </select>
                     </div>
                 </div>
 
-            
+
                 <div class="ui-g-12 ui-md-6" *ngIf="validadorGestor">
                     <div class="ui-float-label">
                         <input name="meta" [(ngModel)]="gestor.meta" type="login" class="form-control inputPessoa"
-                        pInputText pKeyFilter="pnum" required autofocus>
+                            pInputText pKeyFilter="pnum" required autofocus>
                         <label for="float-input">Meta</label>
                     </div>
                 </div>
 
-                <div class="ui-g-12 ui-md-6" *ngIf="validadorGestor"> 
+                <div class="ui-g-12 ui-md-6" *ngIf="validadorGestor">
                     <div class="ui-float-label">
                         <input name="limite" [(ngModel)]="gestor.giroMaximo" type="login" class="form-control inputPessoa"
-                        pInputText pKeyFilter="pnum" required autofocus>
-                        <label for="float-input" >Limite de giro</label>
+                            pInputText pKeyFilter="pnum" required autofocus>
+                        <label for="float-input">Limite de giro</label>
                     </div>
                 </div>
-            
+
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
                         <input name="usuario" [(ngModel)]="pessoa.login" type="login" class="form-control inputPessoa"
-                        pInputText required autofocus>
+                            pInputText required autofocus>
                         <label for="float-input">Usuario</label>
                     </div>
                 </div>
@@ -75,15 +76,15 @@
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
                         <input name="email" [(ngModel)]="pessoa.email" type="login" class="form-control inputPessoa"
-                        pInputText pKeyFilter="email" required autofocus>
-                        <label for="float-input" >Email</label>
+                            pInputText pKeyFilter="email" required autofocus>
+                        <label for="float-input">Email</label>
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
                         <input name="senha" [(ngModel)]="senha.senha1" type="login" class="form-control inputPessoa"
-                        pInputText required autofocus>
+                            pInputText required autofocus>
                         <label for="float-input">Senha</label>
                     </div>
                 </div>
@@ -91,17 +92,30 @@
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
                         <input name="confSenha" [(ngModel)]="senha.senha2" type="login" class="form-control inputPessoa"
-                        pInputText required autofocus>
+                            pInputText required autofocus>
                         <label for="float-input">Confirmar senha</label>
                     </div>
                 </div>
 
 
-                <div class="ui-g-12 ui-md-offset-4 ui-md-4 ui-md-offset-4 botaoCadastrar">
-                    <div class="ui-inputgroup">
-                        <button (click)="salvarPessoa()" type="submit" class="btn btn-lg btn-success btn-block btCadastrar">Cadastrar</button>
+                <div class="col-12">
+
+                    <div class="ui-g-12 ui-md-offset-3 ui-md-3 ui-md-offset-4 botaoCadastrar">
+                        <div class="ui-inputgroup">
+                            <button (click)="salvarPessoa()" type="submit" class="btn btn-lg btn-success btn-block">Cadastrar</button>
+                        </div>
+                    </div>
+
+
+                    <div class="ui-g-12 ui-md-3  botaoCadastrar">
+                        <div class="ui-inputgroup">
+                            <button (click)="voltar()" type="submit" class="btn btn-lg btn-primary btn-block">Voltar</button>
+                        </div>
                     </div>
                 </div>
+
+
+
 
 
 
