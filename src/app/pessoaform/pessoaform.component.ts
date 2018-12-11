@@ -121,6 +121,17 @@ senha: Senha = {
         }
       );
 
+      this.pessoa.nome='';
+      this.pessoa.email='';
+      this.pessoa.cpf='';
+      this.pessoa.rg='';
+      this.pessoa.login='';
+      this.pessoa.senha='';
+      this.pessoa.tipo='';
+      this.senha.senha1='';
+      this.senha.senha2='';
+      this.gestor.giromaximo=0;
+      this.gestor.meta=0;
     }else{
       alert("Senhas diferentes");
     }
