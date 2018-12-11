@@ -11,7 +11,7 @@
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
-                        <input name="nome" [(ngModel)]="pessoa.nome" type="login" class="form-control inputPessoa"
+                        <input name="nome" [(ngModel)]="pessoa.nome" type="login" minlength="1" maxlength="50" class="form-control inputPessoa"
                             pInputText required autofocus>
                         <label for="float-input">Nome</label>
                     </div>
@@ -19,7 +19,7 @@
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
-                        <input name="cpf" [(ngModel)]="pessoa.cpf" type="login" class="form-control inputPessoa"
+                        <input name="cpf" [(ngModel)]="pessoa.cpf" type="login" minlength="11" maxlength="11" class="form-control inputPessoa"
                             pInputText pKeyFilter="int" required autofocus>
                         <label for="float-input">CPF</label>
                     </div>
@@ -27,7 +27,7 @@
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
-                        <input name="rg" [(ngModel)]="pessoa.rg" type="login" class="form-control inputPessoa"
+                        <input name="rg" [(ngModel)]="pessoa.rg" type="login" minlength="13" maxlength="14" class="form-control inputPessoa"
                             pInputText pKeyFilter="int" required autofocus>
                         <label for="float-input">RG</label>
                     </div>
@@ -67,7 +67,7 @@
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
-                        <input name="usuario" [(ngModel)]="pessoa.login" type="login" class="form-control inputPessoa"
+                        <input name="usuario" [(ngModel)]="pessoa.login" type="login" minlength="2" maxlength="20" class="form-control inputPessoa"
                             pInputText required autofocus>
                         <label for="float-input">Usuario</label>
                     </div>
@@ -75,7 +75,7 @@
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
-                        <input name="email" [(ngModel)]="pessoa.email" type="login" class="form-control inputPessoa"
+                        <input name="email" [(ngModel)]="pessoa.email" type="login" minlength="2" maxlength="50" class="form-control inputPessoa"
                             pInputText pKeyFilter="email" required autofocus>
                         <label for="float-input">Email</label>
                     </div>
@@ -83,7 +83,7 @@
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
-                        <input name="senha" [(ngModel)]="senha.senha1" type="password" class="form-control inputPessoa"
+                        <input name="senha" [(ngModel)]="senha.senha1" type="password" minlength="2" maxlength="10" class="form-control inputPessoa"
                             pInputText required autofocus>
                         <label for="float-input">Senha</label>
                     </div>
@@ -91,7 +91,7 @@
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-float-label">
-                        <input name="confSenha" [(ngModel)]="senha.senha2" type="password" class="form-control inputPessoa"
+                        <input name="confSenha" [(ngModel)]="senha.senha2" type="password" minlength="2" maxlength="10" class="form-control inputPessoa"
                             pInputText required autofocus>
                         <label for="float-input">Confirmar senha</label>
                     </div>
