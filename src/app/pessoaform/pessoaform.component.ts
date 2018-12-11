@@ -6,6 +6,8 @@ import { Gestor} from '../model/gestor';
 import { Administrador} from '../model/administrador';
 import { Investidor } from '../model/investidor';
 import { CruddefaultService } from '../services/cruddefault.service';
+import { Permission } from '../permission_controll';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -55,12 +57,18 @@ senha: Senha = {
 
   constructor(
     private pessoaFormService: PessoaFormService,
-    private cruddefaultService: CruddefaultService
+    private cruddefaultService: CruddefaultService,
+    private router:Router
   ) { }
 
   ngOnInit() {
-    this.tipoSelecionado="";
-    this.validadorGestor=false;
+    
+    if(Permission.execute(this.router)){
+      this.tipoSelecionado="";
+      this.validadorGestor=false;
+    }
+
+    
   }
 
   private validarSenhas(senha:Senha):boolean{

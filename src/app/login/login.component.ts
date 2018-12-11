@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       console.log(x)
 
       if(x["tipo"]  == "ADM" ){
-        this.router.navigate(['admnistracao']);
+        this.router.navigate(['administracao']);
       }else if(x["tipo"] == "INV"){
         this.router.navigate(['investimento']);
       }else if(x["tipo"] == "GES"){
@@ -50,9 +50,11 @@ export class LoginComponent implements OnInit {
                                               "token":x["token"],
                                               "user":x["user"]
                                             }));
+       
+                                            
 
     if(x["user"]["tipo"]  == "ADM" ){
-      this.router.navigate(['admnistracao']);
+      this.router.navigate(['administracao']);
     }else if(x["user"]["tipo"] == "INV"){
       this.router.navigate(['investimento']);
     }else if(x["user"]["tipo"] == "GES"){

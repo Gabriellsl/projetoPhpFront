@@ -8,6 +8,7 @@ import { Investidor } from '../model/investidor';
 import { Administrador } from '../model/administrador';
 import { Pessoa } from '../model/pessoa';
 import { AdministracaoService } from '../services/administracao.service';
+import { Permission } from '../permission_controll';
 
 @Component({
   selector: 'app-administracao',
@@ -54,13 +55,12 @@ export class AdministracaoComponent implements OnInit {
   }
   
   ngOnInit() {
-
-    this.ganhosTotais();
-
-    
-    this.carregarPessoas();
-    this.fundoDisponivel();
-  }
+    if(Permission.execute(this.router)){
+      this.ganhosTotais();
+      this.carregarPessoas();
+      this.fundoDisponivel();
+    }
+}
 
 startGrafico(){
     this.data = new Chart ('grafico_adm', {
